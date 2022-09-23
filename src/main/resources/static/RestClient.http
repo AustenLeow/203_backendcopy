@@ -1,0 +1,39 @@
+### create new user with admin permissions
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aus",
+    "email": "ken@gmail.com",
+    "password": "paword"
+}
+
+###
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+# Authorization: Bearer 
+
+{
+    "username": "ken+aus",
+    "password": "password"
+}
+
+###
+GET http://localhost:8080/api/auth/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZW4rYXVzIiwiaWF0IjoxNjYzOTI2MDIwLCJleHAiOjE2NjQwMTI0MjB9.e7RSSZCiaY6IDg4DdnI6hP4p0IKQ7OWu5gRCOCJZoqqhA9cm3L97z6BA_8i4e8zQx4SZmFJP8iukKeHbL1gOWw
+
+###
+GET http://localhost:8080/users/1
+
+###
+DELETE http://localhost:8080/users/3
+
+# Content-Type: application/json
+# Authorization: Basic admin goodpassword
+
+#  {
+#      "email": "user@email.com",
+#      "password": "password",
+#      "authorities": "ROLE_USER"
+#  }
