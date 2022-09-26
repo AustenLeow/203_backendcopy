@@ -19,7 +19,6 @@ import lombok.*;
 import com.cs203g1t2.springjwt.security.jwt.JwtUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")
@@ -27,47 +26,57 @@ public class UserController {
 
     @Autowired
     AuthenticationManager authenticationManager;
-  
+
     @Autowired
     UserRepository userRepository;
-  
+
     @Autowired
     RoleRepository roleRepository;
-  
+
     @Autowired
     PasswordEncoder encoder;
-  
+
     @Autowired
     JwtUtils jwtUtils;
 
     @GetMapping("/users")
     public List<User> getUsers() {
-      return userRepository.findAll();
+        return userRepository.findAll();
     }
 
     @GetMapping("/users/{id}")
-     public User getUser(@PathVariable Long id){
+    public User getUser(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
         if (user.isEmpty()) {
             throw new RuntimeException("Unable to find user with id" + id);
         }
 
         return user.get();
-     }
+    }
 
+    @DeleteMapping(path = "/users/{Id}")
+    public void deleteUserById(
+            @PathVariable("Id") Long id) {
+        if (userRepository.findById(id).isEmpty()) {
+            throw new RuntimeException("User with id of " + id + " does not exist");
+        }
+        userRepository.deleteById(id);
+        if (id == null)
+            throw new RuntimeException();
+    }
 
     // @GetMapping("/users/{id}")
     // public User getUser(@PathVariable Long id) {
-    //     Optional<User> user = users.findById(id);
+    // Optional<User> user = users.findById(id);
 
-    //     if (user.isEmpty()) {
-    //         throw new RuntimeException("Unable to find user with Username " + id);
-    //     }
+    // if (user.isEmpty()) {
+    // throw new RuntimeException("Unable to find user with Username " + id);
+    // }
 
-    //     SecurityContextHolder.getContext().setAuthentication(authentication);
-    //     String jwt = jwtUtils.generateJwtToken(authentication);
+    // SecurityContextHolder.getContext().setAuthentication(authentication);
+    // String jwt = jwtUtils.generateJwtToken(authentication);
 
-    //     return (new JwtResponse(jwt,
-    //             user.get()));
+    // return (new JwtResponse(jwt,
+    // user.get()));
     // }
 }
