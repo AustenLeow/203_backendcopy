@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cs203g1t2.springjwt.models.ERole;
+import com.cs203g1t2.springjwt.enums.*;
 import com.cs203g1t2.springjwt.models.Role;
 
 @Repository

@@ -17,4 +17,5 @@ import lombok.*;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/users")
 public class UserController {
+    
 }
