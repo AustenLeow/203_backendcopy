@@ -33,9 +33,9 @@ public interface ItemService {
 
     String deleteItem(Long ItemId);
 
-    DataFetcher<Item> getItemByQuery();
+    // DataFetcher<Item> getItemByQuery();
 
-    DataFetcher<List<ItemProjection>> getAllItemsByQuery();
+    // DataFetcher<List<ItemProjection>> getAllItemsByQuery();
 
-    DataFetcher<List<Item>> getAllItemsByIdsQuery();
+    // DataFetcher<List<Item>> getAllItemsByIdsQuery();
 }

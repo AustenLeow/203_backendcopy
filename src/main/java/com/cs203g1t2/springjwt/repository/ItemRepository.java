@@ -17,35 +17,35 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
     List<ItemProjection> findAllByOrderByIdAsc();
     
-    @Query("SELECT item FROM Item item ORDER BY item.id ASC")
-    Page<ItemProjection> findAllByOrderByIdAsc(Pageable pageable);
+//     @Query("SELECT item FROM Item item ORDER BY item.id ASC")
+//     Page<ItemProjection> findAllByOrderByIdAsc(Pageable pageable);
 
-    List<Item> findByItemOrderByPriceDesc(String item);
+//     List<Item> findByItemOrderByPriceDesc(String item);
 
-    List<Item> findByIdIn(List<Long> itemsIds);
+//     List<Item> findByIdIn(List<Long> itemsIds);
 
-    @Query("SELECT item FROM Item item WHERE item.id IN :itemsIds")
-    List<ItemProjection> getItemsByIds(List<Long> itemsIds);
+//     @Query("SELECT item FROM Item item WHERE item.id IN :itemsIds")
+//     List<ItemProjection> getItemsByIds(List<Long> itemsIds);
 
-    @Query("SELECT item FROM Item item " +
-            "WHERE (coalesce(:brands, null) IS NULL OR item.brand IN :brands) " +
-            "AND (coalesce(:priceStart, null) IS NULL OR item.price BETWEEN :priceStart AND :priceEnd) " +
-            "ORDER BY CASE WHEN :sortByPrice = true THEN item.price ELSE -item.price END ASC")
-    Page<ItemProjection> findItemsByFilterParams(
-            List<String> items, 
-            Integer priceStart, 
-            Integer priceEnd, 
-            boolean sortByPrice,
-            Pageable pageable);
+//     @Query("SELECT item FROM Item item " +
+//             "WHERE (coalesce(:brands, null) IS NULL OR item.brand IN :brands) " +
+//             "AND (coalesce(:priceStart, null) IS NULL OR item.price BETWEEN :priceStart AND :priceEnd) " +
+//             "ORDER BY CASE WHEN :sortByPrice = true THEN item.price ELSE -item.price END ASC")
+//     Page<ItemProjection> findItemsByFilterParams(
+//             List<String> items, 
+//             Integer priceStart, 
+//             Integer priceEnd, 
+//             boolean sortByPrice,
+//             Pageable pageable);
 
-    @Query("SELECT item FROM Item item " +
-            "WHERE UPPER(item.brand) LIKE UPPER(CONCAT('%',:text,'%')) " +
-            "ORDER BY item.price DESC")
-    Page<ItemProjection> findByBrand(String text, Pageable pageable);
+//     @Query("SELECT item FROM Item item " +
+//             "WHERE UPPER(item.brand) LIKE UPPER(CONCAT('%',:text,'%')) " +
+//             "ORDER BY item.price DESC")
+//     Page<ItemProjection> findByBrand(String text, Pageable pageable);
 
-    @Query("SELECT item FROM Item item " +
-            "WHERE UPPER(item.itemName) LIKE UPPER(CONCAT('%',:text,'%')) " +
-            "ORDER BY item.price DESC")
-    Page<ItemProjection> findByItemName(String text, Pageable pageable);
+//     @Query("SELECT item FROM Item item " +
+//             "WHERE UPPER(item.itemName) LIKE UPPER(CONCAT('%',:text,'%')) " +
+//             "ORDER BY item.price DESC")
+//     Page<ItemProjection> findByItemName(String text, Pageable pageable);
 
 }
