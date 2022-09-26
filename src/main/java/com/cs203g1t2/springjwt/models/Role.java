@@ -1,5 +1,6 @@
 package com.cs203g1t2.springjwt.models;
 
+import com.cs203g1t2.springjwt.enums.*;
 import javax.persistence.*;
 
 @Entity

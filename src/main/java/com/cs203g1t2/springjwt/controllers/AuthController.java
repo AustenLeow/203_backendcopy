@@ -16,7 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import com.cs203g1t2.springjwt.models.ERole;
+import com.cs203g1t2.springjwt.enums.*;
 import com.cs203g1t2.springjwt.models.Role;
 import com.cs203g1t2.springjwt.models.User;
 import com.cs203g1t2.springjwt.payload.request.LoginRequest;

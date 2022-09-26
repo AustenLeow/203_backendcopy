@@ -12,7 +12,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @Entity
-@Table(name = "items")
+@Table(name = "item")
 public class Item {
 
     @Id
@@ -21,10 +21,13 @@ public class Item {
     private Long id;
 
     @Column(name = "item_name")
-    private Integer item_name;
+    private String itemName;
 
     @Column(name = "price")
     private Integer price;
+
+    @Column(name = "brand")
+    private String brand;
 
     @Column(name = "description")
     private String description;
