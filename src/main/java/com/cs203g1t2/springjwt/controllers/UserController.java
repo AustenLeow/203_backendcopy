@@ -65,8 +65,8 @@ public class UserController {
             throw new RuntimeException();
     }
 
-    @PutMapping(path = "/users/{id}")
-    public User updateUser(@PathVariable(value = "id") Long id,
+    @PutMapping("/users/{id}")
+    public User updateUser(@PathVariable Long id,
             @RequestBody User newUser) {
         if (!userRepository.existsById(id)) {
             throw new RuntimeException("User with id of " + id + " does not exist");
@@ -74,11 +74,12 @@ public class UserController {
         if (newUser == null) {
             throw new RuntimeException("User details Empty");
         }
-        User user = userRepository.findById(id).get();
-        user.setUsername(newUser.getUsername());
-        user.setPassword(newUser.getPassword());
-        user.setEmail(newUser.getEmail());
-        return user;
-        // return userRepository.save(user);
+
+        return userRepository.findById(id).map(user -> {
+            user.setUsername(newUser.getUsername());
+            user.setPassword(newUser.getPassword());
+            user.setEmail(newUser.getEmail());
+            return userRepository.save(user);
+        }).orElseThrow(() -> new RuntimeException());
     }
 }
