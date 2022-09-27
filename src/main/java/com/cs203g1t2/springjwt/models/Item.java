@@ -1,12 +1,8 @@
 package com.cs203g1t2.springjwt.models;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
+import lombok.*;
 import javax.persistence.*;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Getter
 @Setter
@@ -37,13 +33,12 @@ public class Item {
 
     @Column(name = "type")
     private String type;
-    
-    // @Column(name = "filename")
-    // private String filename;
 
-    // @OneToMany
-    // @ToString.Exclude
-    // private List<Review> reviews;
+    @ManyToMany(mappedBy = "order")
+    private Set<Order> orders;
+
+    @OneToMany(mappedBy = "listing", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ItemListing> listings;
 
     @Override
     public boolean equals(Object o) {

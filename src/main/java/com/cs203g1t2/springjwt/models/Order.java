@@ -7,8 +7,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Getter
 @Setter
@@ -45,6 +44,14 @@ public class Order {
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<OrderItem> orderItems;
+
+    @ManyToMany
+    @JoinTable(name="order_items",
+        joinColumns = 
+            @JoinColumn(name="order_id"),
+        inverseJoinColumns =
+            @JoinColumn(name="item_id"))
+    private Set<Item> items;
 
     public Order() {
         this.date = LocalDate.now();
