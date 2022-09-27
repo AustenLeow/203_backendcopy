@@ -1,26 +1,26 @@
-package com.cs203g1t2.springjwt.repository;
+// package com.cs203g1t2.springjwt.repository;
 
-import com.cs203g1t2.springjwt.models.Item;
-import com.cs203g1t2.springjwt.repository.projection.*;
+// import com.cs203g1t2.springjwt.models.Item;
+// import com.cs203g1t2.springjwt.repository.projection.*;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
+// import org.springframework.data.domain.Page;
+// import org.springframework.data.domain.Pageable;
+// import org.springframework.data.jpa.repository.JpaRepository;
+// import org.springframework.data.jpa.repository.Query;
+// import org.springframework.data.repository.query.Param;
+// import org.springframework.stereotype.Repository;
 
-import java.util.List;
+// import java.util.List;
 
-@Repository
-public interface ItemRepository extends JpaRepository<Item, Long> {
+// @Repository
+// public interface ItemRepository extends JpaRepository<Item, Long> {
 
-    List<ItemProjection> findAllByOrderByIdAsc();
+//     List<ItemProjection> findAllByOrderByIdAsc();
     
 //     @Query("SELECT item FROM Item item ORDER BY item.id ASC")
 //     Page<ItemProjection> findAllByOrderByIdAsc(Pageable pageable);
 
-//     List<Item> findByItemOrderByPriceDesc(String item);
+//     List<Item> findByBrandOrderByPriceDesc(String brand);
 
 //     List<Item> findByIdIn(List<Long> itemsIds);
 
@@ -48,4 +48,4 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 //             "ORDER BY item.price DESC")
 //     Page<ItemProjection> findByItemName(String text, Pageable pageable);
 
-}
+// }
