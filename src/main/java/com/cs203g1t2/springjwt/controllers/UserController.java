@@ -77,7 +77,7 @@ public class UserController {
 
         return userRepository.findById(id).map(user -> {
             user.setUsername(newUser.getUsername());
-            user.setPassword(newUser.getPassword());
+            user.setPassword(encoder.encode(newUser.getPassword()));
             user.setEmail(newUser.getEmail());
             return userRepository.save(user);
         }).orElseThrow(() -> new RuntimeException());
