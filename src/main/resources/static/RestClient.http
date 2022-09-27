@@ -3,9 +3,9 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "username": "ausluv",
-    "email": "ausluv@gmail.com",
-    "password": "pasword"
+    "username": "aus4",
+    "email": "aus4@gmail.com",
+    "password": "password"
 }
 
 ### user login
@@ -14,7 +14,7 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "ausluv2",
+    "username": "aus",
     "password": "password"
 }
 
@@ -26,17 +26,17 @@ Content-Type: application/json
 ### get all users
 GET http://localhost:8080/api/v1/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQxODI5MzgsImV4cCI6MTY2NDI2OTMzOH0.z3cmbJUXP5xeWaHLe0UxKtuvNvrgNpZsVxr65wE8TVWB49RcfoVwP5lFk3o7Er5W6Z_AHaTbaEHpVWf3CYTISQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
 
 ### get user 1
 GET http://localhost:8080/api/v1/users/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQxODI5MzgsImV4cCI6MTY2NDI2OTMzOH0.z3cmbJUXP5xeWaHLe0UxKtuvNvrgNpZsVxr65wE8TVWB49RcfoVwP5lFk3o7Er5W6Z_AHaTbaEHpVWf3CYTISQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
 
 ###
 DELETE http://localhost:8080/api/v1/users/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQxODI5MzgsImV4cCI6MTY2NDI2OTMzOH0.z3cmbJUXP5xeWaHLe0UxKtuvNvrgNpZsVxr65wE8TVWB49RcfoVwP5lFk3o7Er5W6Z_AHaTbaEHpVWf3CYTISQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
 
 # Content-Type: application/json
 # Authorization: Basic admin goodpassword
@@ -47,13 +47,13 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQxODI5M
 #      "authorities": "ROLE_USER"
 #  }
 
-### edit user
+### create new user with admin permissions
 PUT http://localhost:8080/api/v1/users/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXNsdXYiLCJpYXQiOjE2NjQyNjg5NTksImV4cCI6MTY2NDM1NTM1OX0.fQzA98ht54l1tueK2_6ej4fK8CGypmHZ5zZ7Thwuki8oJNhVcQV5TxBg7joRv8ExEB9M85J2JRWmF0HxYcn9Zg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
 
 {
-    "username": "ausluv2",
-    "email": "ken@gmail.com",
+    "username": "aus2",
+    "email": "aus2@gmail.com",
     "password": "password"
 }
