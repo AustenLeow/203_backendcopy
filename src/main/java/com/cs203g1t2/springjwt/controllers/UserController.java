@@ -65,22 +65,20 @@ public class UserController {
             throw new RuntimeException();
     }
 
-    @PutMapping(path = "/users/{Id}")
+    @PutMapping(path = "/users/{id}")
     public User updateUser(@PathVariable(value = "id") Long id,
             @RequestBody User newUser) {
         if (!userRepository.existsById(id)) {
             throw new RuntimeException("User with id of " + id + " does not exist");
         }
-        // return userRepository.findById(id).map(review -> {
-        // review.setReview(newReview.getReview());
-        // return reviews.save(review);
-        // }).orElseThrow(() -> new ReviewNotFoundException(reviewId));
         if (newUser == null) {
             throw new RuntimeException("User details Empty");
         }
-        userRepository.findById(id).get().setUsername(newUser.getUsername());
-        userRepository.findById(id).get().setPassword(newUser.getPassword());
-        userRepository.findById(id).get().setEmail(newUser.getEmail());
-        return userRepository.save(newUser);
+        User user = userRepository.findById(id).get();
+        user.setUsername(newUser.getUsername());
+        user.setPassword(newUser.getPassword());
+        user.setEmail(newUser.getEmail());
+        return user;
+        // return userRepository.save(user);
     }
 }

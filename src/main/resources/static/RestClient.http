@@ -48,12 +48,12 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQxODI5M
 #  }
 
 ### create new user with admin permissions
-PUT http://localhost:8080/api/v1/users/1
+PUT http://localhost:8080/api/v1/users/5
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQxODk3ODYsImV4cCI6MTY2NDI3NjE4Nn0.F-f5agRXAVpOLJ_0poScU-BUfdidxETqdqEYm-8kfEtEN7fW_NuA9VqctSInbWTkaYWUJjS8VcYgaiTsi3_UqA
 
 {
-    "username": "ausluv",
+    "username": "ausluv2",
     "email": "ken@gmail.com",
-    "password": "paword"
+    "password": "password"
 }
