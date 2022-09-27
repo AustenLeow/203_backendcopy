@@ -65,18 +65,22 @@ public class UserController {
             throw new RuntimeException();
     }
 
-    // @GetMapping("/users/{id}")
-    // public User getUser(@PathVariable Long id) {
-    // Optional<User> user = users.findById(id);
-
-    // if (user.isEmpty()) {
-    // throw new RuntimeException("Unable to find user with Username " + id);
-    // }
-
-    // SecurityContextHolder.getContext().setAuthentication(authentication);
-    // String jwt = jwtUtils.generateJwtToken(authentication);
-
-    // return (new JwtResponse(jwt,
-    // user.get()));
-    // }
+    @PutMapping(path = "/users/{Id}")
+    public User updateUser(@PathVariable(value = "id") Long id,
+            @RequestBody User newUser) {
+        if (!userRepository.existsById(id)) {
+            throw new RuntimeException("User with id of " + id + " does not exist");
+        }
+        // return userRepository.findById(id).map(review -> {
+        // review.setReview(newReview.getReview());
+        // return reviews.save(review);
+        // }).orElseThrow(() -> new ReviewNotFoundException(reviewId));
+        if (newUser == null) {
+            throw new RuntimeException("User details Empty");
+        }
+        userRepository.findById(id).get().setUsername(newUser.getUsername());
+        userRepository.findById(id).get().setPassword(newUser.getPassword());
+        userRepository.findById(id).get().setEmail(newUser.getEmail());
+        return userRepository.save(newUser);
+    }
 }
