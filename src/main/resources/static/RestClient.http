@@ -34,7 +34,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
 
 ###
-DELETE http://localhost:8080/api/v1/users/4
+DELETE http://localhost:8080/api/v1/users/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
 
