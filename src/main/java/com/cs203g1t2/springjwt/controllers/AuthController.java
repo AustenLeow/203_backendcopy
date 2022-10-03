@@ -68,6 +68,18 @@ public class AuthController {
                          roles));
   }
 
+  public User getLoggedInUser(Authentication authentication) {
+    if (authentication == null) {
+      return null;
+    }
+
+    User user = null;
+    Object principal = authentication.getPrincipal();
+
+    user = new User(((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
+    return user;
+  }
+
   @PostMapping("/signup")
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
     if (userRepository.existsByUsername(signUpRequest.getUsername())) {
