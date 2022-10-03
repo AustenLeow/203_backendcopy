@@ -48,21 +48,14 @@ public class ItemController {
 
     @PostMapping("/items/add")
     public Item addItem(@Valid @RequestBody Item newItem){
-        Item item = new Item();
-        item.setItemName(newItem.getItemName());
-        item.setPrice(newItem.getPrice());
-        item.setBrand(newItem.getBrand());
-        item.setDescription(newItem.getDescription());
-        item.setExpiry_date(newItem.getExpiry_date());
-        item.setType(newItem.getType());
 
-        // Item item = new Item(
-        // newItem.getItemName(),
-        // newItem.getPrice(),
-        // newItem.getBrand(),
-        // newItem.getDescription(),
-        // newItem.getExpiry_date(),
-        // newItem.getType());
+        Item item = new Item(
+        newItem.getItemName(),
+        newItem.getPrice(),
+        newItem.getBrand(),
+        newItem.getDescription(),
+        newItem.getExpiry_date(),
+        newItem.getType());
 
         return itemRepository.save(item);
     }

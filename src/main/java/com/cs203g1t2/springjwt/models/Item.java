@@ -11,15 +11,14 @@ import java.util.*;
 @Table(name = "item")
 public class Item {
 
-
-    // public Item(String itemName, Integer price, String brand,  String description, String expiry_date, String type) {
-    //     this.itemName = itemName;
-    //     this.price = price;
-    //     this.brand = brand;
-    //     this.description = description;
-    //     this.expiry_date = expiry_date;
-    //     this.type = type;
-    // }
+    public Item(String itemName, Integer price, String brand,  String description, String expiry_date, String type) {
+        this.itemName = itemName;
+        this.price = price;
+        this.brand = brand;
+        this.description = description;
+        this.expiry_date = expiry_date;
+        this.type = type;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -43,9 +42,6 @@ public class Item {
 
     @Column(name = "type")
     private String type;
-
-    @OneToMany(mappedBy = "listing", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<ItemListing> listings;
 
     @Override
     public boolean equals(Object o) {

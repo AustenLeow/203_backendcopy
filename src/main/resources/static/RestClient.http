@@ -23,7 +23,7 @@ Content-Type: application/json
 ### get current logged in user
 GET http://localhost:8080/api/auth/currentuser
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQ3OTYxNzEsImV4cCI6MTY2NDg4MjU3MX0.P2VF-t1CFqdIjRRMGWV0rCaiR8xt1m9PA1Ikj1zcZgX5BauHpbfI2I8Tx9fkfuf4bMy_J_dW84tAGokMMAMW5A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY0ODA4MjI0LCJleHAiOjE2NjQ4OTQ2MjR9.NhPEM2f7-0jzFM7DZFG2iVKXf-xnCsrFTDXmCTK3suQvsmQFxqDXrIIAZEJqqz1p0S1YCo6UcCvJpYimgrgrwg
 
 
 ### get all users
@@ -116,9 +116,9 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY0Nzg1N
 ### get user's cart
 GET http://localhost:8080/api/v1/cart
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQ4MDQ2NDQsImV4cCI6MTY2NDg5MTA0NH0.1KDUYbNi_OzyVjn_LN8A6CZXg9KXFZUwNquZT_PfWQdTCRWKOpUlbosFnP51HsbJNes2B_VRgTIkxgEE4PAJWQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQ4MDgzODUsImV4cCI6MTY2NDg5NDc4NX0.cgPxATSIXe87EfPyDYqfvsHVW7r2l6xU4Fp0FVQYosHz3LB7_4gWCiKFcNFjUcrvTOBZns7gjB9aqCY_er9YOg
 
 ### user add item to cart
 POST http://localhost:8080/api/v1/cart/add/2/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQ4MDQ2NDQsImV4cCI6MTY2NDg5MTA0NH0.1KDUYbNi_OzyVjn_LN8A6CZXg9KXFZUwNquZT_PfWQdTCRWKOpUlbosFnP51HsbJNes2B_VRgTIkxgEE4PAJWQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQ4MDgzODUsImV4cCI6MTY2NDg5NDc4NX0.cgPxATSIXe87EfPyDYqfvsHVW7r2l6xU4Fp0FVQYosHz3LB7_4gWCiKFcNFjUcrvTOBZns7gjB9aqCY_er9YOg
