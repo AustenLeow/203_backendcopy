@@ -44,9 +44,6 @@ public class Item {
     @Column(name = "type")
     private String type;
 
-    @ManyToMany(mappedBy = "order")
-    private Set<Order> orders;
-
     @OneToMany(mappedBy = "listing", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ItemListing> listings;
 
