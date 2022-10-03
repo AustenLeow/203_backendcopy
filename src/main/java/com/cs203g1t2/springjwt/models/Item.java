@@ -15,6 +15,16 @@ import java.util.Objects;
 @Table(name = "item")
 public class Item {
 
+
+    // public Item(String itemName, Integer price, String brand,  String description, String expiry_date, String type) {
+    //     this.itemName = itemName;
+    //     this.price = price;
+    //     this.brand = brand;
+    //     this.description = description;
+    //     this.expiry_date = expiry_date;
+    //     this.type = type;
+    // }
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
