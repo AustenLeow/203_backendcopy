@@ -18,6 +18,16 @@ Content-Type: application/json
     "password": "password"
 }
 
+### user logout
+POST http://localhost:8080/api/auth/logout
+Content-Type: application/json
+# Authorization: Bearer 
+
+{
+    "username": "aus2",
+    "password": "password"
+}
+
 # ###
 # GET http://localhost:8080/api/auth/
 # Content-Type: application/json
@@ -26,12 +36,12 @@ Content-Type: application/json
 ### get all users
 GET http://localhost:8080/api/v1/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY0NzY2ODY4LCJleHAiOjE2NjQ4NTMyNjh9.rmGVJqErw4gF1tmfw9itdkaGuQo3xT851Oz3NSYbwy80Yy2RTFizAoCkI8zqo-Q_ypHxu4pjuL6kF9bIMI9kTA
 
 ### get user 1
 GET http://localhost:8080/api/v1/users/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY0NzY2ODY4LCJleHAiOjE2NjQ4NTMyNjh9.rmGVJqErw4gF1tmfw9itdkaGuQo3xT851Oz3NSYbwy80Yy2RTFizAoCkI8zqo-Q_ypHxu4pjuL6kF9bIMI9kTA
 
 ###
 DELETE http://localhost:8080/api/v1/users/4

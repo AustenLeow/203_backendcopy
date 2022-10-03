@@ -80,6 +80,8 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 //
 //    http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 //  }
+
+  
   
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -96,4 +98,6 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
     
     return http.build();
   }
+
+  
 }
