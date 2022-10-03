@@ -76,7 +76,7 @@ public class ItemController {
             throw new RuntimeException("Item with id of " + id + " does not exist");
         }
         if (newItem == null) {
-            throw new RuntimeException("User details Empty");
+            throw new RuntimeException("Item details Empty");
         }
 
         return itemRepository.findById(id).map(item -> {
