@@ -68,15 +68,15 @@ public class AuthController {
                          roles));
   }
 
+  @GetMapping("/currentuser")
   public User getLoggedInUser(Authentication authentication) {
+    authentication = SecurityContextHolder.getContext().getAuthentication();
     if (authentication == null) {
       return null;
     }
-
-    User user = null;
+    // User user = null;
     Object principal = authentication.getPrincipal();
-
-    user = new User(((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
+    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
     return user;
   }
 

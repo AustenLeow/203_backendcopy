@@ -20,7 +20,8 @@ public class CartService {
     private ItemRepository itemRepo;
 
     public List<CartItem> listCartItems(User user) {
-        return cartRepo.findByUser(user);
+        List<CartItem> cartItems = cartRepo.findByUser(user);
+        return cartItems;
     }
 
     public Integer addItem(Long id, Integer quantity, User user) {
