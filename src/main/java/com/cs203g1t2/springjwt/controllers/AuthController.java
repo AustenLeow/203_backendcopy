@@ -68,6 +68,18 @@ public class AuthController {
                          roles));
   }
 
+  @GetMapping("/currentuser")
+  public User getLoggedInUser(Authentication authentication) {
+    authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication == null) {
+      return null;
+    }
+    // User user = null;
+    Object principal = authentication.getPrincipal();
+    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
+    return user;
+  }
+
   @PostMapping("/signup")
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
     if (userRepository.existsByUsername(signUpRequest.getUsername())) {
