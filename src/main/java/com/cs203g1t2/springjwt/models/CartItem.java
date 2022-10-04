@@ -46,4 +46,9 @@ public class CartItem {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Transient
+    public float getSubtotal() {
+        return this.item.getPrice() * quantity;
+    }
 }

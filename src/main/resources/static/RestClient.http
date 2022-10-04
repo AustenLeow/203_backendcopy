@@ -116,7 +116,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY0Nzg1N
 ### get user's cart
 GET http://localhost:8080/api/v1/cart
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQ4MDQ2NDQsImV4cCI6MTY2NDg5MTA0NH0.1KDUYbNi_OzyVjn_LN8A6CZXg9KXFZUwNquZT_PfWQdTCRWKOpUlbosFnP51HsbJNes2B_VRgTIkxgEE4PAJWQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQ4NTI1OTQsImV4cCI6MTY2NDkzODk5NH0.A3DgmUenRY_am0NQBrVhEhb_9D16cOSL6Bo3Y5ptIbtgxbVvz-Vuwgzz3YImG8K0x_CwKrTt4078Kem3Gz6kYw
 
 ### user add item to cart
 POST http://localhost:8080/api/v1/cart/add/2/3
