@@ -20,11 +20,13 @@ public class CartService {
     @Autowired
     private ItemRepository itemRepo;
 
+    //get cart
     public List<CartItem> listCartItems(User user) {
         List<CartItem> cartItems = cartRepo.findByUser(user);
         return cartItems;
     }
 
+    // add varying quantities of an item to cart
     public Integer addItem(Long id, Integer quantity, User user) {
         Integer addedQuantity = quantity;
 
@@ -52,5 +54,10 @@ public class CartService {
         Item item = itemRepo.findById(itemid).get();
         float subtotal = item.getPrice() * quantity;
         return subtotal;
+    }
+
+    // delete the item in the user's cart
+    public void removeItem(Long itemid, User user) {
+        cartRepo.deleteByUserAndItem(user.getId(), itemid);
     }
 }

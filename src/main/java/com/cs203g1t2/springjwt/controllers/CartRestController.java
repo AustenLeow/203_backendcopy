@@ -57,4 +57,19 @@ public class CartRestController {
         float subTotal = cartService.updateQuantity(itemid, quantity, user);
         return "Your cart now has " + quantity + " " + itemRepo.findById(itemid).get().getItemName();
     }
+
+    @DeleteMapping("/cart/delete/{id}")
+    public String deleteItemFromCart(@PathVariable("id") Long itemid, 
+        @AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {
+        // if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+        //     return "You have to log in first!";
+        // }
+        authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userController.getLoggedInUser(authentication);
+        // if (user == null) {
+        //     return "You have to log in first!";
+        // }
+        cartService.removeItem(itemid, user);
+        return itemRepo.findById(itemid).get().getItemName() + " has been removed from your cart.";
+    }
 }
