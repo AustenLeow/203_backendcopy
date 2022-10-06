@@ -5,8 +5,8 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "username": "aus2",
-    "email": "aus2@gmail.com",
+    "username": "ryan1",
+    "email": "ryan1@gmail.com",
     "password": "password"
 }
 
@@ -16,14 +16,14 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "aus",
+    "username": "ryan1",
     "password": "password"
 }
 
 ### get current logged in user
 GET http://localhost:8080/api/auth/currentuser
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQ3OTYxNzEsImV4cCI6MTY2NDg4MjU3MX0.P2VF-t1CFqdIjRRMGWV0rCaiR8xt1m9PA1Ikj1zcZgX5BauHpbfI2I8Tx9fkfuf4bMy_J_dW84tAGokMMAMW5A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTA0MjkwNSwiZXhwIjoxNjY1MDQyOTIwfQ.8SS3Eusj9q-04hM7pt-GribyGVVRN9jnwcgD_-jr13yiyNPIT_sTUnX_pxyZWpFIbT2NtEuhnihrOHXFOUaWsg
 
 
 ### get all users
