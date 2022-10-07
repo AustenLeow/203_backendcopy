@@ -54,6 +54,9 @@ public class Item {
 
     @Column(name = "quantity")
     private Long quantity;
+
+    @Column(name = "url")
+    private String url;
     
     // @Column(name = "filename")
     // private String filename;

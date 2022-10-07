@@ -68,22 +68,23 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0N
 ### add item
 POST http://localhost:8080/api/v1/items/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyMjAxMiwiZXhwIjoxNjY1MTI1NjEyfQ.SwwxPR3cmXbIhG4YfVfI2B3qWWJbQfaRjDNE0hq06v7CP7tzcJ2UWeJQ4OVhkpMZEkVW9IKnaK8OjUg9Z08K7w
 
 {
-    "itemName": "Dried Peanuts",
-    "price": 3,
-    "brand": "Sunsweet",
+    "itemName": "Sardine Cans",
+    "price": 5.00,
+    "brand": "Ayam Brand",
     "description": "delicious",
-    "expiry_date": "12/12/2022",
-    "type":"healthy snacks",
-    "quantity": 100
+    "expiry_date": "10/12/2022",
+    "type":"delicious fish",
+    "quantity": 100,
+    "url": "https://m.media-amazon.com/images/I/81A9tHLuPoL.jpg"
 }
 
 ### get all items
 GET http://localhost:8080/api/v1/items
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyMjAxMiwiZXhwIjoxNjY1MTI1NjEyfQ.SwwxPR3cmXbIhG4YfVfI2B3qWWJbQfaRjDNE0hq06v7CP7tzcJ2UWeJQ4OVhkpMZEkVW9IKnaK8OjUg9Z08K7w
 
 ### get item id 7
 GET http://localhost:8080/api/v1/items/13
@@ -107,7 +108,8 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0N
     "description": "Crispy crisps",
     "expiry_date": "21/10/2022",
     "type":"tibits",
-    "quantity": 200
+    "quantity": 200,
+    "url": "https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/13218718_XL1_20220628.jpg"
 }
 
 
