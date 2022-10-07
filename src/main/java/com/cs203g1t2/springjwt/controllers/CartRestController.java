@@ -1,5 +1,6 @@
 package com.cs203g1t2.springjwt.controllers;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
@@ -54,7 +55,7 @@ public class CartRestController {
         // if (user == null) {
         //     return "You have to log in first!";
         // }
-        float subTotal = cartService.updateQuantity(itemid, quantity, user);
+        BigDecimal subTotal = cartService.updateQuantity(itemid, quantity, user);
         return "Your cart now has " + quantity + " " + itemRepo.findById(itemid).get().getItemName();
     }
 
