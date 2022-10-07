@@ -100,9 +100,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyODIwNCwiZXhwIjoxNjY1MTMxODA0fQ.SG2By2o1OLzodPxrCsqd_Trh-b3wXOu_P8jssF1e-dlbZhKKxMZ0qfXbMd5FeXg391s3zjUVm7FTVn9MinxCug
 
 ### edit item id 9
-PUT http://localhost:8080/api/v1/items/6
+PUT http://localhost:8080/api/v1/items/13
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyODIwNCwiZXhwIjoxNjY1MTMxODA0fQ.SG2By2o1OLzodPxrCsqd_Trh-b3wXOu_P8jssF1e-dlbZhKKxMZ0qfXbMd5FeXg391s3zjUVm7FTVn9MinxCug
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
 {
     "itemName": "Lays Potato Chips",
@@ -123,19 +123,19 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyO
 ### get user's cart
 GET http://localhost:8080/api/v1/cart
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyODIwNCwiZXhwIjoxNjY1MTMxODA0fQ.SG2By2o1OLzodPxrCsqd_Trh-b3wXOu_P8jssF1e-dlbZhKKxMZ0qfXbMd5FeXg391s3zjUVm7FTVn9MinxCug
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
 ### user add an item to cart (../cart/add/item_id)
-POST http://localhost:8080/api/v1/cart/add/6
+POST http://localhost:8080/api/v1/cart/add/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyODIwNCwiZXhwIjoxNjY1MTMxODA0fQ.SG2By2o1OLzodPxrCsqd_Trh-b3wXOu_P8jssF1e-dlbZhKKxMZ0qfXbMd5FeXg391s3zjUVm7FTVn9MinxCug
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
 ### user edit cart item quantity (../cart/update/item_id/quantity)
-PUT http://localhost:8080/api/v1/cart/update/6/4
+PUT http://localhost:8080/api/v1/cart/update/2/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyODIwNCwiZXhwIjoxNjY1MTMxODA0fQ.SG2By2o1OLzodPxrCsqd_Trh-b3wXOu_P8jssF1e-dlbZhKKxMZ0qfXbMd5FeXg391s3zjUVm7FTVn9MinxCug
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
 ### user delete item from cart (../cart/delete/item_id)
-DELETE http://localhost:8080/api/v1/cart/delete/6
+DELETE http://localhost:8080/api/v1/cart/delete/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyODIwNCwiZXhwIjoxNjY1MTMxODA0fQ.SG2By2o1OLzodPxrCsqd_Trh-b3wXOu_P8jssF1e-dlbZhKKxMZ0qfXbMd5FeXg391s3zjUVm7FTVn9MinxCug
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ

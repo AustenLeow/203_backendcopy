@@ -12,7 +12,6 @@ import com.cs203g1t2.springjwt.models.CartItem;
 import com.cs203g1t2.springjwt.models.User;
 import com.cs203g1t2.springjwt.models.Item;
 import com.cs203g1t2.springjwt.repository.ItemRepository;
-import com.cs203g1t2.springjwt.exceptions.NotEnoughItemsInStockException;
 
 @Service
 @Transactional
@@ -30,7 +29,7 @@ public class CartService {
     }
 
     // add an item to cart
-    public Integer addItem(Long id, User user) throws NotEnoughItemsInStockException {
+    public Integer addItem(Long id, User user) {
         Integer addedQuantity = 1;
 
         Item item = itemRepo.findById(id).get();
@@ -39,9 +38,6 @@ public class CartService {
 
         if (cartItem != null) {
             addedQuantity = cartItem.getQuantity() + 1;
-            if (addedQuantity > item.getQuantity()) {
-                throw new NotEnoughItemsInStockException(item);
-            }
             cartItem.setQuantity(addedQuantity);
         } else {
             cartItem = new CartItem();
@@ -55,14 +51,9 @@ public class CartService {
     }
 
     // edit quantity of items and recalculate subtotal
-    public BigDecimal updateQuantity(Long itemid, Integer quantity, User user) throws NotEnoughItemsInStockException{
-        Item item = itemRepo.findById(itemid).get();
-        if (item.getQuantity() < quantity) {
-            throw new NotEnoughItemsInStockException(item);
-        }
-        
+    public BigDecimal updateQuantity(Long itemid, Integer quantity, User user) {
         cartRepo.updateQuantity(quantity, itemid, user.getId());
-        
+        Item item = itemRepo.findById(itemid).get();
         BigDecimal subtotal = item.getPrice().multiply(new BigDecimal(quantity));
         return subtotal;
     }
