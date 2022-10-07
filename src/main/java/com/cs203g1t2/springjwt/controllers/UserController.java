@@ -18,6 +18,7 @@ import java.util.Optional;
 import lombok.*;
 import com.cs203g1t2.springjwt.security.jwt.JwtUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequiredArgsConstructor
@@ -39,12 +40,12 @@ public class UserController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @GetMapping("/users")
+    @GetMapping("/users") @PreAuthorize("hasRole('ADMIN')")
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/users/{id}") @PreAuthorize("hasRole('ADMIN')")
     public User getUser(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
         if (!(user.isPresent())) {
@@ -54,7 +55,7 @@ public class UserController {
         return user.get();
     }
 
-    @DeleteMapping(path = "/users/{Id}")
+    @DeleteMapping(path = "/users/{Id}") @PreAuthorize("hasRole('ADMIN')")
     public void deleteUserById(
             @PathVariable("Id") Long id) {
         if (!(userRepository.findById(id).isPresent())) {
@@ -65,7 +66,7 @@ public class UserController {
             throw new RuntimeException();
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/users/{id}") 
     public User updateUser(@PathVariable Long id,
             @RequestBody User newUser) {
         if (!userRepository.existsById(id)) {

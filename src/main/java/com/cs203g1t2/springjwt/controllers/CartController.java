@@ -14,6 +14,7 @@ import com.cs203g1t2.springjwt.models.User;
 import com.cs203g1t2.springjwt.security.services.UserDetailsImpl;
 import com.cs203g1t2.springjwt.models.CartItem;
 import com.cs203g1t2.springjwt.controllers.AuthController;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequestMapping("/api/v1")
