@@ -15,6 +15,7 @@ import com.cs203g1t2.springjwt.security.services.UserDetailsImpl;
 import com.cs203g1t2.springjwt.models.CartItem;
 import com.cs203g1t2.springjwt.controllers.AuthController;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
 public class CartController {

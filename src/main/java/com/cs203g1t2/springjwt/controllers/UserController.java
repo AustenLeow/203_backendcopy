@@ -19,6 +19,7 @@ import lombok.*;
 import com.cs203g1t2.springjwt.security.jwt.JwtUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")

@@ -18,6 +18,7 @@ import com.cs203g1t2.springjwt.controllers.AuthController;
 import com.cs203g1t2.springjwt.repository.ItemRepository;
 import com.cs203g1t2.springjwt.exceptions.NotEnoughItemsInStockException;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
 public class CartRestController {

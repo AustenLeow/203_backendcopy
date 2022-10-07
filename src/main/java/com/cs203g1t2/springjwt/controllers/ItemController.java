@@ -20,6 +20,7 @@ import com.cs203g1t2.springjwt.security.jwt.JwtUtils;
 import com.cs203g1t2.springjwt.exceptions.ItemExistsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")
