@@ -5,39 +5,51 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
 @ToString
-@Table(name = "order_item")
-public class OrderItem {
+@Table(name = "cart_item")
+public class CartItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "amount")
-    private Long amount;
-
     @Column(name = "quantity")
-    private Long quantity;
+    private int quantity;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "item_id")
     private Item item;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderItem orderItem = (OrderItem) o;
+        CartItem orderItem = (CartItem) o;
         return Objects.equals(id, orderItem.id);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Transient
+    public BigDecimal getSubtotal() {
+        return this.item.getPrice().multiply(new BigDecimal(quantity));
     }
 }

@@ -1,76 +1,114 @@
-// package com.cs203g1t2.springjwt.controllers;
+package com.cs203g1t2.springjwt.controllers;
 
-// import java.util.List;
+import java.util.List;
 
-// import org.springframework.data.domain.Pageable;
-// import org.springframework.data.web.PageableDefault;
-// import org.springframework.http.ResponseEntity;
-// import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 
-// import com.cs203g1t2.springjwt.dto.*;
-// import com.cs203g1t2.springjwt.dto.item.*;
-// import com.cs203g1t2.springjwt.mapper.*;
-// import com.cs203g1t2.springjwt.services.graphql.GraphQLProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import com.cs203g1t2.springjwt.repository.*;
+import com.cs203g1t2.springjwt.models.*;
+import java.util.Optional;
+import lombok.*;
+import com.cs203g1t2.springjwt.security.jwt.JwtUtils;
+import com.cs203g1t2.springjwt.exceptions.ItemExistsException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-// import graphql.ExecutionResult;
-// import lombok.RequiredArgsConstructor;
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api/v1")
+public class ItemController {
 
-// @RestController
-// @RequiredArgsConstructor
-// @RequestMapping("/api/v1/items")
-// public class ItemController {
+    @Autowired
+    AuthenticationManager authenticationManager;
 
-//     private final ItemMapper itemMapper;
-//     private final GraphQLProvider graphQLProvider;
+    @Autowired
+    ItemRepository itemRepository;
 
-//     @GetMapping
-//     public ResponseEntity<List<ItemResponse>> getAllItems(@PageableDefault(size = 15) Pageable pageable) {
-//         HeaderResponse<ItemResponse> response = itemMapper.getAllItems(pageable);
-//         return ResponseEntity.ok().headers(response.getHeaders()).body(response.getItems());
-//     }
+    @GetMapping("/items")
+    public List<Item> getItem() {
+        return itemRepository.findAll();
+    }
 
-//     @GetMapping("/{itemId}")
-//     public ResponseEntity<FullItemResponse> getItemById(@PathVariable Long itemId) {
-//         return ResponseEntity.ok(itemMapper.getItemById(itemId));
-//     }
+    @GetMapping("/items/{id}")
+    public Item getItem(@PathVariable Long id) {
+        Optional<Item> item = itemRepository.findById(id);
+        if (item.isEmpty()) {
+            throw new RuntimeException("Unable to find item with id" + id);
+        }
 
-//     @PostMapping("/ids")
-//     public ResponseEntity<List<ItemResponse>> getItemsByIds(@RequestBody List<Long> itemsIds) {
-//         return ResponseEntity.ok(itemMapper.getItemsByIds(itemsIds));
-//     }
+        return item.get();
+    }
 
-//     @PostMapping("/search")
-//     public ResponseEntity<List<ItemResponse>> findItemsByFilterParams(@RequestBody ItemSearchRequest filter,
-//                                                                             @PageableDefault(size = 15) Pageable pageable) {
-//         HeaderResponse<ItemResponse> response = itemMapper.findItemsByFilterParams(filter, pageable);
-//         return ResponseEntity.ok().headers(response.getHeaders()).body(response.getItems());
-//     }
+    @PostMapping("/items/add")
+    public Item addItem(@Valid @RequestBody Item newItem) {
+        if (itemRepository.existsByItemName(newItem.getItemName())
+                && itemRepository.existsByBrand(newItem.getBrand())) {
+            throw new ItemExistsException(newItem);
+        }
+        Item item = new Item();
+        item.setItemName(newItem.getItemName());
+        item.setPrice(newItem.getPrice());
+        item.setBrand(newItem.getBrand());
+        item.setDescription(newItem.getDescription());
+        item.setExpiry_date(newItem.getExpiry_date());
+        item.setType(newItem.getType());
+        item.setQuantity(newItem.getQuantity());
+        item.setUrl(newItem.getUrl());
+        // Item item = new Item(
+        // newItem.getItemName(),
+        // newItem.getPrice(),
+        // newItem.getBrand(),
+        // newItem.getDescription(),
+        // newItem.getExpiry_date(),
+        // newItem.getType());
 
+        return itemRepository.save(item);
+    }
 
-//     @PostMapping("/search/brand")
-//     public ResponseEntity<List<ItemResponse>> findByBrand(@RequestBody ItemSearchRequest filter) {
-//         return ResponseEntity.ok(itemMapper.findByBrand(filter.getBrand()));
-//     }
+    @DeleteMapping(path = "/items/{Id}")
+    public void deleteItemById(
+            @PathVariable("Id") Long id) {
+        if (itemRepository.findById(id).isEmpty()) {
+            throw new RuntimeException("Item with id of " + id + " does not exist");
+        }
+        itemRepository.deleteById(id);
+        if (id == null)
+            throw new RuntimeException();
+    }
 
-//     @PostMapping("/search/text")
-//     public ResponseEntity<List<ItemResponse>> findByInputText(@RequestBody SearchTypeRequest searchType,
-//                                                                  @PageableDefault(size = 15) Pageable pageable) {
-//         HeaderResponse<ItemResponse> response = itemMapper.findByInputText(searchType.getSearchType(), searchType.getText(), pageable);
-//         return ResponseEntity.ok().headers(response.getHeaders()).body(response.getItems());
-//     }
+    @PutMapping("/items/{id}")
+    public Item updateItem(@PathVariable Long id,
+            @RequestBody Item newItem) {
+        if (!itemRepository.existsById(id)) {
+            throw new RuntimeException("Item with id of " + id + " does not exist");
+        }
+        if (newItem == null) {
+            throw new RuntimeException("Item details Empty");
+        }
 
-//     @PostMapping("/graphql/ids")
-//     public ResponseEntity<ExecutionResult> getItemsByIdsQuery(@RequestBody GraphQLRequest request) {
-//         return ResponseEntity.ok(graphQLProvider.getGraphQL().execute(request.getQuery()));
-//     }
+        if ( newItem.getQuantity() == 0){
+            deleteItemById(itemRepository.findById(id).get().getId());
+            throw new RuntimeException("Item has no more stock");
+        }
+        return itemRepository.findById(id).map(item -> {
+            item.setItemName(newItem.getItemName());
+            item.setPrice(newItem.getPrice());
+            item.setBrand(newItem.getBrand());
+            item.setDescription(newItem.getDescription());
+            item.setExpiry_date(newItem.getExpiry_date());
+            item.setType(newItem.getType());
+            item.setQuantity(newItem.getQuantity());
+            item.setUrl(newItem.getUrl());
+            return itemRepository.save(item);
 
-//     @PostMapping("/graphql/items")
-//     public ResponseEntity<ExecutionResult> getAllItemsByQuery(@RequestBody GraphQLRequest request) {
-//         return ResponseEntity.ok(graphQLProvider.getGraphQL().execute(request.getQuery()));
-//     }
+        }).orElseThrow(() -> new RuntimeException());
+    }
 
-//     @PostMapping("/graphql/item")
-//     public ResponseEntity<ExecutionResult> getItemByQuery(@RequestBody GraphQLRequest request) {
-//         return ResponseEntity.ok(graphQLProvider.getGraphQL().execute(request.getQuery()));
-//     }
-// }
+}

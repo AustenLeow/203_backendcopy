@@ -1,10 +1,12 @@
-### create new user
+##################################### USER #####################################
+
+### register user
 POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "username": "aus4",
-    "email": "aus4@gmail.com",
+    "username": "ryan1",
+    "email": "ryan1@gmail.com",
     "password": "password"
 }
 
@@ -14,29 +16,30 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "aus2",
+    "username": "ryan1",
     "password": "password"
 }
 
-# ###
-# GET http://localhost:8080/api/auth/
-# Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZW4rYXVzIiwiaWF0IjoxNjYzOTI2MDIwLCJleHAiOjE2NjQwMTI0MjB9.e7RSSZCiaY6IDg4DdnI6hP4p0IKQ7OWu5gRCOCJZoqqhA9cm3L97z6BA_8i4e8zQx4SZmFJP8iukKeHbL1gOWw
+### get current logged in user
+GET http://localhost:8080/api/auth/currentuser
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTA0MjkwNSwiZXhwIjoxNjY1MDQyOTIwfQ.8SS3Eusj9q-04hM7pt-GribyGVVRN9jnwcgD_-jr13yiyNPIT_sTUnX_pxyZWpFIbT2NtEuhnihrOHXFOUaWsg
+
 
 ### get all users
 GET http://localhost:8080/api/v1/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
 ### get user 1
 GET http://localhost:8080/api/v1/users/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
-###
-DELETE http://localhost:8080/api/v1/users/2
+### delete user 4
+DELETE http://localhost:8080/api/v1/users/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
 # Content-Type: application/json
 # Authorization: Basic admin goodpassword
@@ -47,13 +50,89 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzN
 #      "authorities": "ROLE_USER"
 #  }
 
-### create new user with admin permissions
+### edit user 2
 PUT http://localhost:8080/api/v1/users/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjQyNzAzNzYsImV4cCI6MTY2NDM1Njc3Nn0.YEx-ObghRsHl4-pPKuGt54ySWeqdUZp5MtL_P6w-yNrER8q1hTcsKXKiYXf77mwmc-8BEylwJjOYsYxlfatSRw
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 {
     "username": "aus2",
     "email": "aus2@gmail.com",
     "password": "password"
 }
+
+
+
+
+##################################### ITEM #####################################
+
+### add item
+POST http://localhost:8080/api/v1/items/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyMjAxMiwiZXhwIjoxNjY1MTI1NjEyfQ.SwwxPR3cmXbIhG4YfVfI2B3qWWJbQfaRjDNE0hq06v7CP7tzcJ2UWeJQ4OVhkpMZEkVW9IKnaK8OjUg9Z08K7w
+
+{
+    "itemName": "Sardine Cans",
+    "price": 5.00,
+    "brand": "Ayam Brand",
+    "description": "delicious",
+    "expiry_date": "10/12/2022",
+    "type":"delicious fish",
+    "quantity": 100,
+    "url": "https://m.media-amazon.com/images/I/81A9tHLuPoL.jpg"
+}
+
+### get all items
+GET http://localhost:8080/api/v1/items
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEyMjAxMiwiZXhwIjoxNjY1MTI1NjEyfQ.SwwxPR3cmXbIhG4YfVfI2B3qWWJbQfaRjDNE0hq06v7CP7tzcJ2UWeJQ4OVhkpMZEkVW9IKnaK8OjUg9Z08K7w
+
+### get item id 7
+GET http://localhost:8080/api/v1/items/13
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
+
+### delete item id 7
+DELETE http://localhost:8080/api/v1/items/14
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
+
+### edit item id 9
+PUT http://localhost:8080/api/v1/items/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
+
+{
+    "itemName": "Lays Potato Chips",
+    "price": 1,
+    "brand": "Lays",
+    "description": "Crispy crisps",
+    "expiry_date": "21/10/2022",
+    "type":"tibits",
+    "quantity": 200,
+    "url": "https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/13218718_XL1_20220628.jpg"
+}
+
+
+
+
+##################################### CART #####################################
+
+### get user's cart
+GET http://localhost:8080/api/v1/cart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
+
+### user add an item to cart (../cart/add/item_id)
+POST http://localhost:8080/api/v1/cart/add/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
+
+### user edit cart item quantity (../cart/update/item_id/quantity)
+PUT http://localhost:8080/api/v1/cart/update/6/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
+
+### user delete item from cart (../cart/delete/item_id)
+DELETE http://localhost:8080/api/v1/cart/delete/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
