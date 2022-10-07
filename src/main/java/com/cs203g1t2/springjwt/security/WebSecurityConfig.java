@@ -87,8 +87,10 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
         .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
         .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-        .antMatchers("/api/test/**").permitAll()
-        .antMatchers("/api/items/**").permitAll()
+        .antMatchers("/api/test/**").hasRole("ROLE_ADMIN")
+        .antMatchers("/api/users/**").hasRole("ROLE_ADMIN")
+        .antMatchers("/api/items/**").hasRole("ROLE_USER")
+        .antMatchers("/api/cart/**").hasRole("ROLE_USER")
         .anyRequest().authenticated();
     
     http.authenticationProvider(authenticationProvider());
