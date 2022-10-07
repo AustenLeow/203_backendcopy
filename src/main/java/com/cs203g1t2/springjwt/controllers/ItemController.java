@@ -92,6 +92,10 @@ public class ItemController {
             throw new RuntimeException("Item details Empty");
         }
 
+        if ( newItem.getQuantity() == 0){
+            deleteItemById(itemRepository.findById(id).get().getId());
+            throw new RuntimeException("Item has no more stock");
+        }
         return itemRepository.findById(id).map(item -> {
             item.setItemName(newItem.getItemName());
             item.setPrice(newItem.getPrice());
