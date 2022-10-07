@@ -39,7 +39,7 @@ public class ItemController {
     @GetMapping("/items/{id}")
     public Item getItem(@PathVariable Long id) {
         Optional<Item> item = itemRepository.findById(id);
-        if (item.isEmpty()) {
+        if (!(item.isPresent())) {
             throw new RuntimeException("Unable to find item with id" + id);
         }
 
@@ -75,7 +75,7 @@ public class ItemController {
     @DeleteMapping(path = "/items/{Id}")
     public void deleteItemById(
             @PathVariable("Id") Long id) {
-        if (itemRepository.findById(id).isEmpty()) {
+        if (!(itemRepository.findById(id).isPresent())) {
             throw new RuntimeException("Item with id of " + id + " does not exist");
         }
         itemRepository.deleteById(id);

@@ -47,7 +47,7 @@ public class UserController {
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
-        if (user.isEmpty()) {
+        if (!(user.isPresent())) {
             throw new RuntimeException("Unable to find user with id" + id);
         }
 
@@ -57,7 +57,7 @@ public class UserController {
     @DeleteMapping(path = "/users/{Id}")
     public void deleteUserById(
             @PathVariable("Id") Long id) {
-        if (userRepository.findById(id).isEmpty()) {
+        if (!(userRepository.findById(id).isPresent())) {
             throw new RuntimeException("User with id of " + id + " does not exist");
         }
         userRepository.deleteById(id);
