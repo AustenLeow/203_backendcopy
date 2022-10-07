@@ -92,6 +92,10 @@ public class ItemController {
         if (newItem == null) {
             throw new RuntimeException("Item details Empty");
         }
+        if (itemRepository.existsByItemName(newItem.getItemName())
+                && itemRepository.existsByBrand(newItem.getBrand())) {
+            throw new ItemExistsException(newItem);
+        }
 
         if ( newItem.getQuantity() == 0){
             deleteItemById(itemRepository.findById(id).get().getId());
