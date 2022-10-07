@@ -77,7 +77,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1M
     "description": "delicious",
     "expiry_date": "12/12/2022",
     "type":"healthy snacks",
-    "quantity": 100
+    "quantity": 1
 }
 
 ### get all items
@@ -96,9 +96,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
 ### edit item id 9
-PUT http://localhost:8080/api/v1/items/13
+PUT http://localhost:8080/api/v1/items/6
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
 
 {
     "itemName": "Lays Potato Chips",
@@ -107,7 +107,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0N
     "description": "Crispy crisps",
     "expiry_date": "21/10/2022",
     "type":"tibits",
-    "quantity": 200
+    "quantity": 4
 }
 
 
@@ -118,19 +118,19 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0N
 ### get user's cart
 GET http://localhost:8080/api/v1/cart
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
 
 ### user add an item to cart (../cart/add/item_id)
-POST http://localhost:8080/api/v1/cart/add/4
+POST http://localhost:8080/api/v1/cart/add/6
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
 
 ### user edit cart item quantity (../cart/update/item_id/quantity)
-PUT http://localhost:8080/api/v1/cart/update/2/4
+PUT http://localhost:8080/api/v1/cart/update/6/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
 
 ### user delete item from cart (../cart/delete/item_id)
-DELETE http://localhost:8080/api/v1/cart/delete/1
+DELETE http://localhost:8080/api/v1/cart/delete/6
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
