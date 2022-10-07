@@ -40,12 +40,12 @@ public class UserController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @GetMapping("/users") @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/users")@PreAuthorize("hasRole('ADMIN')")
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
-    @GetMapping("/users/{id}") @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/users/{id}")@PreAuthorize("hasRole('ADMIN')")
     public User getUser(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
         if (!(user.isPresent())) {
@@ -55,7 +55,7 @@ public class UserController {
         return user.get();
     }
 
-    @DeleteMapping(path = "/users/{Id}") @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping(path = "/users/{Id}")@PreAuthorize("hasRole('ADMIN')")
     public void deleteUserById(
             @PathVariable("Id") Long id) {
         if (!(userRepository.findById(id).isPresent())) {
