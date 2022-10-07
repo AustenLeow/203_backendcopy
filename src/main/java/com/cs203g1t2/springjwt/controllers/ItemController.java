@@ -19,6 +19,7 @@ import lombok.*;
 import com.cs203g1t2.springjwt.security.jwt.JwtUtils;
 import com.cs203g1t2.springjwt.exceptions.ItemExistsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @CrossOrigin
 @RestController
@@ -47,7 +48,7 @@ public class ItemController {
         return item.get();
     }
 
-    @PostMapping("/items/add")
+    @PostMapping("/items/add")@PreAuthorize("hasRole('MORDERATOR')")
     public Item addItem(@Valid @RequestBody Item newItem) {
         if (itemRepository.existsByItemName(newItem.getItemName())
                 && itemRepository.existsByBrand(newItem.getBrand())) {
@@ -73,7 +74,7 @@ public class ItemController {
         return itemRepository.save(item);
     }
 
-    @DeleteMapping(path = "/items/{Id}")
+    @DeleteMapping(path = "/items/{Id}")@PreAuthorize("hasRole('MORDERATOR')")
     public void deleteItemById(
             @PathVariable("Id") Long id) {
         if (!(itemRepository.findById(id).isPresent())) {

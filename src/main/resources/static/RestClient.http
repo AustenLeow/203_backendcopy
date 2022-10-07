@@ -5,8 +5,8 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "username": "ryan2",
-    "email": "ryan2@gmail.com",
+    "username": "aus7",
+    "email": "aus7@gmail.com",
     "password": "password"
 }
 
@@ -16,31 +16,27 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "ryan1",
+    "username": "aus1",
     "password": "password"
 }
 
 ### get current logged in user
 GET http://localhost:8080/api/auth/currentuser
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 
 ### get all users
 GET http://localhost:8080/api/v1/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 ### get user 1
 GET http://localhost:8080/api/v1/users/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 ### delete user 4
 DELETE http://localhost:8080/api/v1/users/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 # Content-Type: application/json
 # Authorization: Basic admin goodpassword
 
@@ -53,8 +49,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzM
 ### edit user 2
 PUT http://localhost:8080/api/v1/users/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 {
     "username": "aus2",
     "email": "aus2@gmail.com",
@@ -69,8 +64,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzM
 ### add item
 POST http://localhost:8080/api/v1/items/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 {
     "itemName": "Sardine Cans2",
     "price": 5.00,
@@ -85,23 +79,19 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzM
 ### get all items
 GET http://localhost:8080/api/v1/items
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 ### get item id 7
 GET http://localhost:8080/api/v1/items/13
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 ### delete item id 7
 DELETE http://localhost:8080/api/v1/items/37
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 ### edit item id 9
 PUT http://localhost:8080/api/v1/items/38
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 {
     "itemName": "Lays Potato Chips2",
     "price": 1,
@@ -121,18 +111,15 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzM
 ### get user's cart
 GET http://localhost:8080/api/v1/cart
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 ### user add an item to cart (../cart/add/item_id)
 POST http://localhost:8080/api/v1/cart/add/8
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 ### user edit cart item quantity (../cart/update/item_id/quantity)
 PUT http://localhost:8080/api/v1/cart/update/8/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 ### user delete item from cart (../cart/delete/item_id)
 DELETE http://localhost:8080/api/v1/cart/delete/8
 Content-Type: application/json
