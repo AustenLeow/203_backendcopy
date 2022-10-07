@@ -1,4 +1,5 @@
 package com.cs203g1t2.springjwt.controllers;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -25,10 +26,9 @@ public class ItemController {
 
     @Autowired
     AuthenticationManager authenticationManager;
-    
+
     @Autowired
     ItemRepository itemRepository;
-
 
     @GetMapping("/items")
     public List<Item> getItem() {
@@ -44,10 +44,13 @@ public class ItemController {
 
         return item.get();
     }
-    
 
     @PostMapping("/items/add")
-    public Item addItem(@Valid @RequestBody Item newItem){
+    public Item addItem(@Valid @RequestBody Item newItem) {
+        if (itemRepository.existsByItemName(newItem.getItemName())
+                && itemRepository.existsByBrand(newItem.getBrand())) {
+            throw new RuntimeException("Already exists, please edit instead");
+        }
         Item item = new Item();
         item.setItemName(newItem.getItemName());
         item.setPrice(newItem.getPrice());
@@ -97,6 +100,7 @@ public class ItemController {
             item.setType(newItem.getType());
             item.setQuantity(newItem.getQuantity());
             return itemRepository.save(item);
+
         }).orElseThrow(() -> new RuntimeException());
     }
 

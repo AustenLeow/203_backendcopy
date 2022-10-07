@@ -71,7 +71,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
 {
-    "itemName": "Dried pitted prunes",
+    "itemName": "Dried Peanuts",
     "price": 3,
     "brand": "Sunsweet",
     "description": "delicious",
