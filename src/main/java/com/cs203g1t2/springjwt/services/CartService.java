@@ -26,20 +26,20 @@ public class CartService {
         return cartItems;
     }
 
-    // add varying quantities of an item to cart
-    public Integer addItem(Long id, Integer quantity, User user) {
-        Integer addedQuantity = quantity;
+    // add an item to cart
+    public Integer addItem(Long id, User user) {
+        Integer addedQuantity = 1;
 
         Item item = itemRepo.findById(id).get();
 
         CartItem cartItem = cartRepo.findByUserAndItem(user, item);
 
         if (cartItem != null) {
-            addedQuantity = cartItem.getQuantity() + quantity;
+            addedQuantity = cartItem.getQuantity() + 1;
             cartItem.setQuantity(addedQuantity);
         } else {
             cartItem = new CartItem();
-            cartItem.setQuantity(quantity);
+            cartItem.setQuantity(1);
             cartItem.setUser(user);
             cartItem.setItem(item);
         }

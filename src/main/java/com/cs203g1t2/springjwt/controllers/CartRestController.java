@@ -28,8 +28,8 @@ public class CartRestController {
     @Autowired
     private AuthController userController;
 
-    @PostMapping("/cart/add/{id}/{quantity}")
-    public String addItemToCart(@PathVariable("id") Long itemid, @PathVariable("quantity") Integer quantity, 
+    @PostMapping("/cart/add/{id}")
+    public String addItemToCart(@PathVariable("id") Long itemid,
         @AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {
         // if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
         //     return "You have to log in first!";
@@ -39,8 +39,8 @@ public class CartRestController {
         // if (user == null) {
         //     return "You have to log in first!";
         // }
-        Integer addedQuantity = cartService.addItem(itemid, quantity, user);
-        return quantity + " " + itemRepo.findById(itemid).get().getItemName() + " were added to your shopping cart, which now has " + addedQuantity + " of this item.";
+        Integer addedQuantity = cartService.addItem(itemid, user);
+        return itemRepo.findById(itemid).get().getItemName() + " was added to your shopping cart, which now has " + addedQuantity + " of this item.";
     }
 
     @PutMapping("/cart/update/{id}/{quantity}")

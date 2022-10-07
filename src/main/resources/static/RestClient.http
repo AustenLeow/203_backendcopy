@@ -68,7 +68,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0N
 ### add item
 POST http://localhost:8080/api/v1/items/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
 
 {
     "itemName": "Dried pitted prunes",
@@ -120,8 +120,8 @@ GET http://localhost:8080/api/v1/cart
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
-### user add varying quantity of an item to cart (../cart/add/item_id/quantity)
-POST http://localhost:8080/api/v1/cart/add/2/5
+### user add an item to cart (../cart/add/item_id)
+POST http://localhost:8080/api/v1/cart/add/4
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTA0NzUsImV4cCI6MTY2NTExNDA3NX0.5KDO7iE7lkhSorkBtzXidF0piV6At-Bw_b7LY1ISXX_n1CqMvw9Db2GJW6h4HHXkWAMJMMJEXfOVhveJ__ZUwQ
 
