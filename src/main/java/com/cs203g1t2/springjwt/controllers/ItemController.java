@@ -49,7 +49,7 @@ public class ItemController {
     public Item addItem(@Valid @RequestBody Item newItem) {
         if (itemRepository.existsByItemName(newItem.getItemName())
                 && itemRepository.existsByBrand(newItem.getBrand())) {
-            throw new RuntimeException("Already exists, please edit instead");
+            throw new RuntimeException("Already exists, edited quantity instead");
         }
         Item item = new Item();
         item.setItemName(newItem.getItemName());
@@ -91,6 +91,10 @@ public class ItemController {
             throw new RuntimeException("Item details Empty");
         }
 
+        if ( newItem.getQuantity() == 0){
+            deleteItemById(itemRepository.findById(id).get().getId());
+            throw new RuntimeException("Item has no more stock");
+        }
         return itemRepository.findById(id).map(item -> {
             item.setItemName(newItem.getItemName());
             item.setPrice(newItem.getPrice());
