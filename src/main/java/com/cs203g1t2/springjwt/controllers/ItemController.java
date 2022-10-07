@@ -49,7 +49,7 @@ public class ItemController {
     }
 
     
-    @PostMapping("/items/add") @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/items/add") @PreAuthorize("hasRole('MORDERATOR')")
     public Item addItem(@Valid @RequestBody Item newItem) {
         if (itemRepository.existsByItemName(newItem.getItemName())
                 && itemRepository.existsByBrand(newItem.getBrand())) {
@@ -75,7 +75,7 @@ public class ItemController {
         return itemRepository.save(item);
     }
 
-    @DeleteMapping(path = "/items/{Id}") @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping(path = "/items/{Id}") @PreAuthorize("hasRole('MODERATOR')")
     public void deleteItemById(
             @PathVariable("Id") Long id) {
         if (!(itemRepository.findById(id).isPresent())) {
