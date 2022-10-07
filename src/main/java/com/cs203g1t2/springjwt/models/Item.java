@@ -47,6 +47,9 @@ public class Item {
 
     @Column(name = "type")
     private String type;
+
+    @Column(name = "quantity")
+    private Long quantity;
     
     // @Column(name = "filename")
     // private String filename;

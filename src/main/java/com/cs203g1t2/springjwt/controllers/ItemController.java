@@ -55,7 +55,7 @@ public class ItemController {
         item.setDescription(newItem.getDescription());
         item.setExpiry_date(newItem.getExpiry_date());
         item.setType(newItem.getType());
-
+        item.setQuantity(newItem.getQuantity());
         // Item item = new Item(
         // newItem.getItemName(),
         // newItem.getPrice(),
@@ -95,6 +95,7 @@ public class ItemController {
             item.setDescription(newItem.getDescription());
             item.setExpiry_date(newItem.getExpiry_date());
             item.setType(newItem.getType());
+            item.setQuantity(newItem.getQuantity());
             return itemRepository.save(item);
         }).orElseThrow(() -> new RuntimeException());
     }
