@@ -5,6 +5,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,8 +36,9 @@ public class Item {
     @Column(name = "item_name")
     private String itemName;
 
-    @Column(name = "price")
-    private Integer price;
+    @Column(name = "price", nullable = false)
+    @DecimalMin(value = "0.00", message = "*Price has to be non negative number")
+    private BigDecimal price;
 
     @Column(name = "brand")
     private String brand;

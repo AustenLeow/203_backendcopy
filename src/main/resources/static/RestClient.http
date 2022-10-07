@@ -16,7 +16,7 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "aus",
+    "username": "ryan1",
     "password": "password"
 }
 
@@ -71,7 +71,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjUxMTE1MDIsImV4cCI6MTY2NTExNTEwMn0.uleHG2FQCOGPRh6QIz74evnnDS_SLIcOVrlDbEVzTwhT4yMTR0YrBkDHGbQh0Ap5GNdqdQOXpKtkwn5m8MyP6A
 
 {
-    "itemName": "Dried pitted prunes",
+    "itemName": "Dried Peanuts",
     "price": 3,
     "brand": "Sunsweet",
     "description": "delicious",
