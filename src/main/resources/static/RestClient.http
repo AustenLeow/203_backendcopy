@@ -16,7 +16,7 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "aus1",
+    "username": "aus2",
     "password": "password"
 }
 
@@ -64,43 +64,45 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwN
 ### add item
 POST http://localhost:8080/api/v1/items/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzNDMzLCJleHAiOjE2NjU0NTcwMzN9.N_61iY9moeFIrQh8hE5e6N0VsmjwyOyC1cQdgtQxaUV1zGraIpPn9iW93XLh7wS3sw3s8Am8eh6Vvz7MYqpFRw
+
 {
-    "itemName": "Sardine Cans2",
+    "itemName": "watermelon!",
     "price": 5.00,
-    "brand": "Ayam Brand",
-    "description": "delicious",
-    "expiry_date": "10/12/2022",
-    "type":"delicious fish",
-    "quantity": 100,
-    "url": "https://m.media-amazon.com/images/I/81A9tHLuPoL.jpg"
+    "brand": "fair",
+    "description": "yumz",
+    "expiry_date": "10/11/2022",
+    "type":"fruit",
+    "quantity": 5,
+    "url": "https://images.heb.com/is/image/HEBGrocery/000320934"
 }
 
 ### get all items
 GET http://localhost:8080/api/v1/items
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUyMTU2LCJleHAiOjE2NjU0NTU3NTZ9.S2IIbNzuo72l5-Z0M7w-Jab-rLQSfquAR6C5gH_Oia3-8fGxu-21HUFg-8Wh6exHGVH2yV5naPZSLLhTMQoHNw
 ### get item id 7
 GET http://localhost:8080/api/v1/items/13
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 ### delete item id 7
-DELETE http://localhost:8080/api/v1/items/37
+DELETE http://localhost:8080/api/v1/items/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzMzc5LCJleHAiOjE2NjU0NTY5Nzl9.9ih1u6oXS6AjINcJA-Bf5HJpRC-wu1HUpCQrhwxt15M-nIXYi3Gsv3s2hbrJKayMOrXwedIDFhJ815S4-KAECQ
 ### edit item id 9
-PUT http://localhost:8080/api/v1/items/38
+PUT http://localhost:8080/api/v1/items/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzNDMzLCJleHAiOjE2NjU0NTcwMzN9.N_61iY9moeFIrQh8hE5e6N0VsmjwyOyC1cQdgtQxaUV1zGraIpPn9iW93XLh7wS3sw3s8Am8eh6Vvz7MYqpFRw
+
 {
-    "itemName": "Lays Potato Chips2",
-    "price": 1,
-    "brand": "Lays",
-    "description": "Crispy crisps",
-    "expiry_date": "21/10/2022",
-    "type":"tibits",
-    "quantity": 200,
-    "url": "https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/13218718_XL1_20220628.jpg"
+    "itemName": "Watermelon",
+    "price": 2,
+    "brand": "fairprice",
+    "description": "juicy",
+    "expiry_date": "21/12/2022",
+    "type":"fruit",
+    "quantity": 10,
+    "url": "https://images.heb.com/is/image/HEBGrocery/000320934"
 }
 
 
@@ -111,7 +113,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwN
 ### get user's cart
 GET http://localhost:8080/api/v1/cart
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjU0Mjk0MDEsImV4cCI6MTY2NTQzMzAwMX0.X25j9PszoX90zVcABoktbdVCN9r0u1lZeB_ErPy54d886bxingg8HVL0qTd_Dni3pVy7TAZaGKIqnBIFigKztA
 ### user add an item to cart (../cart/add/item_id)
 POST http://localhost:8080/api/v1/cart/add/8
 Content-Type: application/json

@@ -52,4 +52,5 @@ public class CartItem {
     public BigDecimal getSubtotal() {
         return this.item.getPrice().multiply(new BigDecimal(quantity));
     }
+    
 }
