@@ -5,8 +5,8 @@ For more information, our project documentation can be found on this <a href="ht
 ## Get Started (Setting Up Locally)
 
 ### Configure Spring Datasource, JPA, App properties
-Open `src/main/resources/application.properties`
-Enter your MySQL credentials into the fields `spring.datasource.username=` and `spring.datasource.password=`.
+Open `src/main/resources/application.properties`.
+Enter your MySQL Workbench credentials into the fields `spring.datasource.username=` and `spring.datasource.password=`.
 
 ```properties
 spring.datasource.url= jdbc:mysql://localhost:3306/cs203db
@@ -33,3 +33,6 @@ INSERT INTO roles(name) VALUES('ROLE_USER');
 INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
 INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 ```
+
+### Contact
+If you encounter any issues, feel free to email us at austen.leow.2021@scis.smu.edu.sg

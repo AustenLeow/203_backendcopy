@@ -17,11 +17,11 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
   info = @Info(
   title = "API doc",
   version = "1.0.0",
-  description = "This is a simple API for managing books...",
+  description = "This is the documentation for API endpoints of CS203 G1T2 project.",
     contact = @Contact(
     name = "CS203", 
-    url = "Your Website", 
-    email = "youremail@smu.edu.sg"
+    url = "", 
+    email = "austen.leow.2021@scis.smu.edu.sg"
   ),
   license = @License(
     name = "Apache License 2.0", 
