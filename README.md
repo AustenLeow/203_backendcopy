@@ -22,7 +22,7 @@ cs203g1t2.app.jwtExpirationMs= 3600000
 cs203g1t2.app.jwtRefreshExpirationMs= 86400000
 ```
 
-### Run Spring Boot application
+### Run Spring Boot application in the terminal
 ```
 mvn spring-boot:run
 ```
