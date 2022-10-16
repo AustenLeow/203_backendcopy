@@ -70,7 +70,7 @@ public class ItemController {
         // newItem.getDescription(),
         // newItem.getExpiry_date(),
         // newItem.getType());
-
+        
         return itemRepository.save(item);
     }
 
