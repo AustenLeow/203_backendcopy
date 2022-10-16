@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -46,4 +47,10 @@ public class CartItem {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Transient
+    public BigDecimal getSubtotal() {
+        return this.item.getPrice().multiply(new BigDecimal(quantity));
+    }
+    
 }

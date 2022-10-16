@@ -16,6 +16,10 @@ import java.util.List;
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
     List<ItemProjection> findAllByOrderByIdAsc();
+
+    Boolean existsByItemName(String Item_Name);
+
+    Boolean existsByBrand(String Brand);
     
 //     @Query("SELECT item FROM Item item ORDER BY item.id ASC")
 //     Page<ItemProjection> findAllByOrderByIdAsc(Pageable pageable);

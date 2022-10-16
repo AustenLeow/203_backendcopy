@@ -18,7 +18,9 @@ import java.util.Optional;
 import lombok.*;
 import com.cs203g1t2.springjwt.security.jwt.JwtUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.access.prepost.PreAuthorize;
 
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")
@@ -39,25 +41,25 @@ public class UserController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @GetMapping("/users")
+    @GetMapping("/users")@PreAuthorize("hasRole('ADMIN')")
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/users/{id}")@PreAuthorize("hasRole('ADMIN')")
     public User getUser(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
-        if (user.isEmpty()) {
+        if (!(user.isPresent())) {
             throw new RuntimeException("Unable to find user with id" + id);
         }
 
         return user.get();
     }
 
-    @DeleteMapping(path = "/users/{Id}")
+    @DeleteMapping(path = "/users/{Id}")@PreAuthorize("hasRole('ADMIN')")
     public void deleteUserById(
             @PathVariable("Id") Long id) {
-        if (userRepository.findById(id).isEmpty()) {
+        if (!(userRepository.findById(id).isPresent())) {
             throw new RuntimeException("User with id of " + id + " does not exist");
         }
         userRepository.deleteById(id);
