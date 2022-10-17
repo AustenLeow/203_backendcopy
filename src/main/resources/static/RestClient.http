@@ -16,7 +16,7 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "aus2",
+    "username": "aus",
     "password": "password"
 }
 
@@ -113,7 +113,12 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzN
 ### get user's cart
 GET http://localhost:8080/api/v1/cart
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjU0Mjk0MDEsImV4cCI6MTY2NTQzMzAwMX0.X25j9PszoX90zVcABoktbdVCN9r0u1lZeB_ErPy54d886bxingg8HVL0qTd_Dni3pVy7TAZaGKIqnBIFigKztA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYwMDM2NTMsImV4cCI6MTY2NjAwNzI1M30.DQaj-ituc6hz68h1EQf-KZh2g1FvvoAKq95G2fE5rgy-yGQfSmKuJu5E8Qps5Ya-2WE2LdJzczAqCdymU-6ThQ
+### delete user's cart
+DELETE http://localhost:8080/api/v1/cart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYwMDM2NTMsImV4cCI6MTY2NjAwNzI1M30.DQaj-ituc6hz68h1EQf-KZh2g1FvvoAKq95G2fE5rgy-yGQfSmKuJu5E8Qps5Ya-2WE2LdJzczAqCdymU-6ThQ
+
 ### user add an item to cart (../cart/add/item_id)
 POST http://localhost:8080/api/v1/cart/add/8
 Content-Type: application/json
