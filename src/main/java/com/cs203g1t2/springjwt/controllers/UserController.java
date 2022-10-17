@@ -81,6 +81,8 @@ public class UserController {
             user.setUsername(newUser.getUsername());
             user.setPassword(encoder.encode(newUser.getPassword()));
             user.setEmail(newUser.getEmail());
+            user.setCarbonsaved(newUser.getCarbonsaved());
+            user.setMoneysaved(newUser.getMoneysaved());
             return userRepository.save(user);
         }).orElseThrow(() -> new RuntimeException());
     }

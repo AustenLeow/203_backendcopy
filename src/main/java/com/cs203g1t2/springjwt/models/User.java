@@ -96,4 +96,20 @@ public class User {
   public void setRoles(Set<Role> roles) {
     this.roles = roles;
   }
+
+  public Long getCarbonsaved() {
+    return carbonsaved;
+  }
+
+  public void setCarbonsaved(Long carbonsaved) {
+    this.carbonsaved = carbonsaved;
+  }
+
+  public Long getMoneysaved(){
+    return moneysaved;
+  }
+
+  public void setMoneysaved(Long moneysaved) {
+    this.moneysaved = moneysaved;
+  }
 }

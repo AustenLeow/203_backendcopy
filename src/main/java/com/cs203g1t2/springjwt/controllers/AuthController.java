@@ -91,6 +91,30 @@ public class AuthController {
     return user;
   }
 
+  @GetMapping("/currentuser/carbon")
+  public Long getLoggedInUserCarbon(Authentication authentication) {
+    authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication == null) {
+      return null;
+    }
+    // User user = null;
+    Object principal = authentication.getPrincipal();
+    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
+    return user.getCarbonsaved();
+  }
+
+  @GetMapping("/currentuser/money")
+  public Long getLoggedInUserMoney(Authentication authentication) {
+    authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication == null) {
+      return null;
+    }
+    // User user = null;
+    Object principal = authentication.getPrincipal();
+    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
+    return user.getMoneysaved();
+  }
+
   @PostMapping("/signup")
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
     if (userRepository.existsByUsername(signUpRequest.getUsername())) {
