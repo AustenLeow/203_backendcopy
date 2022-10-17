@@ -18,13 +18,14 @@ public class Item {
         
     }
 
-    public Item(String itemName, BigDecimal price, String brand,  String description, String expiry_date, String type) {
+    public Item(String itemName, BigDecimal price, BigDecimal originalprice, String brand,  String description, String expiry_date, String type, String url, BigDecimal carbon) {
         this.itemName = itemName;
         this.price = price;
         this.brand = brand;
         this.description = description;
         this.expiry_date = expiry_date;
         this.type = type;
+        this.url = url;
     }
 
     @Id
@@ -38,6 +39,9 @@ public class Item {
     @Column(name = "price", nullable = false)
     @DecimalMin(value = "0.00", message = "*Price has to be non negative number")
     private BigDecimal price;
+
+    @Column(name = "originalprice")
+    private BigDecimal originalprice;
 
     @Column(name = "brand")
     private String brand;
@@ -56,6 +60,12 @@ public class Item {
 
     @Column(name = "url")
     private String url;
+    
+    @Column(name = "carbon")
+    private BigDecimal carbon;
+
+    @Column(name = "category")
+    private List<String> category;
     
     // @Column(name = "filename")
     // private String filename;
