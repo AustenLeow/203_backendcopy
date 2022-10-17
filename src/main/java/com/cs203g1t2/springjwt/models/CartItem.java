@@ -52,10 +52,5 @@ public class CartItem {
     public BigDecimal getSubtotal() {
         return this.item.getPrice().multiply(new BigDecimal(quantity));
     }
-
-    @Transient
-    public BigDecimal getCarbontotal() {
-        return this.item.getCarbon().multiply(new BigDecimal(quantity));
-    }
     
 }

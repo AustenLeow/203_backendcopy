@@ -18,10 +18,6 @@ public class User {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private Long carbonsaved;
-
-  private Long moneysaved;
-
   @NotBlank
   @Size(max = 20)
   private String username;
