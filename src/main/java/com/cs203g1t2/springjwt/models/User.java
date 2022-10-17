@@ -37,10 +37,6 @@ public class User {
         inverseJoinColumns = @JoinColumn(name = "role_id"))
   private Set<Role> roles = new HashSet<>();
 
-  @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-  private List<ItemListing> listing = new ArrayList<>();
-
-
   public User() {
   }
 

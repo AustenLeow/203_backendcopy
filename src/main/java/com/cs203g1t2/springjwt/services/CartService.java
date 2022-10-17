@@ -29,6 +29,15 @@ public class CartService {
         return cartItems;
     }
 
+    public BigDecimal getTotalPrice(User user) {
+        List<CartItem> cartItems = cartRepo.findByUser(user);
+        BigDecimal totalPrice = new BigDecimal(0);
+        for (CartItem cartItem : cartItems) {
+            totalPrice = totalPrice.add(cartItem.getSubtotal());
+        }
+        return totalPrice;
+    }
+
     // add an item to cart
     public Integer addItem(Long id, User user) throws NotEnoughItemsInStockException {
         Integer addedQuantity = 1;

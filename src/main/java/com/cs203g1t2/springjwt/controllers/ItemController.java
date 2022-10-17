@@ -19,7 +19,9 @@ import lombok.*;
 import com.cs203g1t2.springjwt.security.jwt.JwtUtils;
 import com.cs203g1t2.springjwt.exceptions.ItemExistsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.access.prepost.PreAuthorize;
 
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")
@@ -39,14 +41,14 @@ public class ItemController {
     @GetMapping("/items/{id}")
     public Item getItem(@PathVariable Long id) {
         Optional<Item> item = itemRepository.findById(id);
-        if (item.isEmpty()) {
+        if (!(item.isPresent())) {
             throw new RuntimeException("Unable to find item with id" + id);
         }
 
         return item.get();
     }
 
-    @PostMapping("/items/add")
+    @PostMapping("/items/add")@PreAuthorize("hasRole('ROLE_MODERATOR')")
     public Item addItem(@Valid @RequestBody Item newItem) {
         if (itemRepository.existsByItemName(newItem.getItemName())
                 && itemRepository.existsByBrand(newItem.getBrand())) {
@@ -68,14 +70,14 @@ public class ItemController {
         // newItem.getDescription(),
         // newItem.getExpiry_date(),
         // newItem.getType());
-
+        
         return itemRepository.save(item);
     }
 
-    @DeleteMapping(path = "/items/{Id}")
+    @DeleteMapping(path = "/items/{Id}")@PreAuthorize("hasRole('ROLE_MODERATOR')")
     public void deleteItemById(
             @PathVariable("Id") Long id) {
-        if (itemRepository.findById(id).isEmpty()) {
+        if (!(itemRepository.findById(id).isPresent())) {
             throw new RuntimeException("Item with id of " + id + " does not exist");
         }
         itemRepository.deleteById(id);
@@ -91,6 +93,10 @@ public class ItemController {
         }
         if (newItem == null) {
             throw new RuntimeException("Item details Empty");
+        }
+        if (itemRepository.existsByItemName(newItem.getItemName())
+                && itemRepository.existsByBrand(newItem.getBrand())) {
+            throw new ItemExistsException(newItem);
         }
 
         if ( newItem.getQuantity() == 0){

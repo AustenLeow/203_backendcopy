@@ -18,6 +18,7 @@ import com.cs203g1t2.springjwt.controllers.AuthController;
 import com.cs203g1t2.springjwt.repository.ItemRepository;
 import com.cs203g1t2.springjwt.exceptions.NotEnoughItemsInStockException;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
 public class CartRestController {
@@ -48,9 +49,6 @@ public class CartRestController {
     @PutMapping("/cart/update/{id}/{quantity}")
     public String updateQuantity(@PathVariable("id") Long itemid, @PathVariable("quantity") Integer quantity, 
         @AuthenticationPrincipal org.springframework.security.core.Authentication authentication) throws NotEnoughItemsInStockException{
-        // if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-        //     return "You have to log in first!";
-        // }
 
         authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userController.getLoggedInUser(authentication);
@@ -64,9 +62,7 @@ public class CartRestController {
     @DeleteMapping("/cart/delete/{id}")
     public String deleteItemFromCart(@PathVariable("id") Long itemid, 
         @AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {
-        // if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-        //     return "You have to log in first!";
-        // }
+
         authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userController.getLoggedInUser(authentication);
         // if (user == null) {
