@@ -1,7 +1,7 @@
 package com.cs203g1t2.springjwt.controllers;
 
 import java.util.List;
-
+import java.util.ArrayList;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +48,33 @@ public class ItemController {
         return item.get();
     }
 
+    @GetMapping("/item/location/{location}")
+    public List<Item> getItemByLocation(@PathVariable String location) {
+        List<Item> items = itemRepository.findAll();
+        List<Item> ret = new ArrayList<Item>();
+        for ( Object item : items){
+            Item theitem = (Item)item;
+            if (theitem.getLocation().equals(location)){
+                ret.add(theitem);
+            }
+        }
+        return ret;
+    }
+
+    @GetMapping("/item/type/{type}")
+    public List<Item> getItemByType(@PathVariable String type) {
+        List<Item> items = itemRepository.findAll();
+        List<Item> ret = new ArrayList<Item>();
+        for ( Object item : items){
+            Item theitem = (Item)item;
+            if (theitem.getType().equals(type)){
+                ret.add(theitem);
+            }
+        }
+        return ret;
+    }
+    
+
     @PostMapping("/items/add")@PreAuthorize("hasRole('ROLE_MODERATOR')")
     public Item addItem(@Valid @RequestBody Item newItem) {
         if (itemRepository.existsByItemName(newItem.getItemName())
@@ -65,6 +92,7 @@ public class ItemController {
         item.setQuantity(newItem.getQuantity());
         item.setUrl(newItem.getUrl());
         item.setCarbon(newItem.getCarbon());
+        item.setLocation(newItem.getLocation());
         // Item item = new Item(
         // newItem.getItemName(),
         // newItem.getPrice(),
@@ -116,6 +144,7 @@ public class ItemController {
             item.setQuantity(newItem.getQuantity());
             item.setUrl(newItem.getUrl());
             item.setCarbon(newItem.getCarbon());
+            item.setLocation(newItem.getLocation());
             return itemRepository.save(item);
 
         }).orElseThrow(() -> new RuntimeException());
