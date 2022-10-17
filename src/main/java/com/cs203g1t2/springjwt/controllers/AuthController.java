@@ -91,7 +91,7 @@ public class AuthController {
     return user;
   }
 
-  @GetMapping("/currentuser/carbon")
+  @GetMapping("/currentuser/carbonsaved")
   public Long getLoggedInUserCarbon(Authentication authentication) {
     authentication = SecurityContextHolder.getContext().getAuthentication();
     if (authentication == null) {
@@ -103,7 +103,7 @@ public class AuthController {
     return user.getCarbonsaved();
   }
 
-  @GetMapping("/currentuser/money")
+  @GetMapping("/currentuser/moneysaved")
   public Long getLoggedInUserMoney(Authentication authentication) {
     authentication = SecurityContextHolder.getContext().getAuthentication();
     if (authentication == null) {
