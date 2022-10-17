@@ -21,11 +21,13 @@ public class Item {
     public Item(String itemName, BigDecimal price, BigDecimal originalprice, String brand,  String description, String expiry_date, String type, String url, BigDecimal carbon) {
         this.itemName = itemName;
         this.price = price;
+        this.originalprice = originalprice;
         this.brand = brand;
         this.description = description;
         this.expiry_date = expiry_date;
         this.type = type;
         this.url = url;
+        this.carbon = carbon;
     }
 
     @Id
@@ -63,9 +65,7 @@ public class Item {
     
     @Column(name = "carbon")
     private BigDecimal carbon;
-
-    @Column(name = "category")
-    private List<String> category;
+    
     
     // @Column(name = "filename")
     // private String filename;
