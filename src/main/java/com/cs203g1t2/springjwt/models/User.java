@@ -44,10 +44,12 @@ public class User {
   public User() {
   }
 
-  public User(String username, String email, String password) {
+  public User(String username, String email, String password, Long carbonsaved, Long moneysaved) {
     this.username = username;
     this.email = email;
     this.password = password;
+    this.carbonsaved = carbonsaved;
+    this.moneysaved = moneysaved;
   }
 
   public User(Long id, String username, String email, String password) {
