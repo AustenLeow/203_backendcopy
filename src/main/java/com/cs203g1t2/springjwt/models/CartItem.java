@@ -35,6 +35,10 @@ public class CartItem {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id", insertable = false, updatable = false)
+    private Order order;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
