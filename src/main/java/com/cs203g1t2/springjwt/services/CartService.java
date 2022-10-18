@@ -80,8 +80,4 @@ public class CartService {
     public void removeItem(Long itemid, User user) {
         cartRepo.deleteByUserAndItem(user.getId(), itemid);
     }
-
-    public void deleteCart(User user) {
-        cartRepo.deleteByUser(user.getId());
-    }
 }
