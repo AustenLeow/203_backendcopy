@@ -48,7 +48,7 @@ public class ItemController {
         return item.get();
     }
 
-    @GetMapping("/items/location/{location}")
+    @GetMapping("/item/location/{location}")
     public List<Item> getItemByLocation(@PathVariable String location) {
         List<Item> items = itemRepository.findAll();
         List<Item> ret = new ArrayList<Item>();
@@ -61,7 +61,7 @@ public class ItemController {
         return ret;
     }
 
-    @GetMapping("/items/type/{type}")
+    @GetMapping("/item/type/{type}")
     public List<Item> getItemByType(@PathVariable String type) {
         List<Item> items = itemRepository.findAll();
         List<Item> ret = new ArrayList<Item>();
