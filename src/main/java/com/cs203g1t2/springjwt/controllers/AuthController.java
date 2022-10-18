@@ -91,6 +91,30 @@ public class AuthController {
     return user;
   }
 
+  @GetMapping("/currentuser/carbonsaved")
+  public Long getLoggedInUserCarbon(Authentication authentication) {
+    authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication == null) {
+      return null;
+    }
+    // User user = null;
+    Object principal = authentication.getPrincipal();
+    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
+    return user.getCarbonsaved();
+  }
+
+  @GetMapping("/currentuser/moneysaved")
+  public Long getLoggedInUserMoney(Authentication authentication) {
+    authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication == null) {
+      return null;
+    }
+    // User user = null;
+    Object principal = authentication.getPrincipal();
+    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
+    return user.getMoneysaved();
+  }
+
   @PostMapping("/signup")
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
     if (userRepository.existsByUsername(signUpRequest.getUsername())) {
@@ -108,7 +132,9 @@ public class AuthController {
     // Create new user's account
     User user = new User(signUpRequest.getUsername(), 
                signUpRequest.getEmail(),
-               encoder.encode(signUpRequest.getPassword()));
+               encoder.encode(signUpRequest.getPassword()),
+               Long.valueOf(0),Long.valueOf(0));
+
 
     Set<String> strRoles = signUpRequest.getRole();
     Set<Role> roles = new HashSet<>();

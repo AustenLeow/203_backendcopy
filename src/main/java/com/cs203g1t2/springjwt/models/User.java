@@ -18,6 +18,10 @@ public class User {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  private Long carbonsaved;
+
+  private Long moneysaved;
+
   @NotBlank
   @Size(max = 20)
   private String username;
@@ -40,10 +44,12 @@ public class User {
   public User() {
   }
 
-  public User(String username, String email, String password) {
+  public User(String username, String email, String password, Long carbonsaved, Long moneysaved) {
     this.username = username;
     this.email = email;
     this.password = password;
+    this.carbonsaved = carbonsaved;
+    this.moneysaved = moneysaved;
   }
 
   public User(Long id, String username, String email, String password) {
@@ -91,5 +97,21 @@ public class User {
 
   public void setRoles(Set<Role> roles) {
     this.roles = roles;
+  }
+
+  public Long getCarbonsaved() {
+    return carbonsaved;
+  }
+
+  public void setCarbonsaved(Long carbonsaved) {
+    this.carbonsaved = carbonsaved;
+  }
+
+  public Long getMoneysaved(){
+    return moneysaved;
+  }
+
+  public void setMoneysaved(Long moneysaved) {
+    this.moneysaved = moneysaved;
   }
 }

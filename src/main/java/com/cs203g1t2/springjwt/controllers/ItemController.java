@@ -1,7 +1,7 @@
 package com.cs203g1t2.springjwt.controllers;
 
 import java.util.List;
-
+import java.util.ArrayList;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,20 +48,32 @@ public class ItemController {
         return item.get();
     }
 
-    // @GetMapping("/items/{type}")
-    // public Item getItem(@PathVariable String type) {
-    //     Optional<Item> item = itemRepository.findByType(type);
-    //     if (!(item.isPresent())) {
-    //         throw new RuntimeException("Unable to find item with type " + type);
-    //     }
-
-    //     return item.get();
-    // }
-
-    @GetMapping("/items/{type}")
-    public List<Item> getItembyType(@PathVariable String type) {
-        return itemRepository.findByType(type);
+    @GetMapping("/items/location/{location}")
+    public List<Item> getItemByLocation(@PathVariable String location) {
+        List<Item> items = itemRepository.findAll();
+        List<Item> ret = new ArrayList<Item>();
+        for ( Object item : items){
+            Item theitem = (Item)item;
+            if (theitem.getLocation().equals(location)){
+                ret.add(theitem);
+            }
+        }
+        return ret;
     }
+
+    @GetMapping("/items/type/{type}")
+    public List<Item> getItemByType(@PathVariable String type) {
+        List<Item> items = itemRepository.findAll();
+        List<Item> ret = new ArrayList<Item>();
+        for ( Object item : items){
+            Item theitem = (Item)item;
+            if (theitem.getType().equals(type)){
+                ret.add(theitem);
+            }
+        }
+        return ret;
+    }
+    
 
     @PostMapping("/items/add")@PreAuthorize("hasRole('ROLE_MODERATOR')")
     public Item addItem(@Valid @RequestBody Item newItem) {
@@ -72,12 +84,15 @@ public class ItemController {
         Item item = new Item();
         item.setItemName(newItem.getItemName());
         item.setPrice(newItem.getPrice());
+        item.setOriginalprice(newItem.getOriginalprice());
         item.setBrand(newItem.getBrand());
         item.setDescription(newItem.getDescription());
         item.setExpiry_date(newItem.getExpiry_date());
         item.setType(newItem.getType());
         item.setQuantity(newItem.getQuantity());
         item.setUrl(newItem.getUrl());
+        item.setCarbon(newItem.getCarbon());
+        item.setLocation(newItem.getLocation());
         // Item item = new Item(
         // newItem.getItemName(),
         // newItem.getPrice(),
@@ -121,12 +136,15 @@ public class ItemController {
         return itemRepository.findById(id).map(item -> {
             item.setItemName(newItem.getItemName());
             item.setPrice(newItem.getPrice());
+            item.setOriginalprice(newItem.getOriginalprice());
             item.setBrand(newItem.getBrand());
             item.setDescription(newItem.getDescription());
             item.setExpiry_date(newItem.getExpiry_date());
             item.setType(newItem.getType());
             item.setQuantity(newItem.getQuantity());
             item.setUrl(newItem.getUrl());
+            item.setCarbon(newItem.getCarbon());
+            item.setLocation(newItem.getLocation());
             return itemRepository.save(item);
 
         }).orElseThrow(() -> new RuntimeException());

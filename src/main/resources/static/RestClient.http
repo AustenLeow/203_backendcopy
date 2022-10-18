@@ -85,6 +85,12 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY2MDA1O
 GET http://localhost:8080/api/v1/items/13
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+
+###
+GET http://localhost:8080/api/v1/items/type/Vegetable
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDU5NDAxLCJleHAiOjE2NjYwNjMwMDF9.0cyp4GTJpR6aa1-enkvtC2LxADB1msW21zaRDm2ZDkbYPLw_9dE-rxeeaX6zff_tNwrpvoaqsZnCJ_wSMYqANA
+
 ### delete item id 7
 DELETE http://localhost:8080/api/v1/items/2
 Content-Type: application/json
@@ -118,7 +124,12 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY2MDA1O
 ### get user's cart
 GET http://localhost:8080/api/v1/cart
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjU0Mjk0MDEsImV4cCI6MTY2NTQzMzAwMX0.X25j9PszoX90zVcABoktbdVCN9r0u1lZeB_ErPy54d886bxingg8HVL0qTd_Dni3pVy7TAZaGKIqnBIFigKztA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYwMDM2NTMsImV4cCI6MTY2NjAwNzI1M30.DQaj-ituc6hz68h1EQf-KZh2g1FvvoAKq95G2fE5rgy-yGQfSmKuJu5E8Qps5Ya-2WE2LdJzczAqCdymU-6ThQ
+### delete user's cart
+DELETE http://localhost:8080/api/v1/cart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYwMDM2NTMsImV4cCI6MTY2NjAwNzI1M30.DQaj-ituc6hz68h1EQf-KZh2g1FvvoAKq95G2fE5rgy-yGQfSmKuJu5E8Qps5Ya-2WE2LdJzczAqCdymU-6ThQ
+
 ### user add an item to cart (../cart/add/item_id)
 POST http://localhost:8080/api/v1/cart/add/8
 Content-Type: application/json

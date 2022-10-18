@@ -33,4 +33,11 @@ public class CartController {
         List<CartItem> cartItems = cartService.listCartItems(user);
         return cartItems;
     }
+
+    @DeleteMapping("/cart")
+    public void deleteCart(@AuthenticationPrincipal Authentication authentication) {
+        authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userController.getLoggedInUser(authentication);
+        cartService.deleteCart(user);
+    }
 }
