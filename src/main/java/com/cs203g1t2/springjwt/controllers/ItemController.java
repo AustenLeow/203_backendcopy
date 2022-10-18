@@ -48,6 +48,21 @@ public class ItemController {
         return item.get();
     }
 
+    // @GetMapping("/items/{type}")
+    // public Item getItem(@PathVariable String type) {
+    //     Optional<Item> item = itemRepository.findByType(type);
+    //     if (!(item.isPresent())) {
+    //         throw new RuntimeException("Unable to find item with type " + type);
+    //     }
+
+    //     return item.get();
+    // }
+
+    @GetMapping("/items/{type}")
+    public List<Item> getItembyType(@PathVariable String type) {
+        return itemRepository.findByType(type);
+    }
+
     @PostMapping("/items/add")@PreAuthorize("hasRole('ROLE_MODERATOR')")
     public Item addItem(@Valid @RequestBody Item newItem) {
         if (itemRepository.existsByItemName(newItem.getItemName())

@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long> {
@@ -20,6 +21,13 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     Boolean existsByItemName(String Item_Name);
 
     Boolean existsByBrand(String Brand);
+
+    // @Query("select * from item where item.type like %type%")
+    // Optional<Item> findByType(String type);
+
+    @Query("select * from item where item.type like %type%")
+    List<Item> findByType(String type);
+
     
 //     @Query("SELECT item FROM Item item ORDER BY item.id ASC")
 //     Page<ItemProjection> findAllByOrderByIdAsc(Pageable pageable);

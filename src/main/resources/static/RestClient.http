@@ -5,9 +5,9 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "username": "aus7",
-    "email": "aus7@gmail.com",
-    "password": "password"
+    "username": "aus20",
+    "email": "aus20@gmail.com",
+    "password": "password20"
 }
 
 ### user login
@@ -16,7 +16,7 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "aus2",
+    "username": "aus4",
     "password": "password"
 }
 
@@ -64,7 +64,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwN
 ### add item
 POST http://localhost:8080/api/v1/items/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzNDMzLCJleHAiOjE2NjU0NTcwMzN9.N_61iY9moeFIrQh8hE5e6N0VsmjwyOyC1cQdgtQxaUV1zGraIpPn9iW93XLh7wS3sw3s8Am8eh6Vvz7MYqpFRw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY1OTk3NjMxLCJleHAiOjE2NjYwMDEyMzF9.H97z2Woa6Er0MyHqSMnuJhHtDTOvXf-6tU5cBix1FxI68v54JuSmYO4ryySa2JkkXZVVNuF9eAa4mXxKYCsVsQ
 
 {
     "itemName": "watermelon!",
@@ -80,7 +80,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzN
 ### get all items
 GET http://localhost:8080/api/v1/items
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUyMTU2LCJleHAiOjE2NjU0NTU3NTZ9.S2IIbNzuo72l5-Z0M7w-Jab-rLQSfquAR6C5gH_Oia3-8fGxu-21HUFg-8Wh6exHGVH2yV5naPZSLLhTMQoHNw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY2MDA1ODIwLCJleHAiOjE2NjYwMDk0MjB9.k8ecU_R11iAjIpdQhb5dRJlStWCkEdQo-NjVL40sVlCbkijHncyT3c3OvHfIESUBRKYGffKZQG6RiVYkJUOoog
 ### get item id 7
 GET http://localhost:8080/api/v1/items/13
 Content-Type: application/json
@@ -93,6 +93,11 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzM
 PUT http://localhost:8080/api/v1/items/4
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzNDMzLCJleHAiOjE2NjU0NTcwMzN9.N_61iY9moeFIrQh8hE5e6N0VsmjwyOyC1cQdgtQxaUV1zGraIpPn9iW93XLh7wS3sw3s8Am8eh6Vvz7MYqpFRw
+### get item type fruit
+GET http://localhost:8080/api/v1/items/fruit
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY2MDA1ODIwLCJleHAiOjE2NjYwMDk0MjB9.k8ecU_R11iAjIpdQhb5dRJlStWCkEdQo-NjVL40sVlCbkijHncyT3c3OvHfIESUBRKYGffKZQG6RiVYkJUOoog
+
 
 {
     "itemName": "Watermelon",
