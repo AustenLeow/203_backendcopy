@@ -16,7 +16,7 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "aus",
+    "username": "aus8",
     "password": "password"
 }
 
@@ -85,6 +85,12 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUyM
 GET http://localhost:8080/api/v1/items/13
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+
+###
+GET http://localhost:8080/api/v1/items/type/Vegetable
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDU5NDAxLCJleHAiOjE2NjYwNjMwMDF9.0cyp4GTJpR6aa1-enkvtC2LxADB1msW21zaRDm2ZDkbYPLw_9dE-rxeeaX6zff_tNwrpvoaqsZnCJ_wSMYqANA
+
 ### delete item id 7
 DELETE http://localhost:8080/api/v1/items/2
 Content-Type: application/json
