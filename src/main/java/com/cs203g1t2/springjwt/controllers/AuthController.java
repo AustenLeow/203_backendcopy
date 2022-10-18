@@ -76,7 +76,7 @@ public class AuthController {
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(userDetails.getId());
 
     return ResponseEntity.ok(new JwtResponse(jwt, refreshToken.getToken(),userDetails.getId(),
-    userDetails.getUsername(), userDetails.getEmail(),roles, userDetails.getAnswer()));
+    userDetails.getUsername(), userDetails.getEmail(),roles));
   }
 
   @GetMapping("/currentuser")
@@ -87,7 +87,7 @@ public class AuthController {
     }
     // User user = null;
     Object principal = authentication.getPrincipal();
-    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword(),((UserDetailsImpl)principal).getCarbonsaved() , ((UserDetailsImpl)principal).getMoneysaved() , ((UserDetailsImpl)principal).getAnswer());
+    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
     return user;
   }
 
@@ -99,7 +99,7 @@ public class AuthController {
     }
     // User user = null;
     Object principal = authentication.getPrincipal();
-    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword(), ((UserDetailsImpl)principal).getCarbonsaved() , ((UserDetailsImpl)principal).getMoneysaved() , ((UserDetailsImpl)principal).getAnswer());
+    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
     return user.getCarbonsaved();
   }
 
@@ -111,7 +111,7 @@ public class AuthController {
     }
     // User user = null;
     Object principal = authentication.getPrincipal();
-    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword(), ((UserDetailsImpl)principal).getCarbonsaved() , ((UserDetailsImpl)principal).getMoneysaved() , ((UserDetailsImpl)principal).getAnswer());
+    User user = new User(((UserDetailsImpl)principal).getId(), ((UserDetailsImpl)principal).getUsername(), ((UserDetailsImpl)principal).getEmail(), ((UserDetailsImpl)principal).getPassword());
     return user.getMoneysaved();
   }
 
@@ -133,7 +133,7 @@ public class AuthController {
     User user = new User(signUpRequest.getUsername(), 
                signUpRequest.getEmail(),
                encoder.encode(signUpRequest.getPassword()),
-               Long.valueOf(0),Long.valueOf(0), signUpRequest.getAnswer());
+               Long.valueOf(0),Long.valueOf(0));
 
 
     Set<String> strRoles = signUpRequest.getRole();

@@ -5,10 +5,9 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "username": "aus9",
-    "email": "aus9@gmail.com",
-    "password": "password",
-    "answer": "prata"
+    "username": "aus7",
+    "email": "aus7@gmail.com",
+    "password": "password"
 }
 
 ### user login

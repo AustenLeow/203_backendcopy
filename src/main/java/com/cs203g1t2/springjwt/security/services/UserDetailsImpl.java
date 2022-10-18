@@ -24,24 +24,15 @@ public class UserDetailsImpl implements UserDetails {
   @JsonIgnore
   private String password;
 
-  private Long carbonsaved;
-
-  private Long moneysaved;
-
-  private String answer;
-
   private Collection<? extends GrantedAuthority> authorities;
 
   public UserDetailsImpl(Long id, String username, String email, String password,
-      Collection<? extends GrantedAuthority> authorities, Long carbonsaved, Long moneysaved, String answer) {
+      Collection<? extends GrantedAuthority> authorities) {
     this.id = id;
     this.username = username;
     this.email = email;
     this.password = password;
     this.authorities = authorities;
-    this.carbonsaved = carbonsaved;
-    this.moneysaved = moneysaved;
-    this.answer = answer;
   }
 
   public static UserDetailsImpl build(User user) {
@@ -54,11 +45,7 @@ public class UserDetailsImpl implements UserDetails {
         user.getUsername(), 
         user.getEmail(),
         user.getPassword(), 
-        authorities,
-        user.getCarbonsaved(),
-        user.getMoneysaved(),
-        user.getAnswer()
-        );
+        authorities);
   }
 
   @Override
@@ -84,18 +71,6 @@ public class UserDetailsImpl implements UserDetails {
     return username;
   }
 
-  public Long getCarbonsaved() {
-    return carbonsaved;
-  }
-
-  public Long getMoneysaved() {
-    return moneysaved;
-  }
-
-  public String getAnswer() {
-    return answer;
-  }
-
   @Override
   public boolean isAccountNonExpired() {
     return true;
@@ -112,7 +87,7 @@ public class UserDetailsImpl implements UserDetails {
   }
 
   @Override
-  public boolean isEnabled(){
+  public boolean isEnabled() {
     return true;
   }
 

@@ -20,11 +20,6 @@ public class SignupRequest {
   @Size(min = 6, max = 40)
   private String password;
 
-  @NotBlank
-  @Size(min = 1, max = 100)
-  private String answer;
-
-
   public String getUsername() {
     return username;
   }
@@ -55,13 +50,5 @@ public class SignupRequest {
 
   public void setRole(Set<String> role) {
     this.role = role;
-  }
-
-  public String getAnswer() {
-    return answer;
-  }
-
-  public void setAnswer(String answer){
-    this.answer = answer;
   }
 }
