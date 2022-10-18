@@ -41,14 +41,12 @@ public class UserController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @GetMapping("/users")
-    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/users")@PreAuthorize("hasRole('ADMIN')")
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
-    @GetMapping("/users/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/users/{id}")@PreAuthorize("hasRole('ADMIN')")
     public User getUser(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
         if (!(user.isPresent())) {
@@ -58,8 +56,7 @@ public class UserController {
         return user.get();
     }
 
-    @DeleteMapping(path = "/users/{Id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping(path = "/users/{Id}")@PreAuthorize("hasRole('ADMIN')")
     public void deleteUserById(
             @PathVariable("Id") Long id) {
         if (!(userRepository.findById(id).isPresent())) {
@@ -79,20 +76,15 @@ public class UserController {
         if (newUser == null) {
             throw new RuntimeException("User details Empty");
         }
-        User theuser = userRepository.findById(id).get();
-        if (newUser.getAnswer().equals(theuser.getAnswer())) {
 
-            return userRepository.findById(id).map(user -> {
-                user.setUsername(newUser.getUsername());
-                user.setPassword(encoder.encode(newUser.getPassword()));
-                user.setEmail(newUser.getEmail());
-                user.setCarbonsaved(newUser.getCarbonsaved());
-                user.setMoneysaved(newUser.getMoneysaved());
-                user.setAnswer(newUser.getAnswer());
-                return userRepository.save(user);
-            }).orElseThrow(() -> new RuntimeException());
-        } else {
-            throw new RuntimeException("Wrong answer to security question");
-        }
+        return userRepository.findById(id).map(user -> {
+            user.setUsername(newUser.getUsername());
+            user.setPassword(encoder.encode(newUser.getPassword()));
+            user.setEmail(newUser.getEmail());
+            user.setCarbonsaved(newUser.getCarbonsaved());
+            user.setMoneysaved(newUser.getMoneysaved());
+            user.setAnswer(newUser.getAnswer());
+            return userRepository.save(user);
+        }).orElseThrow(() -> new RuntimeException());
     }
 }
