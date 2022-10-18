@@ -38,15 +38,16 @@ public class ItemController {
         return itemRepository.findAll();
     }
 
+
     @GetMapping("/items/{id}")
     public Item getItem(@PathVariable Long id) {
         Optional<Item> item = itemRepository.findById(id);
         if (!(item.isPresent())) {
             throw new RuntimeException("Unable to find item with id" + id);
         }
-
         return item.get();
     }
+
 
     @GetMapping("/items/location/{location}")
     public List<Item> getItemByLocation(@PathVariable String location) {
@@ -68,6 +69,19 @@ public class ItemController {
         for ( Object item : items){
             Item theitem = (Item)item;
             if (theitem.getType().equals(type)){
+                ret.add(theitem);
+            }
+        }
+        return ret;
+    }
+
+    @GetMapping("/items/type+location/{type}/{location}")
+    public List<Item> getItemByType(@PathVariable String type, @PathVariable String location) {
+        List<Item> items = itemRepository.findAll();
+        List<Item> ret = new ArrayList<Item>();
+        for ( Object item : items){
+            Item theitem = (Item)item;
+            if (theitem.getType().equals(type) && theitem.getLocation().equals(location)){
                 ret.add(theitem);
             }
         }
@@ -149,5 +163,4 @@ public class ItemController {
 
         }).orElseThrow(() -> new RuntimeException());
     }
-
 }
