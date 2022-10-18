@@ -5,9 +5,10 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "username": "aus7",
-    "email": "aus7@gmail.com",
-    "password": "password"
+    "username": "aus9",
+    "email": "aus9@gmail.com",
+    "password": "password",
+    "answer": "prata"
 }
 
 ### user login
@@ -16,27 +17,27 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "aus",
+    "username": "aus8",
     "password": "password"
 }
 
 ### get current logged in user
 GET http://localhost:8080/api/auth/currentuser
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
 
 ### get all users
 GET http://localhost:8080/api/v1/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
 ### get user 1
 GET http://localhost:8080/api/v1/users/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
 ### delete user 4
 DELETE http://localhost:8080/api/v1/users/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
 # Content-Type: application/json
 # Authorization: Basic admin goodpassword
 
@@ -47,13 +48,15 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwN
 #  }
 
 ### edit user 2
-PUT http://localhost:8080/api/v1/users/2
+PUT http://localhost:8080/api/v1/users/9
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDgzNzkzLCJleHAiOjE2NjYwODczOTN9.n6RWxcd0-2i79S8RCMzcjC6ifvFqTJUmT0f8GaDzMJnbs-ZlnbWpxi815pNEGCZoPSFVJbERBjWCCAbWmC9VeQ
+
 {
-    "username": "aus2",
-    "email": "aus2@gmail.com",
-    "password": "password"
+    "username": "aus9",
+    "email": "aus9@gmail.com",
+    "password": "password",
+    "answer": "prata"
 }
 
 
@@ -84,7 +87,24 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUyM
 ### get item id 7
 GET http://localhost:8080/api/v1/items/13
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
+
+###
+GET http://localhost:8080/api/v1/items/type/Vegetable
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
+
+
+###
+GET http://localhost:8080/api/v1/items/location/south
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
+
+###
+GET http://localhost:8080/api/v1/items/type+location/Vegetable/south
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
+
 ### delete item id 7
 DELETE http://localhost:8080/api/v1/items/2
 Content-Type: application/json
@@ -122,11 +142,11 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYwMDM2N
 ### user add an item to cart (../cart/add/item_id)
 POST http://localhost:8080/api/v1/cart/add/8
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
 ### user edit cart item quantity (../cart/update/item_id/quantity)
 PUT http://localhost:8080/api/v1/cart/update/8/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
 ### user delete item from cart (../cart/delete/item_id)
 DELETE http://localhost:8080/api/v1/cart/delete/8
 Content-Type: application/json
