@@ -17,7 +17,7 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "aus8",
+    "username": "aus",
     "password": "password"
 }
 
@@ -148,6 +148,26 @@ PUT http://localhost:8080/api/v1/cart/update/8/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDg1OTAxLCJleHAiOjE2NjYwODk1MDF9.dObtmKX5gPono_e36iHovTZ_JlssptVgbZdolrHJHMNWcEq7mtICjg7PZYaDDFklZkSEv5XDjvp8WcfYX6bBpw
 ### user delete item from cart (../cart/delete/item_id)
+DELETE http://localhost:8080/api/v1/cart/delete/8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
+
+
+
+
+##################################### ORDER #####################################
+
+### get user's order history
+GET http://localhost:8080/api/v1/order
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYwMDM2NTMsImV4cCI6MTY2NjAwNzI1M30.DQaj-ituc6hz68h1EQf-KZh2g1FvvoAKq95G2fE5rgy-yGQfSmKuJu5E8Qps5Ya-2WE2LdJzczAqCdymU-6ThQ
+
+### user add an order to orderhistories (../order/add/order_id)
+POST http://localhost:8080/api/v1/order/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYyNTMxMjksImV4cCI6MTY2NjI1NjcyOX0.KqMH8t62lgv9bk1ppkC5aE6tUrTvwjiuCTb_XYxQniRa1vyokNKHvYzqVDbMM0PBQPFWGf5weRo0yRXXd6LqOg
+
+### user delete order (../order/delete/order_id)
 DELETE http://localhost:8080/api/v1/cart/delete/8
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ

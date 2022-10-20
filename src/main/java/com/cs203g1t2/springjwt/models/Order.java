@@ -1,11 +1,15 @@
 package com.cs203g1t2.springjwt.models;
 
+import java.math.BigDecimal;
+
 import lombok.*;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import java.util.*;
+
+import com.cs203g1t2.springjwt.services.OrderService;
 
 @Getter
 @Setter
@@ -27,7 +31,7 @@ public class Order {
     private List<CartItem> cartItems;
 
     @Column(name = "total_price")
-    private int total;
+    private BigDecimal total;
 
     public Order() {
 
