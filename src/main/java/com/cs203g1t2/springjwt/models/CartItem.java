@@ -51,7 +51,7 @@ public class CartItem {
     @JoinColumn(name = "order_id", insertable = false, updatable = false)
     private Order order;
     
-    private boolean deleted = Boolean.FALSE;
+    // private boolean deleted = Boolean.FALSE;
 
     @Override
     public boolean equals(Object o) {

@@ -25,8 +25,8 @@ import com.cs203g1t2.springjwt.exceptions.NotEnoughItemsInStockException;
 @Transactional
 public class CartService {
 
-    @Autowired
-    private EntityManager entityManager;
+    // @Autowired
+    // private EntityManager entityManager;
 
     @Autowired
     private CartItemRepository cartRepo;
