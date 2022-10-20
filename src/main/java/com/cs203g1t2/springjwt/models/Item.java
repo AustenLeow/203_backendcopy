@@ -8,16 +8,17 @@ import javax.validation.constraints.Min;
 import java.util.List;
 import java.util.Objects;
 
+
 @Getter
 @Setter
 @ToString
 @Entity
 @Table(name = "item")
 public class Item {
+    public static final double discount = 0.25;
     public Item(){
         
     }
-
     public Item(String itemName, BigDecimal price, BigDecimal originalprice, String brand,  String description, String expiry_date, String type, String url, BigDecimal carbon,String location) {
         this.itemName = itemName;
         this.price = price;
@@ -71,6 +72,7 @@ public class Item {
     @Column(name = "location")
     private String location;
 
+    
     
     
     // @Column(name = "filename")
