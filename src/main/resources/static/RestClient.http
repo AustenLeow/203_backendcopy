@@ -67,17 +67,19 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDgzN
 ### add item
 POST http://localhost:8080/api/v1/items/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzNDMzLCJleHAiOjE2NjU0NTcwMzN9.N_61iY9moeFIrQh8hE5e6N0VsmjwyOyC1cQdgtQxaUV1zGraIpPn9iW93XLh7wS3sw3s8Am8eh6Vvz7MYqpFRw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MjQ3NzY5LCJleHAiOjE2NjYyNTEzNjl9.Lq9Mt3INN02tZJxEaKAWW6Yplsx9R5SF5WijKVOzgMH0_oE643aM7esCp8vFwm_GcYEREG9-qq0vv7SNFXioZQ
 
 {
-    "itemName": "watermelon!",
-    "price": 5.00,
-    "brand": "fair",
+    "itemName": "rockmelon!",
+    "price": 3,
+    "brand": "fairprice",
     "description": "yumz",
     "expiry_date": "10/11/2022",
     "type":"fruit",
     "quantity": 5,
-    "url": "https://images.heb.com/is/image/HEBGrocery/000320934"
+    "url": "https://images.heb.com/is/image/HEBGrocery/000320934",
+    "carbon": 0.5,
+    "location": "east"
 }
 
 ### get all items
@@ -112,7 +114,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzM
 ### edit item id 9
 PUT http://localhost:8080/api/v1/items/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzNDMzLCJleHAiOjE2NjU0NTcwMzN9.N_61iY9moeFIrQh8hE5e6N0VsmjwyOyC1cQdgtQxaUV1zGraIpPn9iW93XLh7wS3sw3s8Am8eh6Vvz7MYqpFRw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MjQ2NjEyLCJleHAiOjE2NjYyNTAyMTJ9._QtDlMmEQIpAD8mU-QvR5RwOKOGoEzR46OZjhMnJY5EpwQHZ37Od9RcXJSWGHtPVqk8lITZ7cuZlAZHQ4MvU7w
 
 {
     "itemName": "Watermelon",
@@ -122,7 +124,10 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzN
     "expiry_date": "21/12/2022",
     "type":"fruit",
     "quantity": 10,
-    "url": "https://images.heb.com/is/image/HEBGrocery/000320934"
+    "url": "https://images.heb.com/is/image/HEBGrocery/000320934",
+    "carbon": 0.5,
+    "originalprice": 10.00,
+    "location": "east"
 }
 
 
