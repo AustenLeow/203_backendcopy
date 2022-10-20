@@ -21,8 +21,6 @@ public class User {
   private Long carbonsaved;
 
   private Long moneysaved;
-  
-  private String answer;
 
   @NotBlank
   @Size(max = 20)
@@ -46,23 +44,19 @@ public class User {
   public User() {
   }
 
-  public User(String username, String email, String password, Long carbonsaved, Long moneysaved, String answer) {
+  public User(String username, String email, String password, Long carbonsaved, Long moneysaved) {
     this.username = username;
     this.email = email;
     this.password = password;
     this.carbonsaved = carbonsaved;
     this.moneysaved = moneysaved;
-    this.answer = answer;
   }
 
-  public User(Long id, String username, String email, String password,Long carbonsaved, Long moneysaved, String answer) {
+  public User(Long id, String username, String email, String password) {
     this.id = id;
     this.username = username;
     this.email = email;
     this.password = password;
-    this.carbonsaved = carbonsaved;
-    this.moneysaved = moneysaved;
-    this.answer = answer;
   }
 
   public Long getId() {
@@ -119,13 +113,5 @@ public class User {
 
   public void setMoneysaved(Long moneysaved) {
     this.moneysaved = moneysaved;
-  }
-
-  public String getAnswer(){
-    return answer;
-  }
-
-  public void setAnswer(String answer) {
-    this.answer = answer;
   }
 }
