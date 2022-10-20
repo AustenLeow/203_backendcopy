@@ -36,7 +36,7 @@ public class CartService {
 
     //get cart
     public List<CartItem> listCartItems(User user) {
-        List<CartItem> cartItems = cartRepo.findByUser(user);
+        List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
 
         // Session session = entityManager.unwrap(Session.class);
         // Filter filter = session.enableFilter("deletedProductFilter");
@@ -47,7 +47,7 @@ public class CartService {
     }
 
     public BigDecimal getTotalPrice(User user) {
-        List<CartItem> cartItems = cartRepo.findByUser(user);
+        List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
         BigDecimal totalPrice = new BigDecimal(0);
         for (CartItem cartItem : cartItems) {
             totalPrice = totalPrice.add(cartItem.getSubtotal());
@@ -61,7 +61,7 @@ public class CartService {
 
         Item item = itemRepo.findById(id).get();
 
-        CartItem cartItem = cartRepo.findByUserAndItem(user, item);
+        CartItem cartItem = cartRepo.findByUserAndItemAndOrderIsNull(user, item);
 
         if (cartItem != null && cartItem.getOrder() == null) {
             addedQuantity = cartItem.getQuantity() + 1;

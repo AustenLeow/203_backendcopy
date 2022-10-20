@@ -41,7 +41,7 @@ public class OrderService {
     public void addOrder(User user) {
         
         // List<CartItem> cartItems = cartService.listCartItems(user);
-        List<CartItem> cartItems = cartRepo.findByUser(user);
+        List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
         // List<CartItem> copy = new ArrayList<CartItem>(cartItems.size());
         // for (CartItem c : cartItems) {
         //     copy.add(c.clone());
@@ -60,12 +60,12 @@ public class OrderService {
     }
 
     public List<CartItem> getCartItems(User user) {
-        List<CartItem> cartItems = cartRepo.findByUser(user);
+        List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
         return cartItems;
     }
 
     public BigDecimal getTotalPrice(User user) {
-        List<CartItem> cartItems = cartRepo.findByUser(user);
+        List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
         BigDecimal totalPrice = new BigDecimal(0);
         for (CartItem cartItem : cartItems) {
             totalPrice = totalPrice.add(cartItem.getSubtotal());

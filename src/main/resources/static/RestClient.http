@@ -165,12 +165,12 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzM
 ### get user's order history
 GET http://localhost:8080/api/v1/order
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYyNTg1NTQsImV4cCI6MTY2NjI2MjE1NH0.JVPPKt16vkuz6ua6wmCLEnf7-L7u2rXzIEIt_0b6W_labJUqjwdSjzADbFZUCVMRVAzm1hRyG4qShZ7RQ6F6AQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYyNjMyODIsImV4cCI6MTY2NjI2Njg4Mn0.nYgcpAAF6eYwdAf9-2lsjukKrL29lL3TeXnHs_4VW7BtbA6M-R_XMyR7gcIWBouhrxXAjqlkXIQk700rL53VKg
 
 ### user add an order to order history (../order/add/order_id)
 POST http://localhost:8080/api/v1/order/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYyNTU4OTIsImV4cCI6MTY2NjI1OTQ5Mn0.PjzLAwOn15aTrKIMfK0WoitHe3DLmJvsTLc2b5MC0nXlJnrGuTb5ESiQNsP4Zq5jg3kD7aPkbikDf8oDOvDJaQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYyNjMyODIsImV4cCI6MTY2NjI2Njg4Mn0.nYgcpAAF6eYwdAf9-2lsjukKrL29lL3TeXnHs_4VW7BtbA6M-R_XMyR7gcIWBouhrxXAjqlkXIQk700rL53VKg
 
 ### user cancel order (../order/delete/order_id)
 DELETE http://localhost:8080/api/v1/cart/delete/8
