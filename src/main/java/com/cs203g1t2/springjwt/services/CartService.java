@@ -35,7 +35,7 @@ public class CartService {
     private ItemRepository itemRepo;
 
     //get cart
-    public List<CartItem> listCartItems(User user, boolean isDeleted) {
+    public List<CartItem> listCartItems(User user) {
         List<CartItem> cartItems = cartRepo.findByUser(user);
 
         // Session session = entityManager.unwrap(Session.class);
@@ -43,7 +43,7 @@ public class CartService {
         // filter.setParameter("isDeleted", isDeleted);
         // List<CartItem> cartItems = cartRepo.findByUser(user);
         // session.disableFilter("deletedProductFilter");
-        // return cartItems;
+        return cartItems;
     }
 
     public BigDecimal getTotalPrice(User user) {
