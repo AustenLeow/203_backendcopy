@@ -99,7 +99,6 @@ public class ItemController {
         Item item = new Item();
         item.setItemName(newItem.getItemName());
         item.setPrice(newItem.getPrice());
-        item.setOriginalprice(newItem.getOriginalprice());
         item.setBrand(newItem.getBrand());
         item.setDescription(newItem.getDescription());
         item.setExpiry_date(newItem.getExpiry_date());
@@ -108,6 +107,7 @@ public class ItemController {
         item.setUrl(newItem.getUrl());
         item.setCarbon(newItem.getCarbon());
         item.setLocation(newItem.getLocation());
+        
         // Item item = new Item(
         // newItem.getItemName(),
         // newItem.getPrice(),
@@ -152,7 +152,6 @@ public class ItemController {
         return itemRepository.findById(id).map(item -> {
             item.setItemName(newItem.getItemName());
             item.setPrice(newItem.getPrice());
-            item.setOriginalprice(newItem.getOriginalprice());
             item.setBrand(newItem.getBrand());
             item.setDescription(newItem.getDescription());
             item.setExpiry_date(newItem.getExpiry_date());
