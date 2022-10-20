@@ -31,21 +31,37 @@ public class OrderService {
     // get order history
     public List<Order> listOrders(User user) {
         List<Order> orders = orderRepo.findByUser(user);
+        // for (Order order : orders) {
+        //     order.getCartItems();
+        // }
         return orders;
     }
 
     // make an order
     public void addOrder(User user) {
         
-        List<CartItem> cartItems = cartService.listCartItems(user);
+        // List<CartItem> cartItems = cartService.listCartItems(user);
+        List<CartItem> cartItems = cartRepo.findByUser(user);
+        // List<CartItem> copy = new ArrayList<CartItem>(cartItems.size());
+        // for (CartItem c : cartItems) {
+        //     copy.add(c.clone());
+        // }
 
         Order order = new Order();
-        order.setCartItems(cartItems);
+        order.setCartItems(getCartItems(user));
         order.setUser(user);
         order.setTotal(getTotalPrice(user));
 
-        orderRepo.save(order);
+        orderRepo.save(order); 
         
+        // Item item = itemRepo.findById(id).get();
+
+        // CartItem cartItem = cartRepo.findByUserAndItem(user, item);
+    }
+
+    public List<CartItem> getCartItems(User user) {
+        List<CartItem> cartItems = cartRepo.findByUser(user);
+        return cartItems;
     }
 
     public BigDecimal getTotalPrice(User user) {

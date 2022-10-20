@@ -2,7 +2,11 @@ package com.cs203g1t2.springjwt.services;
 
 import java.math.BigDecimal;
 import java.util.*;
+
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
@@ -12,11 +16,18 @@ import com.cs203g1t2.springjwt.models.CartItem;
 import com.cs203g1t2.springjwt.models.User;
 import com.cs203g1t2.springjwt.models.Item;
 import com.cs203g1t2.springjwt.repository.ItemRepository;
+
+import ch.qos.logback.core.filter.Filter;
+
 import com.cs203g1t2.springjwt.exceptions.NotEnoughItemsInStockException;
 
 @Service
 @Transactional
 public class CartService {
+
+    @Autowired
+    private EntityManager entityManager;
+
     @Autowired
     private CartItemRepository cartRepo;
 
@@ -24,9 +35,15 @@ public class CartService {
     private ItemRepository itemRepo;
 
     //get cart
-    public List<CartItem> listCartItems(User user) {
+    public List<CartItem> listCartItems(User user, boolean isDeleted) {
         List<CartItem> cartItems = cartRepo.findByUser(user);
-        return cartItems;
+
+        // Session session = entityManager.unwrap(Session.class);
+        // Filter filter = session.enableFilter("deletedProductFilter");
+        // filter.setParameter("isDeleted", isDeleted);
+        // List<CartItem> cartItems = cartRepo.findByUser(user);
+        // session.disableFilter("deletedProductFilter");
+        // return cartItems;
     }
 
     public BigDecimal getTotalPrice(User user) {
@@ -46,7 +63,7 @@ public class CartService {
 
         CartItem cartItem = cartRepo.findByUserAndItem(user, item);
 
-        if (cartItem != null) {
+        if (cartItem != null && cartItem.getOrder() == null) {
             addedQuantity = cartItem.getQuantity() + 1;
             if (addedQuantity > item.getQuantity()) {
                 throw new NotEnoughItemsInStockException(item);
@@ -81,7 +98,7 @@ public class CartService {
         cartRepo.deleteByUserAndItem(user.getId(), itemid);
     }
 
-    public void deleteCart(User user) {
-        cartRepo.deleteByUser(user.getId());
-    }
+    // public void deleteCart(User user) {
+    //     cartRepo.deleteByUser(user.getId());
+    // }
 }

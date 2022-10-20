@@ -9,6 +9,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.*;
 
 import com.cs203g1t2.springjwt.services.OrderService;
 import com.cs203g1t2.springjwt.services.CartService;
@@ -28,6 +29,27 @@ public class OrderController {
 
     @Autowired
     private AuthController userController;
+
+    @Autowired
+    private CartService cartService;
+
+    @GetMapping("/order")
+    public List<Order> listOrders(@AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {
+        authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userController.getLoggedInUser(authentication);
+
+        List<Order> orders = orderService.listOrders(user);
+        return orders;
+    }
+
+    // @GetMapping("/order/{id}")
+    // public List<CartItem> getOrderSummary(@PathVariable("id") Long id, @AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {
+    //     authentication = SecurityContextHolder.getContext().getAuthentication();
+    //     User user = userController.getLoggedInUser(authentication);
+
+    //     List<CartItem> orderItems = cartService.listCartItems(user);
+    //     return orderItems;
+    // }
 
     @PostMapping("/order/add")
     public String addOrder(@AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {

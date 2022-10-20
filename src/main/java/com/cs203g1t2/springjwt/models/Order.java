@@ -10,6 +10,7 @@ import javax.validation.constraints.Min;
 import java.util.*;
 
 import com.cs203g1t2.springjwt.services.OrderService;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Getter
 @Setter
@@ -26,6 +27,7 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @JsonManagedReference
     @OneToMany
     @JoinColumn(name = "order_id")
     private List<CartItem> cartItems;
