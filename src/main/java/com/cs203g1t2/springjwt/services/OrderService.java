@@ -42,10 +42,6 @@ public class OrderService {
         
         // List<CartItem> cartItems = cartService.listCartItems(user);
         List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
-        // List<CartItem> copy = new ArrayList<CartItem>(cartItems.size());
-        // for (CartItem c : cartItems) {
-        //     copy.add(c.clone());
-        // }
 
         Order order = new Order();
         order.setCartItems(getCartItems(user));
@@ -54,10 +50,13 @@ public class OrderService {
 
         orderRepo.save(order); 
         
-        // Item item = itemRepo.findById(id).get();
-
-        // CartItem cartItem = cartRepo.findByUserAndItem(user, item);
     }
+
+    // delete an order
+    // public void deleteOrder(Long order_id, User user) {
+    //     cartRepo.deleteByUserAndOrder(user.getId(), order_id);
+    //     orderRepo.deleteByUserAndOrder(user.getId(), order_id);
+    // }
 
     public List<CartItem> getCartItems(User user) {
         List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);

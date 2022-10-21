@@ -46,6 +46,10 @@ public class CartService {
         return cartItems;
     }
 
+    public List<CartItem> listOrderedItems(User user) {
+        return cartRepo.findByUserAndOrderIsNotNull(user);
+    }
+
     public BigDecimal getTotalPrice(User user) {
         List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
         BigDecimal totalPrice = new BigDecimal(0);

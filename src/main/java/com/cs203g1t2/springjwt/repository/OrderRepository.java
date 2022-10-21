@@ -19,8 +19,8 @@ public interface OrderRepository extends JpaRepository<Order, Long>{
     
     // public CartItem findByUserAndOrder(User user, Order order);
 
-    // @Query("delete from Order o where o.user_id = ?1 and o.order_id = ?2")
-    // @Modifying
-    // public void deleteByUserAndOrder(Long user_id, Order order);
+    @Query("delete from Order o where o.user.id = ?1 and o.id = ?2")
+    @Modifying
+    public void deleteByUserAndOrder(Long user_id, Long order_id);
 }
 

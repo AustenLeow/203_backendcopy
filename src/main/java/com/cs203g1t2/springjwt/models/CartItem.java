@@ -15,7 +15,9 @@ import org.hibernate.annotations.Where;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.Objects;
 
@@ -46,9 +48,9 @@ public class CartItem {
     @JoinColumn(name = "user_id")
     private User user;
     
-    @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "order_id", insertable = false, updatable = false)
+    @JsonBackReference        //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "order_id", insertable = false, updatable = false)      // insertable = false, updatable = false
     private Order order;
     
     // private boolean deleted = Boolean.FALSE;

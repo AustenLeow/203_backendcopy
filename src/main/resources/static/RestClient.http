@@ -138,7 +138,13 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MjQ2N
 ### get user's cart
 GET http://localhost:8080/api/v1/cart
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMiLCJpYXQiOjE2NjYwMDM2NTMsImV4cCI6MTY2NjAwNzI1M30.DQaj-ituc6hz68h1EQf-KZh2g1FvvoAKq95G2fE5rgy-yGQfSmKuJu5E8Qps5Ya-2WE2LdJzczAqCdymU-6ThQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2NjYzMTI4NDAsImV4cCI6MTY2NjMxNjQ0MH0.UNSL1t9yspxZYdjMTO22Ezmk4x9AlP8ICzcdN6m-snGAfAZx3CaMzTunls5ju7IARhpFOby824K4BxoydddupQ
+
+### get user's ordered cart items
+GET http://localhost:8080/api/v1/orderedcart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2NjYzMTUyODMsImV4cCI6MTY2NjMxODg4M30.TwQI-Wt7-ORk8TIjHSS5sMmNbj24DB_TU0Q9ey5JuUDIIdNGy1JW_yJ_athFm_CX9I0jBDwstQkVzxuucsh1WA
+
 # ### delete user's cart
 # DELETE http://localhost:8080/api/v1/cart
 # Content-Type: application/json
@@ -165,14 +171,14 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzM
 ### get user's order history
 GET http://localhost:8080/api/v1/order
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2NjYyNzY5OTEsImV4cCI6MTY2NjI4MDU5MX0.Iv0wmzDWYD2fyAV9ZMVHLDFsJJb0uEwmgBCw5Ne4hu6kSRtNrWlFI8hbv4zjZVHxd_niutez4tK-BnHdcncfTg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2NjYzMTUyODMsImV4cCI6MTY2NjMxODg4M30.TwQI-Wt7-ORk8TIjHSS5sMmNbj24DB_TU0Q9ey5JuUDIIdNGy1JW_yJ_athFm_CX9I0jBDwstQkVzxuucsh1WA
 
 ### user confirms card order and order is recorded in order history and removed from cart (../order/add)
 POST http://localhost:8080/api/v1/order/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2NjYyNzY5OTEsImV4cCI6MTY2NjI4MDU5MX0.Iv0wmzDWYD2fyAV9ZMVHLDFsJJb0uEwmgBCw5Ne4hu6kSRtNrWlFI8hbv4zjZVHxd_niutez4tK-BnHdcncfTg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2NjYyODIyNjYsImV4cCI6MTY2NjI4NTg2Nn0.VrIi-oAaSiAZEI_rL4FCdBRbStgQNaNBKyHQLpWhSh_hpDDX3Pdy6gfAS-NKkhbIu_EVwzlOcUmqI4INldgeuQ
 
-### user cancel order (../order/delete/order_id)
-DELETE http://localhost:8080/api/v1/cart/delete/8
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyeWFuMSIsImlhdCI6MTY2NTEzMDE4NCwiZXhwIjoxNjY1MTMzNzg0fQ.i7_uQRuAbpVy6RDpQjWVLzEgACPIuLkvWmf_Zd18-7sJ_mKty0b3iqFwCw9X0TPHY4HAFOwpGod7QxJCTbYoXQ
+# ### user cancel order (../order/delete/order_id)
+# DELETE http://localhost:8080/api/v1/cart/delete/219
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2NjYzMTQ1NzMsImV4cCI6MTY2NjMxODE3M30.5bLjP0LRn0nnATLIYMewZQ-iUMpf7JhZI5OEqiiBcUqO6mpP2xQCCa5R3jcW3RChKpIGHU7WiYIssqNyWisGpQ

@@ -59,4 +59,14 @@ public class OrderController {
         orderService.addOrder(user);
         return "Order confirmed!";
     }
+
+    // @DeleteMapping("/order/delete/{id}")
+    // public String deleteOrder(@PathVariable("id") Long orderid, @AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {
+
+    //     authentication = SecurityContextHolder.getContext().getAuthentication();
+    //     User user = userController.getLoggedInUser(authentication);
+  
+    //     orderService.deleteOrder(orderid, user);
+    //     return "Order cancelled!";
+    // }
 }
