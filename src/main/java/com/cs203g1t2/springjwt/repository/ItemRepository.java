@@ -22,12 +22,6 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
     Boolean existsByBrand(String Brand);
 
-    // @Query("select * from item where item.type like %type%")
-    // Optional<Item> findByType(String type);
-
-    @Query("select * from item where item.type like %type%")
-    List<Item> findByType(String type);
-
     
 //     @Query("SELECT item FROM Item item ORDER BY item.id ASC")
 //     Page<ItemProjection> findAllByOrderByIdAsc(Pageable pageable);

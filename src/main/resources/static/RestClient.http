@@ -64,32 +64,32 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwN
 ### add item
 POST http://localhost:8080/api/v1/items/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY1OTk3NjMxLCJleHAiOjE2NjYwMDEyMzF9.H97z2Woa6Er0MyHqSMnuJhHtDTOvXf-6tU5cBix1FxI68v54JuSmYO4ryySa2JkkXZVVNuF9eAa4mXxKYCsVsQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY2MjQ1MzI4LCJleHAiOjE2NjYyNDg5Mjh9._foY8NFoVhPuocp79XPx-RQfOA_V7yoOK7VAKz6v3m2GWVNHANSB_AymcDmPjKZRNgfGbwine8up3zBIWr_-0Q
 
 {
-    "itemName": "watermelon!",
+    "itemName": "baked beans",
     "price": 5.00,
     "brand": "fair",
     "description": "yumz",
     "expiry_date": "10/11/2022",
-    "type":"fruit",
+    "type":"Canned food",
     "quantity": 5,
-    "url": "https://images.heb.com/is/image/HEBGrocery/000320934"
+    "url": "https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/10829840_XL1_20210915.jpg?w=1200&q=70"
 }
 
 ### get all items
 GET http://localhost:8080/api/v1/items
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY2MDA1ODIwLCJleHAiOjE2NjYwMDk0MjB9.k8ecU_R11iAjIpdQhb5dRJlStWCkEdQo-NjVL40sVlCbkijHncyT3c3OvHfIESUBRKYGffKZQG6RiVYkJUOoog
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY2MDgwNTMxLCJleHAiOjE2NjYwODQxMzF9.U2MOvrheydz1OojNhav_y41xErvD2EbuOO5J1vWosoIc1MEsdxjqbCRRa0XAqgIgEcP9kSb0A3dPmMjB0ea30Q
 ### get item id 7
 GET http://localhost:8080/api/v1/items/13
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMxIiwiaWF0IjoxNjY1MTQwNDkyLCJleHAiOjE2NjUxNDQwOTJ9.gvF0GuWpyzDLJyaCz9LgxEQV77yiJPhZ-FeWxQf7g2VpGQsZpfEkRHgclLqWDh1dipdYcQdjN_1nJZH8nAwm9A
 
-###
-GET http://localhost:8080/api/v1/items/type/Vegetable
+### get item type vegetable
+GET http://localhost:8080/api/v1/items/type/vegetable
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM4IiwiaWF0IjoxNjY2MDU5NDAxLCJleHAiOjE2NjYwNjMwMDF9.0cyp4GTJpR6aa1-enkvtC2LxADB1msW21zaRDm2ZDkbYPLw_9dE-rxeeaX6zff_tNwrpvoaqsZnCJ_wSMYqANA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY2MjU1MTA2LCJleHAiOjE2NjYyNTg3MDZ9.CLxshTHgE1h3u9al-Wk9CzThswgRKI7Wu1Ul3LsL7XohyYEFHLZ_M_JFwELbvVhaXBjJOaRPIpXSTHdsRMcC1w
 
 ### delete item id 7
 DELETE http://localhost:8080/api/v1/items/2
@@ -100,9 +100,9 @@ PUT http://localhost:8080/api/v1/items/4
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXMyIiwiaWF0IjoxNjY1NDUzNDMzLCJleHAiOjE2NjU0NTcwMzN9.N_61iY9moeFIrQh8hE5e6N0VsmjwyOyC1cQdgtQxaUV1zGraIpPn9iW93XLh7wS3sw3s8Am8eh6Vvz7MYqpFRw
 ### get item type fruit
-GET http://localhost:8080/api/v1/items/fruit
+GET http://localhost:8080/api/v1/items/type/fruit
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY2MDA1ODIwLCJleHAiOjE2NjYwMDk0MjB9.k8ecU_R11iAjIpdQhb5dRJlStWCkEdQo-NjVL40sVlCbkijHncyT3c3OvHfIESUBRKYGffKZQG6RiVYkJUOoog
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXM0IiwiaWF0IjoxNjY2MjQ5NTQ0LCJleHAiOjE2NjYyNTMxNDR9.loSqSO9I8-be0yn9HYvGATzrFEk909IuwgZ_0zGZAv97ZsOqji8N44Ls4KdXI1a8NBea7sbv6Sy-Wjx_BVhapg
 
 
 {
