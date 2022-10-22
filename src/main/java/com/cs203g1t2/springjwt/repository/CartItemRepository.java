@@ -12,17 +12,25 @@ import com.cs203g1t2.springjwt.models.User;
 
 @Repository
 public interface CartItemRepository extends JpaRepository<CartItem, Long> {
-    public List<CartItem> findByUser(User user);
+    // @Query("select CartItem c where c.user.id = ?1 and c.order is null")
+    public List<CartItem> findByUserAndOrderIsNull(User user);
 
-    public CartItem findByUserAndItem(User user, Item item);
+    public List<CartItem> findByUserAndOrderIsNotNull(User user);
+
+    // @Query("select CartItem c where c.user.id = ?1 and c.order is null")
+    public CartItem findByUserAndItemAndOrderIsNull(User user, Item item);
     
-    @Query("update CartItem c set c.quantity = ?1 where c.item.id = ?2 and c.user.id = ?3")
+    @Query("update CartItem c set c.quantity = ?1 where c.item.id = ?2 and c.user.id = ?3 and c.order is null")
     @Modifying
     public void updateQuantity(Integer quantity, Long item_id, Long user_id);
 
-    @Query("delete from CartItem c where c.user.id = ?1 and c.item.id = ?2")
+    @Query("delete from CartItem c where c.user.id = ?1 and c.item.id = ?2 and c.order is null")
     @Modifying
     public void deleteByUserAndItem(Long user_id, Long item_id);
+
+    @Query("delete from CartItem c where c.user.id = ?1 and c.order.id = ?2")
+    @Modifying
+    public void deleteByUserAndOrder(Long user_id, Long order_id);
 
     @Query("delete from CartItem c where c.user.id = ?1")
     @Modifying

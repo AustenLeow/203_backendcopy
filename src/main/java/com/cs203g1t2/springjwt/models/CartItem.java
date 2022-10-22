@@ -5,9 +5,19 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.ParamDef;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.Objects;
 
@@ -16,6 +26,9 @@ import java.util.Objects;
 @Setter
 @ToString
 @Table(name = "cart_item")
+// @SQLDelete(sql = "UPDATE cart_item SET deleted = true WHERE id=?")
+// @FilterDef(name = "deletedProductFilter", parameters = @ParamDef(name = "isDeleted", type = "boolean"))
+// @Filter(name = "deletedProductFilter", condition = "deleted = :isDeleted")
 public class CartItem {
 
     @Id
@@ -34,6 +47,13 @@ public class CartItem {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+    
+    @JsonBackReference        //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "order_id", insertable = false, updatable = false)      // insertable = false, updatable = false
+    private Order order;
+    
+    // private boolean deleted = Boolean.FALSE;
 
     @Override
     public boolean equals(Object o) {

@@ -38,15 +38,16 @@ public class ItemController {
         return itemRepository.findAll();
     }
 
+
     @GetMapping("/items/{id}")
     public Item getItem(@PathVariable Long id) {
         Optional<Item> item = itemRepository.findById(id);
         if (!(item.isPresent())) {
             throw new RuntimeException("Unable to find item with id" + id);
         }
-
         return item.get();
     }
+
 
     @GetMapping("/items/location/{location}")
     public List<Item> getItemByLocation(@PathVariable String location) {
@@ -73,9 +74,23 @@ public class ItemController {
         }
         return ret;
     }
+
+    @GetMapping("/items/type+location/{type}/{location}")
+    public List<Item> getItemByType(@PathVariable String type, @PathVariable String location) {
+        List<Item> items = itemRepository.findAll();
+        List<Item> ret = new ArrayList<Item>();
+        for ( Object item : items){
+            Item theitem = (Item)item;
+            if (theitem.getType().equals(type) && theitem.getLocation().equals(location)){
+                ret.add(theitem);
+            }
+        }
+        return ret;
+    }
     
 
-    @PostMapping("/items/add")@PreAuthorize("hasRole('ROLE_MODERATOR')")
+    @PostMapping("/items/add")
+    // @PreAuthorize("hasRole('ROLE_MODERATOR')")
     public Item addItem(@Valid @RequestBody Item newItem) {
         if (itemRepository.existsByItemName(newItem.getItemName())
                 && itemRepository.existsByBrand(newItem.getBrand())) {
@@ -84,7 +99,6 @@ public class ItemController {
         Item item = new Item();
         item.setItemName(newItem.getItemName());
         item.setPrice(newItem.getPrice());
-        item.setOriginalprice(newItem.getOriginalprice());
         item.setBrand(newItem.getBrand());
         item.setDescription(newItem.getDescription());
         item.setExpiry_date(newItem.getExpiry_date());
@@ -93,6 +107,7 @@ public class ItemController {
         item.setUrl(newItem.getUrl());
         item.setCarbon(newItem.getCarbon());
         item.setLocation(newItem.getLocation());
+        
         // Item item = new Item(
         // newItem.getItemName(),
         // newItem.getPrice(),
@@ -104,7 +119,8 @@ public class ItemController {
         return itemRepository.save(item);
     }
 
-    @DeleteMapping(path = "/items/{Id}")@PreAuthorize("hasRole('ROLE_MODERATOR')")
+    @DeleteMapping(path = "/items/{Id}")
+    // @PreAuthorize("hasRole('ROLE_MODERATOR')")
     public void deleteItemById(
             @PathVariable("Id") Long id) {
         if (!(itemRepository.findById(id).isPresent())) {
@@ -136,7 +152,6 @@ public class ItemController {
         return itemRepository.findById(id).map(item -> {
             item.setItemName(newItem.getItemName());
             item.setPrice(newItem.getPrice());
-            item.setOriginalprice(newItem.getOriginalprice());
             item.setBrand(newItem.getBrand());
             item.setDescription(newItem.getDescription());
             item.setExpiry_date(newItem.getExpiry_date());
@@ -149,5 +164,4 @@ public class ItemController {
 
         }).orElseThrow(() -> new RuntimeException());
     }
-
 }

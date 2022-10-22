@@ -14,14 +14,16 @@ import java.util.Objects;
 @Entity
 @Table(name = "item")
 public class Item {
-    public Item(){
-        
+    public static final BigDecimal beforediscount = BigDecimal.valueOf(1.3333);
+
+    public Item() {
+
     }
 
-    public Item(String itemName, BigDecimal price, BigDecimal originalprice, String brand,  String description, String expiry_date, String type, String url, BigDecimal carbon,String location) {
+    public Item(String itemName, BigDecimal price, String brand, String description,
+            String expiry_date, String type, String url, BigDecimal carbon, String location) {
         this.itemName = itemName;
         this.price = price;
-        this.originalprice = originalprice;
         this.brand = brand;
         this.description = description;
         this.expiry_date = expiry_date;
@@ -63,15 +65,13 @@ public class Item {
 
     @Column(name = "url")
     private String url;
-    
+
     @Column(name = "carbon")
     private BigDecimal carbon;
-    
+
     @Column(name = "location")
     private String location;
 
-    
-    
     // @Column(name = "filename")
     // private String filename;
 
@@ -81,8 +81,10 @@ public class Item {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Item item = (Item) o;
         return Objects.equals(id, item.id);
     }
@@ -91,4 +93,5 @@ public class Item {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

@@ -34,10 +34,18 @@ public class CartController {
         return cartItems;
     }
 
-    @DeleteMapping("/cart")
-    public void deleteCart(@AuthenticationPrincipal Authentication authentication) {
+    @GetMapping("/orderedcart")
+    public List<CartItem> getOrderedItems(@AuthenticationPrincipal Authentication authentication) {
         authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userController.getLoggedInUser(authentication);
-        cartService.deleteCart(user);
+        List<CartItem> cartItems = cartService.listOrderedItems(user);
+        return cartItems;
     }
+
+    // @DeleteMapping("/cart")
+    // public void deleteCart(@AuthenticationPrincipal Authentication authentication) {
+    //     authentication = SecurityContextHolder.getContext().getAuthentication();
+    //     User user = userController.getLoggedInUser(authentication);
+    //     cartService.deleteCart(user);
+    // }
 }
