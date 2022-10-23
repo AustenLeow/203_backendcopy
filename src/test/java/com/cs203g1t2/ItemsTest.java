@@ -42,7 +42,7 @@ public class ItemsTest {
         "https://images.heb.com/is/image/HEBGrocery/000320934",
         BigDecimal.valueOf(0.5),
         "east");
-        when(items.findByID(any(Long.class))).thenReturn((new ArrayList<Item>()));
+        when(items.findByid(any(Long.class))).thenReturn((new ArrayList<Item>()));
         when(items.save(any(Item.class))).thenReturn(item);
 
         Item savedItem = itemController.addItem(item);
@@ -79,10 +79,10 @@ public class ItemsTest {
                 "east")));
 
         // when(items.findById(item.getId())).thenReturn(Optional.of(sameItem.get(Math.toIntExact(((items.findById(item.getId()))).get().getId()))));
-        when(items.findByID(item.getId())).thenReturn(sameItem);
+        when(items.findByid(item.getId())).thenReturn(sameItem);
         Item saveditem = itemController.addItem(item);
         assertNull(saveditem);
-        verify(items).findByID(item.getId());
+        verify(items).findByid(item.getId());
     }
 
     @Test
@@ -98,7 +98,7 @@ public class ItemsTest {
                 BigDecimal.valueOf(0.5),
                 "east");
 
-        Long itemId = 10L;
+        Long itemId = 115L;
         when(items.findById(itemId)).thenReturn(Optional.empty());
 
         Item updatedItem = itemController.updateItem(itemId, item);
