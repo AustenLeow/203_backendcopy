@@ -21,13 +21,14 @@ public class Item {
     }
 
     public Item(String itemName, BigDecimal price, String brand, String description,
-            String expiry_date, String type, String url, BigDecimal carbon, String location) {
+            String expiry_date, String type, Long quantity,  String url, BigDecimal carbon, String location) {
         this.itemName = itemName;
         this.price = price;
         this.brand = brand;
         this.description = description;
         this.expiry_date = expiry_date;
         this.type = type;
+        this.quantity = quantity;
         this.url = url;
         this.carbon = carbon;
         this.location = location;
@@ -44,9 +45,6 @@ public class Item {
     @Column(name = "price", nullable = false)
     @DecimalMin(value = "0.00", message = "*Price has to be non negative number")
     private BigDecimal price;
-
-    @Column(name = "originalprice")
-    private BigDecimal originalprice;
 
     @Column(name = "brand")
     private String brand;
