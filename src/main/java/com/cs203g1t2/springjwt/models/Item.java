@@ -46,6 +46,9 @@ public class Item {
     @DecimalMin(value = "0.00", message = "*Price has to be non negative number")
     private BigDecimal price;
 
+    @Column(name = "originalprice")
+    private BigDecimal originalprice;
+
     @Column(name = "brand")
     private String brand;
 
