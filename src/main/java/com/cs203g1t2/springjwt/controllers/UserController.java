@@ -47,6 +47,26 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @GetMapping("/users/carbonsavings")
+    public Long getUsersCarbonsavings() {
+        List<User> users= userRepository.findAll();
+        Long total = 0L;
+        for (User user : users) {
+            total += user.getCarbonsaved();
+        }
+        return total;
+    }
+
+    @GetMapping("/users/moneysavings")
+    public Long getUsersMoneysavings() {
+        List<User> users= userRepository.findAll();
+        Long total = 0L;
+        for (User user : users) {
+            total += user.getMoneysaved();
+        }
+        return total;
+    }
+
     @GetMapping("/users/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public User getUser(@PathVariable Long id) {

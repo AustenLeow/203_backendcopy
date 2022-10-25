@@ -91,6 +91,7 @@
             <artifactId>graphql-java-tools</artifactId>
             <version>5.2.4</version>
         </dependency>
+		
 		<dependency>
 		<groupId>org.modelmapper.extensions</groupId>
 		<artifactId>modelmapper-spring</artifactId>

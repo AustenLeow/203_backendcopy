@@ -32,9 +32,11 @@ public class ItemsTest {
 
     @Test
     void addItem_NewName_ReturnSavedItem() {
-        Item item =new Item("Watermelon",
+
+        Item item =new Item(
+            "Wintermelon",
         BigDecimal.valueOf(2),
-        "fairprice",
+        "finest",
         "juicy",
         "21/12/2022",
         "fruit",
@@ -42,14 +44,18 @@ public class ItemsTest {
         "https://images.heb.com/is/image/HEBGrocery/000320934",
         BigDecimal.valueOf(0.5),
         "east");
-        when(items.findByid(any(Long.class))).thenReturn((new ArrayList<Item>()));
+        List<Item> sameItems = new ArrayList<Item>();
+        Boolean response = true;
+        when((items.existsByItemName(any(String.class)))
+        && items.existsByBrand(any(String.class))).thenReturn(response);
         when(items.save(any(Item.class))).thenReturn(item);
 
         Item savedItem = itemController.addItem(item);
 
         // assert ***
         assertNotNull(savedItem);
-        verify(items).findById(item.getId());
+        verify(items).existsByItemName(item.getItemName());
+        verify(items).existsByBrand(item.getBrand());
         verify(items).save(item);
     }
 
