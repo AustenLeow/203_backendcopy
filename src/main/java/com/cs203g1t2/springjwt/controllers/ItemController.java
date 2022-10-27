@@ -134,7 +134,7 @@ public class ItemController {
     @PutMapping("/items/{id}")
     public Item updateItem(@PathVariable Long id,
             @RequestBody Item newItem) {
-        if (!itemRepository.existsById(id)) {
+        if (itemRepository.findById(id) == null) {
             throw new RuntimeException("Item with id of " + id + " does not exist");
         }
         if (newItem == null) {
@@ -161,7 +161,6 @@ public class ItemController {
             item.setCarbon(newItem.getCarbon());
             item.setLocation(newItem.getLocation());
             return itemRepository.save(item);
-
-        }).orElseThrow(() -> new RuntimeException());
+        }).orElse(null);
     }
 }

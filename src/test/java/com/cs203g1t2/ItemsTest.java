@@ -85,10 +85,15 @@ public class ItemsTest {
                 "east")));
 
         // when(items.findById(item.getId())).thenReturn(Optional.of(sameItem.get(Math.toIntExact(((items.findById(item.getId()))).get().getId()))));
-        when(items.findByid(item.getId())).thenReturn(sameItem);
+        Boolean response = true;
+        when((items.existsByItemName(any(String.class)))
+        && items.existsByBrand(any(String.class))).thenReturn(response);
         Item saveditem = itemController.addItem(item);
+        
         assertNull(saveditem);
-        verify(items).findByid(item.getId());
+        verify(items).existsByItemName(item.getItemName());
+        verify(items).existsByBrand(item.getBrand());
+        verify(items).save(item);
     }
 
     @Test
@@ -104,13 +109,27 @@ public class ItemsTest {
                 BigDecimal.valueOf(0.5),
                 "east");
 
-        Long itemId = 115L;
+        Long itemId = 113L;
+        Boolean response = false;
+        // when ( items.existsById(item.getId())).thenReturn(response);
+
+        Boolean response2 = true;
+        when((items.existsByItemName(any(String.class)))
+        && items.existsByBrand(any(String.class))).thenReturn(response2);
+
+        // when(item.getQuantity()).thenReturn(any(Long.class));
+
         when(items.findById(itemId)).thenReturn(Optional.empty());
+
+        // when(items.save(any(Item.class))).thenReturn(item);
 
         Item updatedItem = itemController.updateItem(itemId, item);
 
         assertNull(updatedItem);
-        verify(items).findById(itemId);
+        // verify(items).existsById(updatedItem.getId());
+        verify(items).existsByItemName(item.getItemName());
+        verify(items).existsByBrand(item.getBrand());
+        // verify(items).save(item);
     }
 }
 

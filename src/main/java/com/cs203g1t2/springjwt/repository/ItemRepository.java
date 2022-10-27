@@ -21,7 +21,6 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
     Boolean existsByBrand(String Brand);
 
-    List<Item> findByid(Long id);
     
 //     @Query("SELECT item FROM Item item ORDER BY item.id ASC")
 //     Page<ItemProjection> findAllByOrderByIdAsc(Pageable pageable);
