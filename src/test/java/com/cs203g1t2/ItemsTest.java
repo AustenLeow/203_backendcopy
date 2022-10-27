@@ -45,9 +45,8 @@ public class ItemsTest {
         BigDecimal.valueOf(0.5),
         "east");
         List<Item> sameItems = new ArrayList<Item>();
-        Boolean response = true;
         when((items.existsByItemName(any(String.class)))
-        && items.existsByBrand(any(String.class))).thenReturn(response);
+        && items.existsByBrand(any(String.class))).thenReturn(false);
         when(items.save(any(Item.class))).thenReturn(item);
 
         Item savedItem = itemController.addItem(item);
