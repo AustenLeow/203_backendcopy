@@ -87,8 +87,8 @@ public class UserTest {
         // String password = encoder.encode("password");
       
         User user = new User(
-                "aus11",
-                "aus11@gmail.com",
+                "aus1",
+                "aus1@gmail.com",
                 "password",
                 1L,
                 1L,
@@ -127,7 +127,6 @@ public class UserTest {
     @Test
     void updateUser_NotFound_ReturnNull() {
         User user = new User(
-                1L,
                 "aus1",
                 "aus1@gmail.com",
                 "password",
@@ -136,16 +135,15 @@ public class UserTest {
                 "prata");
 
         Long userid = 1L;
-
-
+        
         when((users.existsByUsername(any(String.class)))
         && users.existsByEmail(any(String.class))).thenReturn(false);
 
         when(users.findById(user.getId())).thenReturn(Optional.empty());
         // when(users.save(any(User.class))).thenReturn(user);
-
+    
         User updatedUser = UserController.updateUser(userid, user);
-        
+
         assertNull(updatedUser);
         verify(users).existsByUsername(user.getUsername());
         verify(users).existsByEmail(user.getEmail());
