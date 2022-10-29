@@ -54,7 +54,6 @@ public class UserController {
         if (!(user.isPresent())) {
             throw new RuntimeException("Unable to find user with id" + id);
         }
-
         return user.get();
     }
 

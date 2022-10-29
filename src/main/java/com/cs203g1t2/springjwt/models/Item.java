@@ -21,13 +21,14 @@ public class Item {
     }
 
     public Item(String itemName, BigDecimal price, String brand, String description,
-            String expiry_date, String type, String url, BigDecimal carbon, String location) {
+            String expiry_date, String type, Long quantity,  String url, BigDecimal carbon, String location) {
         this.itemName = itemName;
         this.price = price;
         this.brand = brand;
         this.description = description;
         this.expiry_date = expiry_date;
         this.type = type;
+        this.quantity = quantity;
         this.url = url;
         this.carbon = carbon;
         this.location = location;

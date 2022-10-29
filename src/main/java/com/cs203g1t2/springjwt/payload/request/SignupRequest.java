@@ -25,6 +25,15 @@ public class SignupRequest {
   private String answer;
 
 
+  // public void SignupRequest(String username, String email, String password, Set<String> role, String answer) {
+  //   this.username = username;
+  //   this.email = email;
+  //   this.password = password;
+  //   this.role = role;
+  //   this.answer = answer;
+  // }
+
+
   public String getUsername() {
     return username;
   }

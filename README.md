@@ -34,5 +34,12 @@ INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
 INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 ```
 
+### Run the following SQL insert statements in MySQL Workbench (only needs to be done once) - to insert some dummy items in the database
+```
+insert into item values ('1', 'fairprice', 'juicy', '21/12/2022', 'yellow watermelon', '3', 'fruit', '100', 'https://images.heb.com/is/image/HEBGrocery/000320934', '0.50', 'Fairprice Bukit Merah Central', '3.50');
+insert into item values ('2', 'Ayam Brand', 'delicious', '10/12/2022', 'Sardine Cans', '2', 'fish', '7', 'https://m.media-amazon.com/images/I/81A9tHLuPoL.jpg', '1.00', 'Fairprice Finest Artra', '4.00');
+insert into item values ('3', 'Lays', 'Crispy crisps', '21/10/2022', 'Potato Chips', '2', 'tibits', '200', 'https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/13218718_XL1_20220628.jpg', '2.00', 'Haomart @ Whampoa Drive', '4.00');
+```
+
 ### Contact
 If you encounter any issues, feel free to email us at austen.leow.2021@scis.smu.edu.sg
