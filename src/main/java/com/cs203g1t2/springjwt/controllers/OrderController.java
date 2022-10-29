@@ -1,5 +1,6 @@
 package com.cs203g1t2.springjwt.controllers;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
@@ -40,6 +41,11 @@ public class OrderController {
 
         List<Order> orders = orderService.listOrders(user);
         return orders;
+    }
+
+    @GetMapping("/ordertotalcarbon")
+    public BigDecimal getAllCarbonSaved() {
+        return orderService.getAllCarbonSaved();
     }
 
     // @GetMapping("/order/{id}")

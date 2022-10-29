@@ -49,7 +49,6 @@ public class OrderService {
         order.setTotal(getTotalPrice(user));
 
         orderRepo.save(order); 
-        
     }
 
     // delete an order
@@ -70,5 +69,15 @@ public class OrderService {
             totalPrice = totalPrice.add(cartItem.getSubtotal());
         }
         return totalPrice;
+    }
+
+    public BigDecimal getAllCarbonSaved() {
+        List<CartItem> orders = cartRepo.findByOrderIsNotNull();
+        BigDecimal cs = new BigDecimal(0);
+
+        for (CartItem o : orders) {
+            cs = cs.add(o.getCarbontotal());
+        }
+        return cs;
     }
 }

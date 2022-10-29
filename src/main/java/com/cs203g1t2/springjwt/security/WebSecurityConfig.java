@@ -36,13 +36,18 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
   private static final String[] SWAGGER_WHITELIST = {
     "/v3/api-docs/**",
     "/swagger-ui/**",
-    "/swagger-ui.html",
+    "/swagger-ui.html"
+  };
+
+  private static final String[] NONEEDTOLOGIN = {
+    "/api/v1/ordertotalcarbon",
+    "/api/v1/totalusers"
   };
 
   @Bean
   public AuthTokenFilter authenticationJwtTokenFilter() {
     return new AuthTokenFilter();
-  }
+  };
 
 //  @Override
 //  public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
@@ -96,6 +101,7 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
         .antMatchers("/api/test/**").permitAll()
         .antMatchers("/api/items/**").permitAll()
         .antMatchers(SWAGGER_WHITELIST).permitAll()
+        .antMatchers(NONEEDTOLOGIN).permitAll()
         .anyRequest().authenticated();
     
     http.authenticationProvider(authenticationProvider());
