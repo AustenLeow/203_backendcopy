@@ -15,6 +15,8 @@ import com.cs203g1t2.springjwt.models.Order;
 public interface OrderRepository extends JpaRepository<Order, Long>{
     public List<Order> findByUser(User user);
 
+    // public List<Order> findByOrderIsNotNull();
+
     // public Order findByUserAndOrder(User user, Order);
     
     // public CartItem findByUserAndOrder(User user, Order order);
