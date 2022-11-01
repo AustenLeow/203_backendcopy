@@ -47,6 +47,11 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @GetMapping("/totalusers")
+    public int getTotalNumOfUsers() {
+        return userRepository.findAll().size();
+    }
+
     @GetMapping("/users/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public User getUser(@PathVariable Long id) {
@@ -54,7 +59,6 @@ public class UserController {
         if (!(user.isPresent())) {
             throw new RuntimeException("Unable to find user with id" + id);
         }
-
         return user.get();
     }
 

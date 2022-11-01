@@ -50,10 +50,16 @@ public class CartItem {
     
     @JsonBackReference        //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "order_id", insertable = false, updatable = false)      // insertable = false, updatable = false
+    @JoinColumn(name = "order_id", insertable = false, updatable = false) 
     private Order order;
     
-    // private boolean deleted = Boolean.FALSE;
+    public CartItem() {}
+
+    public CartItem (int quantity, User user, Item item) {
+        this.quantity = quantity;
+        this.user = user;
+        this.item = item;
+    }
 
     @Override
     public boolean equals(Object o) {
