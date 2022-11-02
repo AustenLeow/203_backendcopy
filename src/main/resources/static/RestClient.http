@@ -17,8 +17,8 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "notaus",
-    "password": "notpassword"
+    "username": "aus1",
+    "password": "password"
 }
 
 ### get current logged in user

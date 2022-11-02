@@ -36,7 +36,7 @@ public class ItemsTest {
         Item item =new Item(
             "Wintermelon",
         BigDecimal.valueOf(2),
-        "finest",
+        "sheingshiong",
         "juicy",
         "21/12/2022",
         "fruit",
@@ -54,7 +54,7 @@ public class ItemsTest {
         // assert ***
         assertNotNull(savedItem);
         verify(items).existsByItemName(item.getItemName());
-        verify(items).existsByBrand(item.getBrand());
+        // verify(items).existsByBrand(item.getBrand());
         verify(items).save(item);
     }
 
