@@ -13,6 +13,10 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.cs203g1t2.springjwt.repository.*;
+import com.cs203g1t2.springjwt.exception.ItemCannotBeDeletedException;
+import com.cs203g1t2.springjwt.exception.ItemNotFoundException;
+import com.cs203g1t2.springjwt.exception.UserCannotBeDeletedException;
+import com.cs203g1t2.springjwt.exception.UserNotFoundException;
 import com.cs203g1t2.springjwt.models.*;
 import java.util.Optional;
 import lombok.*;
@@ -67,18 +71,18 @@ public class UserController {
     public void deleteUserById(
             @PathVariable("Id") Long id) {
         if (!(userRepository.findById(id).isPresent())) {
-            throw new RuntimeException("User with id of " + id + " does not exist");
+            throw new UserNotFoundException("User with id of " + id + " does not exist");
         }
         userRepository.deleteById(id);
         if (id == null)
-            throw new RuntimeException();
+            throw new UserCannotBeDeletedException(id);
     }
 
     @PutMapping("/users/{id}")
     public User updateUser(@PathVariable Long id,
             @RequestBody User newUser) {
         if (!userRepository.existsById(id)) {
-            throw new RuntimeException("User with id of " + id + " does not exist");
+            throw new UserNotFoundException("User with id of " + id + " does not exist");
         }
         if (newUser == null) {
             throw new RuntimeException("User details Empty");
