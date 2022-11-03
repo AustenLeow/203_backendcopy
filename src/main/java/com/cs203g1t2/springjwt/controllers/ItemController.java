@@ -17,6 +17,10 @@ import com.cs203g1t2.springjwt.models.*;
 import java.util.Optional;
 import lombok.*;
 import com.cs203g1t2.springjwt.security.jwt.JwtUtils;
+import com.cs203g1t2.springjwt.exception.ItemCannotBeDeletedException;
+import com.cs203g1t2.springjwt.exception.ItemDetailsEmptyException;
+import com.cs203g1t2.springjwt.exception.ItemNotFoundException;
+import com.cs203g1t2.springjwt.exception.NoStockException;
 import com.cs203g1t2.springjwt.exceptions.ItemExistsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -43,7 +47,7 @@ public class ItemController {
     public Item getItem(@PathVariable Long id) {
         Optional<Item> item = itemRepository.findById(id);
         if (!(item.isPresent())) {
-            throw new RuntimeException("Unable to find item with id" + id);
+            throw new ItemNotFoundException("Unable to find item with id" + id);
         }
         return item.get();
     }
@@ -124,21 +128,21 @@ public class ItemController {
     public void deleteItemById(
             @PathVariable("Id") Long id) {
         if (!(itemRepository.findById(id).isPresent())) {
-            throw new RuntimeException("Item with id of " + id + " does not exist");
+            throw new ItemNotFoundException("Item with id of " + id + " does not exist");
         }
         itemRepository.deleteById(id);
         if (id == null)
-            throw new RuntimeException();
+            throw new ItemCannotBeDeletedException();
     }
 
     @PutMapping("/items/{id}")
     public Item updateItem(@PathVariable Long id,
             @RequestBody Item newItem) {
         if (itemRepository.findById(id) == null) {
-            throw new RuntimeException("Item with id of " + id + " does not exist");
+            throw new ItemNotFoundException("Item with id of " + id + " does not exist");
         }
         if (newItem == null) {
-            throw new RuntimeException("Item details Empty");
+            throw new ItemDetailsEmptyException("Item details Empty");
         }
         if (itemRepository.existsByItemName(newItem.getItemName())
                 && itemRepository.existsByBrand(newItem.getBrand())) {
@@ -147,7 +151,7 @@ public class ItemController {
 
         if ( newItem.getQuantity() == 0){
             deleteItemById(itemRepository.findById(id).get().getId());
-            throw new RuntimeException("Item has no more stock");
+            throw new NoStockException("Item has no more stock");
         }
         return itemRepository.findById(id).map(item -> {
             item.setItemName(newItem.getItemName());

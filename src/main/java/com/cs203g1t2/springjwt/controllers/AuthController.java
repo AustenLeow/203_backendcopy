@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import com.cs203g1t2.springjwt.enums.*;
+import com.cs203g1t2.springjwt.exception.RoleNotFoundException;
 import com.cs203g1t2.springjwt.exceptions.TokenRefreshException;
 import com.cs203g1t2.springjwt.models.Role;
 import com.cs203g1t2.springjwt.models.User;
@@ -141,20 +142,20 @@ public class AuthController {
 
     if (strRoles == null) {
       Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-          .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+          .orElseThrow(() -> new RoleNotFoundException("Error: Role is not found."));
       roles.add(userRole);
     } else {
       strRoles.forEach(role -> {
         switch (role) {
         case "admin":
           Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
-              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+              .orElseThrow(() -> new RoleNotFoundException("Error: Role is not found."));
           roles.add(adminRole);
 
           break;
         case "user":
           Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+              .orElseThrow(() -> new RoleNotFoundException("Error: Role is not found."));
           roles.add(userRole);
         }
       });
