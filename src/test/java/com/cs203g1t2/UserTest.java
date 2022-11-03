@@ -124,30 +124,30 @@ public class UserTest {
     // .badRequest()
     // .body(new MessageResponse("Error: Email is already in use!"));
     // }
-    @Test
-    void updateUser_NotFound_ReturnNull() {
-        User user = new User(
-                "aus1",
-                "aus1@gmail.com",
-                "password",
-                0L,
-                0L,
-                "prata");
+    // @Test
+    // void updateUser_NotFound_ReturnNull() {
+    //     User user = new User(
+    //             "aus1",
+    //             "aus1@gmail.com",
+    //             "password",
+    //             0L,
+    //             0L,
+    //             "prata");
 
-        Long userid = 1L;
+    //     Long userid = 1L;
         
-        when((users.existsByUsername(any(String.class)))
-        && users.existsByEmail(any(String.class))).thenReturn(false);
+    //     when((users.existsByUsername(any(String.class)))
+    //     && users.existsByEmail(any(String.class))).thenReturn(false);
 
-        when(users.findById(user.getId())).thenReturn(Optional.empty());
-        // when(users.save(any(User.class))).thenReturn(user);
-    
-        User updatedUser = UserController.updateUser(userid, user);
+    //     when(users.findById(user.getId())).thenReturn(Optional.empty());
+    //     // when(users.save(any(User.class))).thenReturn(user);
+    //     // assertException
+    //     User updatedUser = UserController.updateUser(userid, user);
 
-        assertNull(updatedUser);
-        verify(users).existsByUsername(user.getUsername());
-        verify(users).existsByEmail(user.getEmail());
-    }
+    //     assertNull(updatedUser);
+    //     verify(users).existsByUsername(user.getUsername());
+    //     verify(users).existsByEmail(user.getEmail());
+    // }
 }
 
 

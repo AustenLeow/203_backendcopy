@@ -13,6 +13,12 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.cs203g1t2.springjwt.repository.*;
+import com.cs203g1t2.springjwt.exception.ItemCannotBeDeletedException;
+import com.cs203g1t2.springjwt.exception.ItemNotFoundException;
+import com.cs203g1t2.springjwt.exception.UserCannotBeDeletedException;
+import com.cs203g1t2.springjwt.exception.UserDetailEmptyException;
+import com.cs203g1t2.springjwt.exception.UserNotFoundException;
+import com.cs203g1t2.springjwt.exception.WrongSecurityAnswerException;
 import com.cs203g1t2.springjwt.models.*;
 import java.util.Optional;
 import lombok.*;
@@ -57,7 +63,7 @@ public class UserController {
     public User getUser(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
         if (!(user.isPresent())) {
-            throw new RuntimeException("Unable to find user with id" + id);
+            throw new UserNotFoundException("Unable to find user with id" + id);
         }
         return user.get();
     }
@@ -67,21 +73,21 @@ public class UserController {
     public void deleteUserById(
             @PathVariable("Id") Long id) {
         if (!(userRepository.findById(id).isPresent())) {
-            throw new RuntimeException("User with id of " + id + " does not exist");
+            throw new UserNotFoundException("User with id of " + id + " does not exist");
         }
         userRepository.deleteById(id);
         if (id == null)
-            throw new RuntimeException();
+            throw new UserCannotBeDeletedException();
     }
 
     @PutMapping("/users/{id}")
     public User updateUser(@PathVariable Long id,
             @RequestBody User newUser) {
         if (!userRepository.existsById(id)) {
-            throw new RuntimeException("User with id of " + id + " does not exist");
+            throw new UserNotFoundException("User with id of " + id + " does not exist");
         }
         if (newUser == null) {
-            throw new RuntimeException("User details Empty");
+            throw new UserDetailEmptyException("User details Empty");
         }
         User theuser = userRepository.findById(id).get();
         if (newUser.getAnswer().equals(theuser.getAnswer())) {
@@ -94,9 +100,9 @@ public class UserController {
                 user.setMoneysaved(newUser.getMoneysaved());
                 user.setAnswer(newUser.getAnswer());
                 return userRepository.save(user);
-            }).orElseThrow(() -> new RuntimeException());
+            }).orElseThrow(() -> new UserNotFoundException("item with id " + id + " does not exist"));
         } else {
-            throw new RuntimeException("Wrong answer to security question");
+            throw new WrongSecurityAnswerException("Wrong answer to security question");
         }
     }
 }
