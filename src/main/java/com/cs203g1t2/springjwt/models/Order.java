@@ -35,6 +35,15 @@ public class Order {
     @Column(name = "total_price")
     private BigDecimal total;
 
+    @Column(name = "total_carbon")
+    private BigDecimal carbonTotal;
+
+    @Column(name = "is_collected")
+    private Boolean collected = false;
+
+    @Column(name = "is_donated")
+    private Boolean donated = false;
+
     public Order() {
 
     }

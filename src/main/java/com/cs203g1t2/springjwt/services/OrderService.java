@@ -47,9 +47,26 @@ public class OrderService {
         order.setCartItems(getCartItems(user));
         order.setUser(user);
         order.setTotal(getTotalPrice(user));
+        order.setCarbonTotal(getTotalCarbon(user));
 
         orderRepo.save(order); 
     }
+
+        // make a donated order
+        public void addDonatedOrder(User user) {
+        
+            // List<CartItem> cartItems = cartService.listCartItems(user);
+            List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
+    
+            Order order = new Order();
+            order.setCartItems(getCartItems(user));
+            order.setUser(user);
+            order.setTotal(getTotalPrice(user));
+            order.setCarbonTotal(getTotalCarbon(user));
+            order.setDonated(true);
+    
+            orderRepo.save(order); 
+        }
 
     // delete an order
     // public void deleteOrder(Long order_id, User user) {
@@ -69,6 +86,15 @@ public class OrderService {
             totalPrice = totalPrice.add(cartItem.getSubtotal());
         }
         return totalPrice;
+    }
+
+    public BigDecimal getTotalCarbon(User user) {
+        List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
+        BigDecimal totalCarbon = new BigDecimal(0);
+        for (CartItem cartItem : cartItems) {
+            totalCarbon = totalCarbon.add(cartItem.getCarbontotal());
+        }
+        return totalCarbon;
     }
 
     public BigDecimal getAllCarbonSaved() {
