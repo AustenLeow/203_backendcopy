@@ -75,6 +75,15 @@ public class OrderController {
         return "Order confirmed!";
     }
 
+    @PostMapping("/order/{id}/collected")
+    public void collected(@AuthenticationPrincipal org.springframework.security.core.Authentication authentication, @PathVariable("id") Long orderid) {
+        authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userController.getLoggedInUser(authentication);
+
+        orderService.collected(user,orderid);
+        // return "Order confirmed!";
+    }
+
     // @DeleteMapping("/order/delete/{id}")
     // public String deleteOrder(@PathVariable("id") Long orderid, @AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {
 

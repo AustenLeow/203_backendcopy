@@ -106,4 +106,10 @@ public class OrderService {
         }
         return cs;
     }
+
+    public void collected(User user, Long ordered) {
+        Order order = orderRepo.findByUserAndId(user, ordered);
+        order.setCollected(true); 
+        orderRepo.save(order);
+    }
 }

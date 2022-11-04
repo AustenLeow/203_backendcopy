@@ -90,8 +90,8 @@ public class UserTest {
                 "aus1",
                 "aus1@gmail.com",
                 "password",
-                1L,
-                1L,
+                new BigDecimal("1"),
+                new BigDecimal("1"),
                 "prata");
         // when(users.existsByUsername(any(String.class))).thenReturn(false);
 

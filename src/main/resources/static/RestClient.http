@@ -5,13 +5,8 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-<<<<<<< Updated upstream
     "username": "aus13",
     "email": "aus13@gmail.com",
-=======
-    "username": "aus11",
-    "email": "aus11@gmail.com",
->>>>>>> Stashed changes
     "password": "password",
     "answer": "prata"
 }
@@ -22,8 +17,8 @@ Content-Type: application/json
 # Authorization: Bearer 
 
 {
-    "username": "aus1",
-    "password": "password"
+    "username": "notaus",
+    "password": "notpassword"
 }
 
 ### user login
@@ -199,7 +194,10 @@ POST http://localhost:8080/api/v1/order/donate
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhaXJwb2QiLCJpYXQiOjE2NjY2ODQ2MzEsImV4cCI6MTY2NjY4ODIzMX0._olYYRtNWnOGVu-PFpMK9lpxhJrlQ9ywg6yACkPnWC88gvgdurK9OLGr6sGF2UZmhARpc1yYgdmk_9j8t-2Nzw
 
-
+### user collected his item
+POST http://localhost:8080/api/v1/order/274/collected
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2Njc1NDM5MTgsImV4cCI6MTY2NzU0NzUxOH0.Vpe6fSk_D4IritMPxwAcVIOgBAv0rAoi19ro4cuODe7wo3PEEACC36fUYDXsVJJM8IPHY02vEThrpGZLwzmyxw
 
 
 

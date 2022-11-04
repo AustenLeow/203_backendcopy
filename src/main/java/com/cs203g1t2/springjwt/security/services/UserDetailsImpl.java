@@ -1,5 +1,6 @@
 package com.cs203g1t2.springjwt.security.services;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -24,16 +25,16 @@ public class UserDetailsImpl implements UserDetails {
   @JsonIgnore
   private String password;
 
-  private Long carbonsaved;
+  private BigDecimal carbonsaved;
 
-  private Long moneysaved;
+  private BigDecimal moneysaved;
 
   private String answer;
 
   private Collection<? extends GrantedAuthority> authorities;
 
   public UserDetailsImpl(Long id, String username, String email, String password,
-      Collection<? extends GrantedAuthority> authorities, Long carbonsaved, Long moneysaved, String answer) {
+      Collection<? extends GrantedAuthority> authorities, BigDecimal carbonsaved, BigDecimal moneysaved, String answer) {
     this.id = id;
     this.username = username;
     this.email = email;
@@ -84,11 +85,11 @@ public class UserDetailsImpl implements UserDetails {
     return username;
   }
 
-  public Long getCarbonsaved() {
+  public BigDecimal getCarbonsaved() {
     return carbonsaved;
   }
 
-  public Long getMoneysaved() {
+  public BigDecimal getMoneysaved() {
     return moneysaved;
   }
 

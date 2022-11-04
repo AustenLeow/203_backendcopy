@@ -1,5 +1,6 @@
 package com.cs203g1t2.springjwt.controllers;
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -93,7 +94,7 @@ public class AuthController {
   }
 
   @GetMapping("/currentuser/carbonsaved")
-  public Long getLoggedInUserCarbon(Authentication authentication) {
+  public BigDecimal getLoggedInUserCarbon(Authentication authentication) {
     authentication = SecurityContextHolder.getContext().getAuthentication();
     if (authentication == null) {
       return null;
@@ -105,7 +106,7 @@ public class AuthController {
   }
 
   @GetMapping("/currentuser/moneysaved")
-  public Long getLoggedInUserMoney(Authentication authentication) {
+  public BigDecimal getLoggedInUserMoney(Authentication authentication) {
     authentication = SecurityContextHolder.getContext().getAuthentication();
     if (authentication == null) {
       return null;
@@ -134,7 +135,7 @@ public class AuthController {
     User user = new User(signUpRequest.getUsername(), 
                signUpRequest.getEmail(),
                encoder.encode(signUpRequest.getPassword()),
-               Long.valueOf(0),Long.valueOf(0), encoder.encode(signUpRequest.getAnswer()));
+               BigDecimal.valueOf(0),BigDecimal.valueOf(0), encoder.encode(signUpRequest.getAnswer()));
 
 
     Set<String> strRoles = signUpRequest.getRole();

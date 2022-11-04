@@ -23,22 +23,22 @@
 // import com.cs203g1t2.springjwt.models.*;
 // import java.math.BigDecimal;
 
-// @ExtendWith(MockitoExtension.class)
-// public class CartTest {
-//     @Mock
-//     CartItemRepository cartRepo;
+// // @ExtendWith(MockitoExtension.class)
+// // public class CartTest {
+// //     @Mock
+// //     CartItemRepository cartRepo;
 
-//     @InjectMocks
-//     CartService cartService;
+// //     @InjectMocks
+// //     CartService cartService;
 
-//     @Mock
-//     private ItemRepository items;
+// //     @Mock
+// //     private ItemRepository items;
 
-//     @InjectMocks
-//     private ItemController itemController;
+// //     @InjectMocks
+// //     private ItemController itemController;
 
-//     @Test
-//     void addCart_NewCartItem_ReturnSavedCartItem() throws NotEnoughItemsInStockException {
+// //     @Test
+// //     void addCart_NewCartItem_ReturnSavedCartItem() throws NotEnoughItemsInStockException {
 
 //         // mock the user
 //         User user = new User(
@@ -77,21 +77,21 @@
 //         verify(items).existsByBrand(item.getBrand());
 //         verify(items).save(item);
 
-//         // arrange ***
-//         CartItem cartitem = new CartItem(1, user, item);
+// //         // arrange ***
+// //         CartItem cartitem = new CartItem(1, user, item);
 
-//         // mock the cartRepo findByUserAndItemAndOrderIsNull method
-//         when((cartRepo.findByUserAndItemAndOrderIsNull(any(User.class), any(Item.class)))).thenReturn(new CartItem());
+// //         // mock the cartRepo findByUserAndItemAndOrderIsNull method
+// //         when((cartRepo.findByUserAndItemAndOrderIsNull(any(User.class), any(Item.class)))).thenReturn(new CartItem());
 
-//         // mock the "save" operation 
-//         when(cartRepo.save(any(CartItem.class))).thenReturn(cartitem);
+// //         // mock the "save" operation 
+// //         when(cartRepo.save(any(CartItem.class))).thenReturn(cartitem);
 
-//         // act ***
-//         Integer addedQuantity = cartService.addItem(item.getId(),user);
+// //         // act ***
+////          int addedQuantity = cartService.addItem(item.getId(),user);
         
-//         // assert ***
-//         assertNotNull(cartitem);
-//         verify(cartRepo.findByUserAndItemAndOrderIsNull(user, item));
-//         verify(cartRepo).save(cartitem);
-//     }
-// }
+// //         // assert ***
+// //         assertEquals(1,addedQuantity);
+// //         verify(cartRepo.findByUserAndItemAndOrderIsNull(user, item));
+// //         verify(cartRepo).save(cartitem);
+// //     }
+// // }
