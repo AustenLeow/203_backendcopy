@@ -5,8 +5,13 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
+<<<<<<< Updated upstream
     "username": "aus13",
     "email": "aus13@gmail.com",
+=======
+    "username": "aus11",
+    "email": "aus11@gmail.com",
+>>>>>>> Stashed changes
     "password": "password",
     "answer": "prata"
 }
