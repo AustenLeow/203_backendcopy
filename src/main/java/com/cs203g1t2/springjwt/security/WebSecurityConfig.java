@@ -41,7 +41,8 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 
   private static final String[] NONEEDTOLOGIN = {
     "/api/v1/ordertotalcarbon",
-    "/api/v1/totalusers"
+    "/api/v1/totalusers",
+    "/api/v1/ordertotalsaved"
   };
 
   @Bean

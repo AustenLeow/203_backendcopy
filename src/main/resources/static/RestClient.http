@@ -201,6 +201,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2Njc1N
 
 
 
+
 ##################################### OTHER STUFF #####################################
 ### get all users carbon saved
 GET http://localhost:8080/api/v1/ordertotalcarbon
@@ -208,4 +209,8 @@ Content-Type: application/json
 
 ### get total user count
 GET http://localhost:8080/api/v1/totalusers
+Content-Type: application/json
+
+### get total money saved
+GET http://localhost:8080/api/v1/ordertotalsaved
 Content-Type: application/json

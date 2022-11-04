@@ -48,6 +48,11 @@ public class OrderController {
         return orderService.getAllCarbonSaved();
     }
 
+    @GetMapping("/ordertotalsaved")
+    public BigDecimal getAmountSaved() {
+        return orderService.getAmountSaved();
+    }
+
     // @GetMapping("/order/{id}")
     // public List<CartItem> getOrderSummary(@PathVariable("id") Long id, @AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {
     //     authentication = SecurityContextHolder.getContext().getAuthentication();

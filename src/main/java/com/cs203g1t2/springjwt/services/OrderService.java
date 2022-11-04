@@ -107,6 +107,16 @@ public class OrderService {
         return cs;
     }
 
+    public BigDecimal getAmountSaved() {
+        List<CartItem> orders = cartRepo.findByOrderIsNotNull();
+        BigDecimal cs = new BigDecimal(0);
+
+        for (CartItem o : orders) {
+            cs = cs.add(o.getAmountsaved());
+        }
+        return cs;
+    }
+
     public void collected(User user, Long ordered) {
         Order order = orderRepo.findByUserAndId(user, ordered);
         order.setCollected(true); 
