@@ -84,6 +84,7 @@ public class UserController {
             cs = cs.add(o.getCarbontotal());
         }
         user.setCarbonsaved(cs);
+        userRepository.save(user);
         return cs;
     }
 
@@ -97,7 +98,8 @@ public class UserController {
         for (CartItem o : orders) {
             cs = cs.add(o.getAmountsaved());
         }
-        // user.setMoneysaved(cs);
+        user.setCarbonsaved(cs);
+        userRepository.save(user);
         return cs;
     }
 
