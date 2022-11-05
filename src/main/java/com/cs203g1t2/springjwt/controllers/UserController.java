@@ -1,5 +1,6 @@
 package com.cs203g1t2.springjwt.controllers;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.cs203g1t2.springjwt.repository.*;
@@ -23,6 +25,8 @@ import com.cs203g1t2.springjwt.models.*;
 import java.util.Optional;
 import lombok.*;
 import com.cs203g1t2.springjwt.security.jwt.JwtUtils;
+import com.cs203g1t2.springjwt.services.OrderService;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.access.prepost.PreAuthorize;
 
@@ -42,6 +46,15 @@ public class UserController {
     RoleRepository roleRepository;
 
     @Autowired
+    OrderRepository orderRepository;
+
+    @Autowired
+    private CartItemRepository cartRepo;
+
+    @Autowired
+    private AuthController userController;
+
+    @Autowired
     PasswordEncoder encoder;
 
     @Autowired
@@ -56,6 +69,34 @@ public class UserController {
     @GetMapping("/totalusers")
     public int getTotalNumOfUsers() {
         return userRepository.findAll().size();
+    }
+
+    @GetMapping("/users/{id}/carbonsaved")
+    public BigDecimal getCarbonSaved(@PathVariable Long id) {
+        // authentication = SecurityContextHolder.getContext().getAuthentication();
+        // User user = userController.getLoggedInUser(authentication);
+        User user = userRepository.findById(id).get();
+        
+        List<CartItem> orders = cartRepo.findByUserAndOrderIsNotNull(user);
+        BigDecimal cs = new BigDecimal(0);
+        for (CartItem o : orders) {
+            cs = cs.add(o.getCarbontotal());
+        }
+        // user.setCarbonsaved(cs);
+        return cs;
+    }
+
+    @GetMapping("/users/{id}/moneysaved")
+    public BigDecimal getMoneySaved(@PathVariable Long id) {
+        User user = userRepository.findById(id).get();
+        
+        List<CartItem> orders = cartRepo.findByUserAndOrderIsNotNull(user);
+        BigDecimal cs = new BigDecimal(0);
+        for (CartItem o : orders) {
+            cs = cs.add(o.getAmountsaved());
+        }
+        // user.setMoneysaved(cs);
+        return cs;
     }
 
     @GetMapping("/users/{id}")
