@@ -18,10 +18,10 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  
+  private BigDecimal carbonsaved = new BigDecimal("0.00");
 
-  private BigDecimal carbonsaved;
-
-  private BigDecimal moneysaved;
+  private BigDecimal moneysaved = new BigDecimal("0.00");
   
   private String answer;
 

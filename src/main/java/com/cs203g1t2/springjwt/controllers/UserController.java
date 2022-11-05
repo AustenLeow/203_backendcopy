@@ -71,6 +71,7 @@ public class UserController {
         return userRepository.findAll().size();
     }
 
+    @CrossOrigin
     @GetMapping("/users/{id}/carbonsaved")
     public BigDecimal getCarbonSaved(@PathVariable Long id) {
         // authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -82,10 +83,11 @@ public class UserController {
         for (CartItem o : orders) {
             cs = cs.add(o.getCarbontotal());
         }
-        // user.setCarbonsaved(cs);
+        user.setCarbonsaved(cs);
         return cs;
     }
 
+    @CrossOrigin
     @GetMapping("/users/{id}/moneysaved")
     public BigDecimal getMoneySaved(@PathVariable Long id) {
         User user = userRepository.findById(id).get();
