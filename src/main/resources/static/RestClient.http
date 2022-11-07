@@ -26,8 +26,8 @@ GET http://localhost:8080/api/v1/users/11/carbonsaved
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXN0ZW5sZW93IiwiaWF0IjoxNjY3NjcxMTU3LCJleHAiOjE2Njc2NzQ3NTd9.24VzhUpgHFATABqPpV-M_jHaGgKuEDLT3KS7AIeCw1IbKhLzvMI0TFQFZujpjWJKLKSEsWHv-j5I5QyEuz3X4w
 
-### get top 10 carbon saved
-GET http://localhost:8080/api/v1/users/top10
+### get top 5 carbon saved
+GET http://localhost:8080/api/v1/users/top5
 Content-Type: application/json
 
 ### get user money saved

@@ -51,8 +51,6 @@ public class UserController {
     @Autowired
     private CartItemRepository cartRepo;
 
-    @Autowired
-    private AuthController userController;
 
     @Autowired
     PasswordEncoder encoder;
@@ -88,10 +86,9 @@ public class UserController {
         return cs;
     }
 
-    @CrossOrigin
-    @GetMapping("/users/top10")
-    public List<User> getTop10() {
-        return userRepository.findTop10ByOrderByCarbonsavedDesc();
+    @GetMapping("/users/top5")
+    public List<User> getTop5() {
+        return userRepository.findTop5ByOrderByCarbonsavedDesc();
     }
 
     @CrossOrigin

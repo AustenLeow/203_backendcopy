@@ -43,7 +43,7 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
     "/api/v1/ordertotalcarbon",
     "/api/v1/totalusers",
     "/api/v1/ordertotalsaved",
-    "/api/v1/users/top10"
+    "/api/v1/users/top5"
   };
 
   @Bean

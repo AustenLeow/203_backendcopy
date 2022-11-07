@@ -13,7 +13,7 @@ import java.util.*;
 public interface UserRepository extends JpaRepository<User, Long> {
   Optional<User> findByUsername(String username);
 
-  List<User> findTop10ByOrderByCarbonsavedDesc();
+  List<User> findTop5ByOrderByCarbonsavedDesc();
 
   Boolean existsByUsername(String username);
 
