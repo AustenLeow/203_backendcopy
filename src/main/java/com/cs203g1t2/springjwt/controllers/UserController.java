@@ -88,6 +88,11 @@ public class UserController {
         return cs;
     }
 
+    @GetMapping("/users/top10")
+    public List<User> getTop10() {
+        return userRepository.findTop10ByOrderByCarbonsavedDesc();
+    }
+
     @CrossOrigin
     @GetMapping("/users/{id}/moneysaved")
     public BigDecimal getMoneySaved(@PathVariable Long id) {

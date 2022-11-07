@@ -7,9 +7,13 @@ import org.springframework.stereotype.Repository;
 
 import com.cs203g1t2.springjwt.models.User;
 
+import java.util.*;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
   Optional<User> findByUsername(String username);
+
+  List<User> findTop10ByOrderByCarbonsavedDesc();
 
   Boolean existsByUsername(String username);
 
