@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.cs203g1t2</groupId>
 	<artifactId>cs203</artifactId>
-	<version>0.0.5-SNAPSHOT</version>
+	<version>0.0.7-SNAPSHOT</version>
 	<name>spring-boot-security-jwt</name>
 	<description>Demo project for Spring Boot Security - JWT</description>
 

@@ -88,6 +88,7 @@ public class UserController {
         return cs;
     }
 
+    @CrossOrigin
     @GetMapping("/users/top10")
     public List<User> getTop10() {
         return userRepository.findTop10ByOrderByCarbonsavedDesc();
