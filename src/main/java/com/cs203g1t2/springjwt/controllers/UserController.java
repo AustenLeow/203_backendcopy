@@ -101,7 +101,7 @@ public class UserController {
         for (CartItem o : orders) {
             cs = cs.add(o.getAmountsaved());
         }
-        user.setCarbonsaved(cs);
+        user.setMoneysaved(cs);
         userRepository.save(user);
         return cs;
     }
