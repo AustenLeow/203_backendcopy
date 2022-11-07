@@ -48,6 +48,11 @@ public class OrderController {
         return orderService.getAllCarbonSaved();
     }
 
+    @GetMapping("/ordertotalsaved")
+    public BigDecimal getAmountSaved() {
+        return orderService.getAmountSaved();
+    }
+
     // @GetMapping("/order/{id}")
     // public List<CartItem> getOrderSummary(@PathVariable("id") Long id, @AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {
     //     authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -64,6 +69,24 @@ public class OrderController {
 
         orderService.addOrder(user);
         return "Order confirmed!";
+    }
+
+    @PostMapping("/order/donate")
+    public String addDonatedOrder(@AuthenticationPrincipal org.springframework.security.core.Authentication authentication) {
+        authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userController.getLoggedInUser(authentication);
+
+        orderService.addDonatedOrder(user);
+        return "Order confirmed!";
+    }
+
+    @PostMapping("/order/{id}/collected")
+    public void collected(@AuthenticationPrincipal org.springframework.security.core.Authentication authentication, @PathVariable("id") Long orderid) {
+        authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userController.getLoggedInUser(authentication);
+
+        orderService.collected(user,orderid);
+        // return "Order confirmed!";
     }
 
     // @DeleteMapping("/order/delete/{id}")

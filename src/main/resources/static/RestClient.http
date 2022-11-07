@@ -5,9 +5,10 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-    "username": "aus20",
-    "email": "aus20@gmail.com",
-    "password": "password20"
+    "username": "aus13",
+    "email": "aus13@gmail.com",
+    "password": "password",
+    "answer": "prata"
 }
 
 ### user login
@@ -19,6 +20,16 @@ Content-Type: application/json
     "username": "aus4",
     "password": "password"
 }
+
+### get user carbon saved
+GET http://localhost:8080/api/v1/users/11/carbonsaved
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXN0ZW5sZW93IiwiaWF0IjoxNjY3NjcxMTU3LCJleHAiOjE2Njc2NzQ3NTd9.24VzhUpgHFATABqPpV-M_jHaGgKuEDLT3KS7AIeCw1IbKhLzvMI0TFQFZujpjWJKLKSEsWHv-j5I5QyEuz3X4w
+
+### get user money saved
+GET http://localhost:8080/api/v1/users/11/moneysaved
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXN0ZW5sZW93IiwiaWF0IjoxNjY3NjcxMTU3LCJleHAiOjE2Njc2NzQ3NTd9.24VzhUpgHFATABqPpV-M_jHaGgKuEDLT3KS7AIeCw1IbKhLzvMI0TFQFZujpjWJKLKSEsWHv-j5I5QyEuz3X4w
 
 ### get current logged in user
 GET http://localhost:8080/api/auth/currentuser
@@ -153,15 +164,20 @@ GET http://localhost:8080/api/v1/order
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2NjYzMTUyODMsImV4cCI6MTY2NjMxODg4M30.TwQI-Wt7-ORk8TIjHSS5sMmNbj24DB_TU0Q9ey5JuUDIIdNGy1JW_yJ_athFm_CX9I0jBDwstQkVzxuucsh1WA
 
-### user confirms card order and order is recorded in order history and removed from cart (../order/add)
+### user confirms cart order and order is recorded in order history and removed from cart (../order/add)
 POST http://localhost:8080/api/v1/order/add
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhaXJwb2QiLCJpYXQiOjE2NjY2ODQ2MzEsImV4cCI6MTY2NjY4ODIzMX0._olYYRtNWnOGVu-PFpMK9lpxhJrlQ9ywg6yACkPnWC88gvgdurK9OLGr6sGF2UZmhARpc1yYgdmk_9j8t-2Nzw
-# ### user cancel order (../order/delete/order_id)
-# DELETE http://localhost:8080/api/v1/cart/delete/219
-# Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2NjYzMTQ1NzMsImV4cCI6MTY2NjMxODE3M30.5bLjP0LRn0nnATLIYMewZQ-iUMpf7JhZI5OEqiiBcUqO6mpP2xQCCa5R3jcW3RChKpIGHU7WiYIssqNyWisGpQ
 
+### user donates cart order and order is recorded in order history and removed from cart
+POST http://localhost:8080/api/v1/order/donate
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhaXJwb2QiLCJpYXQiOjE2NjY2ODQ2MzEsImV4cCI6MTY2NjY4ODIzMX0._olYYRtNWnOGVu-PFpMK9lpxhJrlQ9ywg6yACkPnWC88gvgdurK9OLGr6sGF2UZmhARpc1yYgdmk_9j8t-2Nzw
+
+### user collected his item
+POST http://localhost:8080/api/v1/order/274/collected
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3RhdXMiLCJpYXQiOjE2Njc1NDM5MTgsImV4cCI6MTY2NzU0NzUxOH0.Vpe6fSk_D4IritMPxwAcVIOgBAv0rAoi19ro4cuODe7wo3PEEACC36fUYDXsVJJM8IPHY02vEThrpGZLwzmyxw
 
 
 
@@ -173,4 +189,8 @@ Content-Type: application/json
 
 ### get total user count
 GET http://localhost:8080/api/v1/totalusers
+Content-Type: application/json
+
+### get total money saved
+GET http://localhost:8080/api/v1/ordertotalsaved
 Content-Type: application/json

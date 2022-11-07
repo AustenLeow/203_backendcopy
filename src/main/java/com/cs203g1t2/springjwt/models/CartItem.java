@@ -83,5 +83,10 @@ public class CartItem {
     public BigDecimal getCarbontotal() {
         return this.item.getCarbon().multiply(new BigDecimal(quantity));
     }
+
+    @Transient
+    public BigDecimal getAmountsaved() {
+        return (this.item.getOriginalprice().subtract(this.item.getPrice())).multiply(new BigDecimal(quantity));
+    }
     
 }

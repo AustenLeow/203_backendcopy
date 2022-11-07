@@ -1,5 +1,6 @@
 package com.cs203g1t2.springjwt.models;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 import javax.persistence.*;
@@ -17,10 +18,10 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  
+  private BigDecimal carbonsaved = new BigDecimal("0.00");
 
-  private Long carbonsaved;
-
-  private Long moneysaved;
+  private BigDecimal moneysaved = new BigDecimal("0.00");
   
   private String answer;
 
@@ -46,7 +47,7 @@ public class User {
   public User() {
   }
 
-  public User(String username, String email, String password, Long carbonsaved, Long moneysaved, String answer) {
+  public User(String username, String email, String password, BigDecimal carbonsaved, BigDecimal moneysaved, String answer) {
     this.username = username;
     this.email = email;
     this.password = password;
@@ -55,7 +56,7 @@ public class User {
     this.answer = answer;
   }
 
-  public User(Long id, String username, String email, String password,Long carbonsaved, Long moneysaved, String answer) {
+  public User(Long id, String username, String email, String password, BigDecimal carbonsaved, BigDecimal moneysaved, String answer) {
     this.id = id;
     this.username = username;
     this.email = email;
@@ -105,19 +106,19 @@ public class User {
     this.roles = roles;
   }
 
-  public Long getCarbonsaved() {
+  public BigDecimal getCarbonsaved() {
     return carbonsaved;
   }
 
-  public void setCarbonsaved(Long carbonsaved) {
+  public void setCarbonsaved(BigDecimal carbonsaved) {
     this.carbonsaved = carbonsaved;
   }
 
-  public Long getMoneysaved(){
+  public BigDecimal getMoneysaved(){
     return moneysaved;
   }
 
-  public void setMoneysaved(Long moneysaved) {
+  public void setMoneysaved(BigDecimal moneysaved) {
     this.moneysaved = moneysaved;
   }
 

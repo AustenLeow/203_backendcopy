@@ -47,9 +47,26 @@ public class OrderService {
         order.setCartItems(getCartItems(user));
         order.setUser(user);
         order.setTotal(getTotalPrice(user));
+        order.setCarbonTotal(getTotalCarbon(user));
 
         orderRepo.save(order); 
     }
+
+        // make a donated order
+        public void addDonatedOrder(User user) {
+        
+            // List<CartItem> cartItems = cartService.listCartItems(user);
+            List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
+    
+            Order order = new Order();
+            order.setCartItems(getCartItems(user));
+            order.setUser(user);
+            order.setTotal(getTotalPrice(user));
+            order.setCarbonTotal(getTotalCarbon(user));
+            order.setDonated(true);
+    
+            orderRepo.save(order); 
+        }
 
     // delete an order
     // public void deleteOrder(Long order_id, User user) {
@@ -71,6 +88,15 @@ public class OrderService {
         return totalPrice;
     }
 
+    public BigDecimal getTotalCarbon(User user) {
+        List<CartItem> cartItems = cartRepo.findByUserAndOrderIsNull(user);
+        BigDecimal totalCarbon = new BigDecimal(0);
+        for (CartItem cartItem : cartItems) {
+            totalCarbon = totalCarbon.add(cartItem.getCarbontotal());
+        }
+        return totalCarbon;
+    }
+
     public BigDecimal getAllCarbonSaved() {
         List<CartItem> orders = cartRepo.findByOrderIsNotNull();
         BigDecimal cs = new BigDecimal(0);
@@ -79,5 +105,21 @@ public class OrderService {
             cs = cs.add(o.getCarbontotal());
         }
         return cs;
+    }
+
+    public BigDecimal getAmountSaved() {
+        List<CartItem> orders = cartRepo.findByOrderIsNotNull();
+        BigDecimal cs = new BigDecimal(0);
+
+        for (CartItem o : orders) {
+            cs = cs.add(o.getAmountsaved());
+        }
+        return cs;
+    }
+
+    public void collected(User user, Long ordered) {
+        Order order = orderRepo.findByUserAndId(user, ordered);
+        order.setCollected(true); 
+        orderRepo.save(order);
     }
 }
