@@ -55,16 +55,6 @@ INSERT INTO item (id, brand, description, expiry_date, item_name, price, quantit
 INSERT INTO item (id, brand, description, expiry_date, item_name, price, quantity, type, url, carbon, originalprice, location) VALUES ('7','Marketside','Small carrots','09-11-2022','Baby Carrots','2.30','50','Vegetable','https://i5.walmartimages.com/asr/a92791be-24f5-4466-8b8b-dd0adf97d706_3.9e4ebf22aea099a343a03a82ac93be29.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF','0.50','4.20','Kranji Countryside Farmers Market');
 ```
 
-### Run the following SQL INSERT Statements in MySQL Workbench (only needs to be done once) - To store some dummy users in the database created
-```
-INSERT INTO users (id, answer, carbonsaved, email, moneysaved, password, username) VALUES ('1', 'chocolate cake', '21.20', 'adam@gmail.com', '36.69', '$2a$10$n8wzJU1Q/yD1CISnEfb08eYHKgx2IjifDRYiaLSQZlFSWNN8O7NNe', 'adam');
-INSERT INTO users (id, answer, carbonsaved, email, moneysaved, password, username) VALUES ('2', 'carbonara', '11.10', 'jasjyot@gmail.com', '23.22', '$2a$10$adhYMdA9yvqRqMpdLyScJOQxNokAvh2GbVFdtN0FvBeDRL2iE3q1.', 'jasjyot');
-INSERT INTO users (id, answer, carbonsaved, email, moneysaved, password, username) VALUES ('3', 'sashimi', '14.66', 'rish@gmail.com', '27.30', '$2a$10$DB/kM97SiDu1pmKIeqo4ZOZTMZzCGxRlpMM9pNtlYwXXmPGdKMIFa', 'rish');
-INSERT INTO users (id, answer, carbonsaved, email, moneysaved, password, username) VALUES ('4', 'sweets', '8.65', 'alibinsalleh@gmail.com', '20.05', '$2a$10$.TZRUi599khxxjefNycGVucTcaNidXs8.fPcWBotscc7vQ8b420rm', 'alilovestoeat');
-INSERT INTO users (id, answer, carbonsaved, email, moneysaved, password, username) VALUES ('5', 'ice', '7.55', 'garylim@gmail.com', '19.50', '$2a$10$iIlSbcLB2a2N8ETEFagMYuXO7f6vU8nwhMMhtyJzzxJ2xKKv29D3y', 'garytanjj');
-```
-
-
 ### The database has now been configured. You can now run the Spring Boot Application anytime with the following command
 ```
 mvn spring-boot:run
