@@ -1,5 +1,5 @@
 # CS203 G1-T2 Marketplace App Backend
-For more information, our project documentation can be found on this <a href="https://docs.google.com/document/d/1CESnTTPve_ZE6EioaL1GUpCG75fNIAIBd19TlhVWrRQ/edit#">link</a>.
+For more information, our project documentation can be found on this <a href="https://docs.google.com/document/d/1lj3YDj_zsA03iJininKhKhIDjvIQG8UDkIr7JoL64bM/edit?usp=sharing">link</a>.
 
 
 ## Get Started (Setting Up Locally)
