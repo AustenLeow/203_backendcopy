@@ -1,11 +1,25 @@
 # CS203 G1-T2 Marketplace App Backend
 For more information, our project documentation can be found on this <a href="https://docs.google.com/document/d/1lj3YDj_zsA03iJininKhKhIDjvIQG8UDkIr7JoL64bM/edit?usp=sharing">link</a>.
 
+# System Design
+### Backend API Design
+- Monolithic, component-based architecture
+- Spring Boot MVC
 
-## Get Started (Setting Up Locally)
+### Database Entity Relation Diagram
+<img src="https://user-images.githubusercontent.com/76640197/200608793-89a4171f-0b10-4e81-8ab5-b737c6d485aa.png" />
+
+### Security Design
+Spring Security, BcryptPasswordEncoder, JWT access token
+
+
+### Deployment Architecture
+<img src="https://user-images.githubusercontent.com/76640197/200608994-7a945e8d-390e-41c1-9a53-66ca5342246a.png" />
+
+# Get Started (Setting Up Locally)
 
 ### Run the following SQL statement in MySQL Workbench (only needs to be done once)
-```
+```Copy link
 CREATE SCHEMA cs203dbv1 ;
 ```
 
@@ -66,5 +80,5 @@ https://github.com/CS203-G1-T2/frontend#readme
 ### Using our application
 To test and play around with the application, I recommend using our interface at http://localhost:3000 after following the previous step above. Alternatively, you may choose to test our endpoints using RestClient.http.
 
-### Contact
+# Contact
 If you encounter any issues, feel free to contact us at austen.leow.2021@smu.edu.sg.
