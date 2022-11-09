@@ -81,4 +81,4 @@ https://github.com/CS203-G1-T2/frontend#readme
 To test and play around with the application, I recommend using our interface at http://localhost:3000 after following the previous step above. Alternatively, you may choose to test our endpoints using RestClient.http.
 
 # Contact
-If you encounter any issues, feel free to contact us at austen.leow.2021@smu.edu.sg.
+If you encounter any issues, feel free to contact us at austen.leow.2021@scis.smu.edu.sg or zheng.tan.2021@scis.smu.edu.sg
