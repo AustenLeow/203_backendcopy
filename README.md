@@ -28,10 +28,9 @@ Open `src/main/resources/application.properties`.
 Enter your MySQL Workbench credentials into the fields `spring.datasource.username=` and `spring.datasource.password=`.
 
 ```properties
-spring.datasource.url= jdbc:mysql://localhost:3306/cs203db
+spring.datasource.url= jdbc:mysql://localhost:3306/cs203dbv1
 spring.datasource.username= root
 spring.datasource.password= password
-
 spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.MySQL5InnoDBDialect
 spring.jpa.hibernate.ddl-auto= update
 
